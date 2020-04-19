@@ -1,0 +1,114 @@
+.about {
+  //   height: 93vh;
+  overflow: hidden;
+  transition: all 0.1s linear;
+  &__title {
+    margin-top: 3rem;
+    text-align: start;
+    padding: 1rem 3rem;
+    letter-spacing: 0.4rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    padding: 1rem 3rem;
+    grid-gap: 1rem;
+    &--left {
+      font-size: 2rem;
+      margin-top: 3rem;
+      letter-spacing: 0.4rem;
+      text-transform: capitalize;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      p {
+        font-size: 1.9rem;
+      }
+
+      .paragraph-3 {
+        height: 18rem;
+      }
+
+      @include respond(wide-screen) {
+        font-size: 1.7rem;
+      }
+
+      @include respond(phone) {
+        p:not(:last-child) {
+          margin-bottom: 3rem;
+        }
+      }
+    }
+
+    &--right {
+      justify-items: center;
+
+      .img__container--1 img,
+      .img__container--2 img,
+      .img__container--3 img {
+        width: 100%;
+        border-radius: 4px;
+      }
+      .img__container--1,
+      .img__container--2,
+      .img__container--3 {
+        width: 42rem;
+        transition: transform 0.6s ease, filter 0.3s ease;
+        @include respond(wide-screen) {
+          width: 32rem;
+        }
+
+        @include respond(tab-port) {
+          width: 28rem;
+        }
+        @include respond(tab-land) {
+          width: 25rem;
+        }
+
+        @include respond(phone) {
+          width: 25rem;
+        }
+      }
+
+      .flex-container-1,
+      .flex-container-3 {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 3rem;
+        // transition: transform 0.6s ease, filter 0.3s ease;
+        // &:hover {
+        //   .img__container--1,
+        //   .img__container--3 {
+        //     // transition: transform 0.6s ease, filter 0.3s ease;
+        //     transform: translateX(-100%);
+        //     filter: grayscale(1);
+        //     @include respond(wide-screen) {
+        //       // transform: translateX(68.8%) translateX(-100%);
+        //       transform: translateX(-49.5%);
+        //     }
+        //   }
+        //   // transform: translateX(-42.5%);
+        //   // // transform: translateX(calc(50.8%-100%));
+        //   // // transform: translateX(50.8%) translateX(-100%);
+        //   // // transform: translateX(-435px);
+        //   // filter: grayscale(1);
+        //   @include respond(wide-screen) {
+        //     // transform: translateX(68.8%) translateX(-100%);
+        //     transform: translateX(-49.5%);
+        //   }
+        // }
+      }
+      .flex-container-2 {
+        margin-left: 3rem;
+      }
+      .flex-container-2-adjust {
+        transition: transform 0.3s linear;
+        transform: translateX(39%);
+        @include respond(wide-screen) {
+          transform: translateX(23.5%);
+        }
+      }
+    }
+  }
+}

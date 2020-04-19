@@ -1,0 +1,260 @@
+.navigation {
+  // The outer wrapper for all the navigation
+  position: fixed;
+  width: 100%;
+  height: 7vh;
+  // background-color: $primary-color;
+  padding: 3rem 1.3rem;
+  // height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s ease;
+  z-index: 3333;
+  // icon of the navigation hamburger
+  &__icon {
+    background: white;
+    width: 5rem;
+    height: 3px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: 0.1s;
+    z-index: 300;
+    &::before {
+      content: "";
+      display: inline-block;
+      background-color: white;
+      width: 5rem;
+      height: 3px;
+      position: absolute;
+      top: -0.9rem;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      background-color: white;
+      width: 5rem;
+      height: 3px;
+      position: absolute;
+      top: 0.9rem;
+    }
+
+    @include respond(wide-screen) {
+      width: 4rem;
+      height: 2px;
+      &::before {
+        width: 4rem;
+        height: 2px;
+      }
+      &::after {
+        width: 4rem;
+        height: 2px;
+      }
+    }
+  }
+  .icon__active {
+    background-color: transparent;
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+  // the side menu
+  &__side {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $dark-main;
+    height: 100%;
+    width: 15vw;
+    transform: translateX(-100vw);
+    transition: all 0.55s linear;
+
+    // transition: 0.2s linear;
+    @include respond(wide-screen) {
+      width: 20vw;
+    }
+    @include respond(tab-land) {
+      width: 30vw;
+    }
+    @include respond(tab-port) {
+      width: 40vw;
+    }
+    @include respond(phone) {
+      width: 70vw;
+    }
+    // the ul inside the menu
+    .side {
+      &__menu {
+        list-style: none;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &__items {
+        position: relative;
+        padding: 1.2rem 2rem;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 3px;
+        z-index: 3;
+
+        &:before {
+          -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: "";
+          background-color: #757575;
+          width: 0px;
+          height: 100%;
+          transition: transform 0.2s,
+            width 0.4s cubic-bezier(0.16, 0.51, 0.9, 0.75),
+            // transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+              background-color 0.1s;
+        }
+
+        &:hover::before {
+          transform: scaleY(1);
+          width: 100%;
+        }
+      }
+
+      // acitve links
+      &__active {
+        position: relative;
+        box-shadow: 10px 15px 5px 0px rgba(0, 0, 0, 0.75);
+        font-style: italic;
+        -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+        filter: drop-shadow(10px 10px 5px 0px rgba(0, 0, 0, 0.75));
+        &::before {
+          -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: "";
+          // background-color: $dark-primary-color;
+          background-color: $accent-color-2;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+
+  // brand container
+  &__brand {
+    // position: absolute;
+    // left: 50%;
+    // transform: translateX(-50%);
+
+    // @include respond(tab-land) {
+    //   position: static;
+    //   left: 0%;
+    //   transform: translateX(0%);
+    // }
+
+    // @include respond(phone) {
+    //   position: static;
+    //   left: 0%;
+    //   transform: translateX(0%);
+    // }
+    &--title {
+      font-family: $font-brand;
+      color: white;
+      margin-left: 10.5rem;
+      font-size: 3rem;
+
+      @include respond(phone) {
+        font-size: 2.5rem;
+        margin-left: 2.5rem;
+      }
+    }
+  }
+
+  // inidviual a tags
+  &__link,
+  :link,
+  :visited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    transition: all 0.2s ease-in;
+    position: relative;
+    z-index: 3;
+    letter-spacing: 0.1rem;
+    i {
+      margin-right: 1rem;
+    }
+  }
+  &__link:hover {
+    margin-top: 0.3rem;
+    border-bottom: 2px solid #e67e22;
+  }
+
+  &__forms {
+    display: flex;
+    & > :first-child {
+      margin-right: 1rem;
+    }
+    @include respond(phone) {
+      display: none;
+    }
+
+    &--side {
+      margin-top: 4rem;
+      display: none;
+      @include respond(phone) {
+        display: block;
+      }
+
+      & > :first-child {
+        margin-right: 4rem;
+      }
+    }
+  }
+}
+
+// javascript dynamic classes
+
+.side__hide {
+  transition: all 1s linear;
+  transform: translateX(-100vw);
+}
+
+.side__show {
+  transition: all 0.55s linear;
+  transform: translateX(0vw);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.menu__transparent {
+  transition: 0.3s ease;
+  background: rgba($dark-main, 0.75);
+  z-index: 1000;
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.regular__menu {
+  position: relative;
+  background-color: rgba($dark-main, 0.95);
+}

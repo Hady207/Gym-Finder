@@ -1,0 +1,209 @@
+.gyms {
+  padding: 1rem;
+  &__layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-rows: 0vh 20vh 1fr;
+    grid-gap: 2rem;
+
+    @include respond(phone) {
+      grid-template-rows: none;
+      grid-template-areas:
+        "searchtools searchtools searchtools"
+        "sidebar sidebar sidebar"
+        "cards cards cards";
+    }
+  }
+
+  &__searchtools {
+    // background-color: red;
+    grid-column: 1/-1;
+    grid-row: 1/3;
+    padding: 1rem;
+    @include respond(phone) {
+      grid-area: searchtools;
+      width: 88%;
+    }
+  }
+
+  &__sidebar {
+    background-color: #f7f7f7;
+    @include respond(phone) {
+      grid-area: sidebar;
+      width: 88%;
+    }
+  }
+
+  &__grid {
+    // background-color: blue;
+    grid-column: 2/-1;
+    @include respond(phone) {
+      grid-area: cards;
+      width: 88%;
+    }
+  }
+}
+
+.gyms__searchtools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+  & > * {
+    align-self: center;
+  }
+  &--searchbar {
+    position: relative;
+    input[type="search"] {
+      padding: 0.5rem;
+      border-radius: 12px;
+      border: none;
+      width: 20rem;
+      height: 3rem;
+    }
+    input[type="search"]:focus {
+      outline: crimson;
+    }
+    .searchIcon,
+    .closeIcon {
+      position: absolute;
+      left: 175px;
+      top: 6px;
+      color: gray;
+    }
+  }
+
+  &--price {
+    display: flex;
+  }
+  &--gender {
+    display: flex;
+  }
+}
+
+.gym {
+  &__innerGrid {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 3rem;
+    row-gap: 5rem;
+    perspective: 300px;
+  }
+  &__cards {
+    border-radius: 3px;
+    box-shadow: 8px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    background-color: white;
+    transition: all 0.7s ease-in-out;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    &:hover {
+      transform: translateZ(6px);
+    }
+
+    &:active {
+      transform: translateZ(0px);
+    }
+  }
+}
+
+.gyms__sidebarContainer {
+  padding: 1rem;
+}
+
+.gyms__list {
+  perspective: 300px;
+  perspective-origin: center;
+
+  &--element {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: $bg;
+    box-shadow: 1px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    transition: all 0.3s ease-in-out;
+    // animation: sidebar 1s ease-in-out;
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    span {
+      font-family: $font-2;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+    }
+
+    &--active {
+      transform: translateZ(-12px);
+      background: $light-primary-color;
+    }
+    img {
+      width: 10rem;
+      // border-radius: 12rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.gym__cards {
+  &:hover {
+    .gym__cards--img {
+      filter: grayscale(1);
+    }
+  }
+  &--img {
+    height: 20rem;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    transition: all 1s ease-in-out;
+    img {
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--name {
+    padding: 1rem;
+    font-family: $font-title;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: $primary-text;
+  }
+
+  h6 {
+    margin-left: 4px;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: normal;
+  }
+
+  &--rating {
+    color: $primary-text;
+    text-transform: capitalize;
+    // font-size: 2rem;
+    padding: 1rem;
+    .gym__star--active {
+      color: $accent-color-2;
+    }
+  }
+
+  &--divider {
+    background: #d0d0d0;
+    height: 2px;
+    width: 10rem;
+    margin: 2rem auto;
+  }
+
+  &--facilities {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}

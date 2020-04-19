@@ -1,0 +1,175 @@
+.button {
+  padding: 0.7rem 1.5rem;
+  border-radius: 9px;
+  outline: none;
+  cursor: pointer;
+
+  @include respond(phone) {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.navigation__forms--signup {
+  font-size: 2rem;
+  @include respond(phone) {
+    font-size: 1.9rem;
+  }
+  background: none;
+  // border: 2px solid white;
+  border: none;
+  // font-weight: 700;
+  color: white;
+  // margin-right: 1rem;
+  transition: all 0.2s ease-out;
+  border: 2px solid #ff2d00;
+  &:hover {
+    box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+  &:active {
+    background-color: #ff2d00;
+  }
+}
+
+.navigation__forms--login {
+  font-size: 2rem;
+  @include respond(phone) {
+    font-size: 1.9rem;
+  }
+  // background-color: $primary-color;
+  color: white;
+  border: transparent;
+  background: none;
+  // color: white;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    border: 2px solid $primary-color;
+    box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+  &:active {
+    background-color: $primary-color;
+  }
+}
+
+.navigation__forms--profile {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  border: transparent;
+  background: none;
+  outline: none;
+  img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    margin-right: 1rem;
+    object-fit: cover;
+  }
+  span {
+    border-bottom: 1px solid $accent-color;
+  }
+
+  &:active {
+    outline: none;
+    span {
+      outline: none;
+      border-bottom: 1px solid $accent-color-2;
+    }
+  }
+}
+
+.header__button {
+  align-items: center;
+  position: relative;
+  border: none;
+  padding: 1rem 1rem;
+  height: auto;
+  width: 38px;
+  display: flex;
+  border-radius: 5rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  backface-visibility: hidden;
+
+  &--icon {
+    font-size: 1.7rem;
+  }
+
+  &--text {
+    position: absolute;
+    left: 44px;
+    font-size: 1.9rem;
+    color: white;
+    width: 12.6rem;
+    text-transform: uppercase;
+
+    @include respond(phone) {
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+  }
+
+  &:hover {
+    width: 19rem;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    backface-visibility: hidden;
+    .header__button--icon {
+      animation: heroArrow 1.5s infinite ease;
+    }
+    .header__button--text {
+      color: black;
+    }
+  }
+
+  &:active {
+    transform: translateY(3px);
+    backface-visibility: hidden;
+  }
+}
+
+.reviews__button {
+  color: white;
+  border: none;
+  background: linear-gradient(
+    102deg,
+    $dark-main 0%,
+    $dark-main 26%,
+    $accent-color-2 27%,
+    $accent-color-2 100%
+  );
+  &--submit {
+    background: linear-gradient(
+      91deg,
+      $dark-main 0%,
+      $dark-main 36%,
+      $accent-color-2 37%,
+      $accent-color-2 100%
+    );
+  }
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding: 1rem 3rem;
+  transform: skewX(-12deg);
+  font-size: 2rem;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background: $accent-color-2
+      radial-gradient(circle, transparent 1%, $accent-color-2 1%) center/15000%;
+  }
+  &:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  i {
+    margin-right: 23px;
+  }
+
+  span {
+    margin-left: 0.3rem;
+  }
+}

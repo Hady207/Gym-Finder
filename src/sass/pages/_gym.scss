@@ -1,0 +1,506 @@
+.gym {
+  height: 100vh;
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.95));
+
+  &__cutway {
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 84%,
+      60% 84%,
+      50% 100%,
+      40% 84%,
+      0 84%
+    );
+    height: 100%;
+    position: relative;
+
+    // sliding animation
+    animation: gymCardSlide 4s ease-in-out;
+
+    @include respond(phone) {
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 84%,
+        70% 84%,
+        50% 100%,
+        30% 84%,
+        0 84%
+      );
+    }
+  }
+
+  &__overlay {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      45deg,
+      rgba(black, 0.4),
+      rgba(black, 0.5)
+    );
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  &__name {
+    font-family: $font-title;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 333;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+  &__arrow {
+    background: #fff;
+    height: 8.1rem;
+    width: 3px;
+    z-index: 333;
+    position: absolute;
+    top: 84%;
+    animation: gymScroll 3s infinite ease;
+    &--right {
+      left: 51%;
+      transform: translateX(323%) rotate(50.51deg);
+      @include respond(wide-screen) {
+        transform: translateX(508%) rotate(50.51deg);
+      }
+
+      @include respond(phone) {
+        transform: translateX(22px) rotate(43.51deg);
+      }
+    }
+    &--left {
+      left: 48%;
+      transform: translateX(200%) rotate(129deg);
+      @include respond(wide-screen) {
+        transform: translateX(-178%) rotate(129deg);
+      }
+
+      @include respond(phone) {
+        transform: translateX(-19px) rotate(136deg);
+      }
+    }
+  }
+
+  &__address {
+    color: $primary-text;
+    font-size: 2rem;
+    text-transform: capitalize;
+    position: absolute;
+    bottom: 5rem;
+    left: 13rem;
+
+    @include respond(wide-screen) {
+      font-size: 1.8rem;
+      bottom: 4rem;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &__rating {
+    color: $primary-text;
+    text-transform: capitalize;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 4rem;
+    right: 30rem;
+
+    .gym__star--active {
+      color: $accent-color-2;
+    }
+
+    @include respond(wide-screen) {
+      font-size: 1.8rem;
+      bottom: 2rem;
+      right: 24rem;
+    }
+
+    @include respond(phone) {
+      font-size: 1.7rem;
+      top: 30rem;
+      left: 13.3rem;
+      width: 22rem;
+      color: white;
+      text-align: center;
+      &--desc {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+// staff Section
+
+.staff {
+  margin-top: 10rem;
+
+  &__title {
+    font-family: $font-title;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: $primary-text;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 8rem repeat(3, 1fr) 8rem;
+    grid-gap: 1rem 5rem;
+    margin-top: 12rem;
+  }
+
+  &__card {
+    background: $card-background;
+    // box-shadow: 1px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    &--img {
+      box-shadow: 1px 6px 5px 0px rgba(0, 0, 0, 0.75);
+      position: relative;
+      top: -40%;
+      margin: 0 auto;
+      height: 13rem;
+      width: 13rem;
+      border-radius: 100%;
+      background-color: grey;
+
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--info {
+      font-family: $font-title;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: $primary-text;
+      position: relative;
+      top: -12%;
+    }
+    &--1 {
+      grid-column: 2/3;
+      // background-color: red;
+    }
+
+    &--2 {
+      grid-column: 3/4;
+      // background-color: yellow;
+    }
+
+    &--3 {
+      grid-column: 4/5;
+      // background-color: green;
+    }
+  }
+}
+
+.information {
+  margin-top: 10rem;
+  &__title {
+    font-family: $font-title;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: $primary-text;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    padding: 1rem;
+  }
+
+  &__map {
+    background: $card-background;
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+    padding: 2rem 0;
+  }
+
+  &__desc {
+    width: 100%;
+    padding: 2rem 8rem;
+    margin-left: -8rem;
+
+    p {
+      color: $primary-text;
+      font-size: 1.8rem;
+      letter-spacing: 0.2rem;
+      margin-left: 2rem;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.gallery {
+  margin-top: 10rem;
+
+  &__title {
+    font-family: $font-title;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: $primary-text;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 8rem repeat(3, 1fr) 8rem;
+    grid-gap: 1rem 5rem;
+    margin-top: 10rem;
+  }
+
+  &__photo {
+    border-radius: 6px;
+    height: 97%;
+    width: 90%;
+    justify-self: center;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    img {
+      // height: 100%;
+      border-radius: 3px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &--active {
+      position: relative;
+      top: -5rem;
+    }
+
+    &--1 {
+      grid-column: 2/3;
+      // background-color: red;
+    }
+
+    &--2 {
+      grid-column: 3/4;
+      // background-color: yellow;
+    }
+
+    &--3 {
+      grid-column: 4/5;
+      // background-color: green;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    font-size: 3rem;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+    &--left {
+      justify-self: end;
+    }
+  }
+}
+
+.reviews {
+  margin-top: 10rem;
+
+  &__title {
+    font-family: $font-title;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: $primary-text;
+  }
+
+  &__container {
+    // margin-top: 5rem;
+    // margin-bottom: 3rem;
+    perspective: 10000px;
+    margin: 5rem auto 3rem;
+    width: 129rem;
+    height: 43rem;
+    // margin-left: auto;
+    // margin-right: auto;
+    overflow-y: scroll;
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  &__box {
+    cursor: pointer;
+    display: flex;
+    overflow-x: hidden;
+    // width: 60%;
+    width: 95%;
+    margin: 0 auto;
+
+    transform: translateZ(0px) skewX(-14deg);
+    box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    transition: 0.3s ease-in-out;
+    // border-bottom: 2px solid red;
+
+    &:first-child {
+      margin-top: 1rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &:hover {
+      transform: translateZ(120px) skewX(-14deg);
+    }
+  }
+
+  &__info {
+    background-color: $card-background;
+    // background-color: blue;
+    padding: 1rem 1.5rem;
+    &--container {
+      display: flex;
+      align-items: center;
+    }
+    &--img {
+      height: 6.5rem;
+      width: 6.5rem;
+      transform: skewX(11deg);
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--name {
+      font-family: $font-title;
+      letter-spacing: 0.1rem;
+      color: $primary-text;
+      text-transform: capitalize;
+      margin-left: 1rem;
+    }
+
+    &--rating {
+      font-size: 2rem;
+      margin-left: 1rem;
+      display: inline-block;
+
+      margin-top: 0.5rem;
+      color: $accent-color-2;
+      span {
+        font-size: 1.5rem;
+        font-style: italic;
+        color: $primary-text;
+        margin-left: 0.3rem;
+      }
+    }
+  }
+
+  &__text {
+    padding: 1rem;
+    backface-visibility: hiddin;
+    width: 77.4%;
+    font-weight: 500;
+    background: #fff;
+  }
+}
+
+// REVIEW POPUP FORM
+.review__form {
+  display: none;
+  background: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  .crossIcon {
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-left: -29px;
+    margin-top: 6rem;
+    i {
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      &:hover {
+        color: $urgent-color;
+      }
+    }
+  }
+}
+
+.review__form--noscroll-class {
+  overflow: hidden;
+}
+
+.review__card {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: center;
+  .reviews__box {
+    cursor: default;
+    transform: translateZ(0px) skewX(0);
+
+    width: 80%;
+  }
+  .reviews__info--rating {
+    i {
+      cursor: pointer;
+      color: $accent-color-2;
+    }
+  }
+  .reviews__info--img {
+    height: 6.5rem;
+    width: 6.5rem;
+    transform: skewX(0deg);
+  }
+}
+
+.reviewText__form {
+  width: 100%;
+  textarea {
+    font-size: 1.7rem;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    padding: 1rem;
+  }
+}

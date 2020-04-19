@@ -1,0 +1,125 @@
+.coverHeader {
+  height: 50vh;
+  position: relative;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.profile {
+  // background: palegreen;
+  width: 80%;
+  background: $dark-main;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  z-index: 12;
+  padding: 1rem;
+  box-shadow: 1px 1px 5px 0 black;
+}
+
+.profile__grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 2rem;
+}
+
+.profile__sidebar {
+  background: $dark-main;
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid white;
+  &--img {
+    height: 23rem;
+    padding-right: 7px;
+    // border-radius: 23px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      // border-radius: 23px;
+    }
+  }
+
+  &--name {
+    padding: 1rem;
+    font-family: $font-title;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: white;
+    // color: $primary-text;
+  }
+}
+
+.profile__ul {
+  list-style: none;
+
+  // color: white;
+  .profile__li {
+    position: relative;
+    padding: 1.2rem 2rem;
+    width: 100%;
+
+    margin-bottom: 3px;
+    z-index: 3;
+  }
+}
+
+.profile__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+
+  .gymbox {
+    height: 100%;
+    // width: 23px;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.979);
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    &__memberships {
+      img {
+        height: 12rem;
+        border-radius: 50%;
+      }
+      p {
+        text-align: center;
+        font-family: $font-title;
+        margin-top: 1.5rem;
+      }
+    }
+
+    &__workoutSchedual {
+      // background: blue;
+    }
+
+    &__reviews {
+      // background-color: green;
+      .half-circle {
+        width: 200px;
+        text-align: center;
+        font-size: 6rem;
+        height: 100px; /* as the half of the width */
+        // background-color: gold;
+        border-top-left-radius: 110px; /* 100px of height + 10px of border */
+        border-top-right-radius: 110px; /* 100px of height + 10px of border */
+        border: 10px solid gray;
+        border-bottom: 0;
+      }
+
+      p {
+        text-align: center;
+        font-family: $font-title;
+        margin-top: 1.5rem;
+      }
+    }
+  }
+}

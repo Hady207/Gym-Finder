@@ -1,0 +1,10 @@
+.main {
+  //   transition: margin-left 0.5s ease;
+}
+
+.main__go--right {
+  //   transform: margin-left 0.5s ease;
+  overflow-y: hidden;
+  transition: margin-left 0.3s linear;
+  margin-left: 30rem;
+}
