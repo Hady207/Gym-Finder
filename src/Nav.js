@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useToggle from "./hooks/useToggle";
 
 function Nav(props) {
   const { regular } = props;
   const [isOpen, setOpen] = useToggle();
+
+  useEffect(() => {
+    const main = document.querySelector(".main");
+    const secondPicture = document.querySelector(".flex-container-2");
+
+    if (isOpen) {
+      main.classList.add("main__go--right");
+      secondPicture.classList.add("flex-container-2-adjust");
+    } else {
+      main.classList.remove("main__go--right");
+      secondPicture.classList.remove("flex-container-2-adjust");
+    }
+  });
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    if (!regular) {
+      const navbar = document.querySelector(".navigation");
+
+      window.addEventListener("scroll", scrollMenu);
+
+      function scrollMenu() {
+        if (window.pageYOffset >= 250) {
+          navbar.classList.add("menu__transparent");
+        } else {
+          navbar.classList.remove("menu__transparent");
+        }
+      }
+    }
+  });
+
   return (
     <nav className={`navigation ${regular ? "regular__menu" : ""}`}>
       <div
