@@ -439,7 +439,6 @@
 
 // REVIEW POPUP FORM
 .review__form {
-  display: none;
   background: rgba(0, 0, 0, 0.95);
   position: fixed;
   z-index: 100000;
@@ -466,8 +465,13 @@
   }
 }
 
-.review__form--noscroll-class {
+.review__form--hide {
+  display: none;
+}
+
+.review__form--show {
   overflow: hidden;
+  display: block;
 }
 
 .review__card {

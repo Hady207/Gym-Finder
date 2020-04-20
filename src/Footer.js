@@ -1,20 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer">
       <ul className="footer__menu">
         <li className="footer__menu__element">
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li className="footer__menu__element">
-          <a href="/">About</a>
+          <Link to="/">About</Link>
         </li>
         <li className="footer__menu__element">
-          <a href="/">Gyms</a>
+          <Link to="/gyms">Gyms</Link>
         </li>
         <li className="footer__menu__element">
-          <a href="/">Contact</a>
+          <Link href="/">Contact</Link>
         </li>
       </ul>
 

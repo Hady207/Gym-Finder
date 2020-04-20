@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import useToggle from "./hooks/useToggle";
 
 function Nav(props) {
@@ -8,13 +9,14 @@ function Nav(props) {
   useEffect(() => {
     const main = document.querySelector(".main");
     const secondPicture = document.querySelector(".flex-container-2");
-
-    if (isOpen) {
-      main.classList.add("main__go--right");
-      secondPicture.classList.add("flex-container-2-adjust");
-    } else {
-      main.classList.remove("main__go--right");
-      secondPicture.classList.remove("flex-container-2-adjust");
+    if (main && secondPicture) {
+      if (isOpen) {
+        main.classList.add("main__go--right");
+        secondPicture.classList.add("flex-container-2-adjust");
+      } else {
+        main.classList.remove("main__go--right");
+        secondPicture.classList.remove("flex-container-2-adjust");
+      }
     }
   });
 
@@ -45,19 +47,19 @@ function Nav(props) {
       <div className={`navigation__side ${isOpen ? "side__show" : ""}`}>
         <ul className="side__menu">
           <li className="side__items side__active">
-            <a href="/" className="side__link ">
+            <NavLink to="/" className="side__link ">
               <i className="fas fa-home"></i> Home
-            </a>
+            </NavLink>
           </li>
           <li className="side__items">
-            <a href="/" className="side__link">
+            <NavLink to="/Gyms" className="side__link">
               <i className="fas fa-info"></i> About
-            </a>
+            </NavLink>
           </li>
           <li className="side__items">
-            <a href="/" className="side__link">
+            <NavLink to="/Gyms" className="side__link">
               <i className="fas fa-dumbbell"></i> Gyms
-            </a>
+            </NavLink>
           </li>
           <li className="side__items">
             <a href="/" className="side__link">
@@ -73,7 +75,9 @@ function Nav(props) {
         </ul>
       </div>
       <div className="navigation__brand">
-        <h1 className="navigation__brand--title">G F</h1>
+        <NavLink to="/" className="side__link ">
+          <h1 className="navigation__brand--title">G F</h1>
+        </NavLink>
       </div>
       <div className="navigation__forms">
         <button className="button navigation__forms--signup">Sign up</button>
