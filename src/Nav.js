@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import useToggle from "./hooks/useToggle";
 
 function Nav(props) {
@@ -80,8 +80,10 @@ function Nav(props) {
         </NavLink>
       </div>
       <div className="navigation__forms">
-        <button className="button navigation__forms--signup">Sign up</button>
-        <button className="button navigation__forms--login">Login</button>
+        <Link to="/signup" className="button navigation__forms--signup">
+          Sign up
+        </Link>
+        <Link className="button navigation__forms--login">Login</Link>
       </div>
     </nav>
   );

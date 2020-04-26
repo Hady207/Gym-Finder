@@ -1,8 +1,8 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function GymCard(props) {
   return (
-    <div className="gym__cards">
+    <Link to="/gyms/hello" className="gym__cards">
       <div className="gym__cards--img">
         <img src={require("../img/gym3.jpg")} alt="" />
       </div>
@@ -28,7 +28,7 @@ function GymCard(props) {
         <i className="fas fa-door-closed"></i>
         <i className="fas fa-utensils"></i>
       </div>
-    </div>
+    </Link>
   );
 }
 

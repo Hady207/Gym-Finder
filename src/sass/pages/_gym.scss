@@ -466,12 +466,17 @@
 }
 
 .review__form--hide {
-  display: none;
+  z-index: -111;
+  visibility: hidden;
+  transform: scale(0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .review__form--show {
   overflow: hidden;
-  display: block;
+  visibility: visible;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
 }
 
 .review__card {
@@ -479,11 +484,15 @@
   flex-direction: column;
   height: 80%;
   justify-content: center;
+  transition: all 0.3s ease;
   .reviews__box {
     cursor: default;
     transform: translateZ(0px) skewX(0);
-
+    height: 50%;
     width: 80%;
+  }
+  .review__info {
+    width: 30%;
   }
   .reviews__info--rating {
     i {

@@ -103,6 +103,12 @@
       transform: translateZ(6px);
     }
 
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+
     &:active {
       transform: translateZ(0px);
     }

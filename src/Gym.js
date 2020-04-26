@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import useToggle from "./hooks/useToggle";
 import ReviewCard from "./Gym Components/ReviewCard";
+import ReviewForm from "./Gym Components/reviewForm";
 import Footer from "./Footer";
 
 function Gym(props) {
@@ -151,7 +152,9 @@ function Gym(props) {
         </button>
       </section>
 
-      <div
+      <ReviewForm open={open} setOpen={setOpen} />
+
+      {/* <div
         className={`review__form ${
           open ? "review__form--show" : "review__form--hide"
         }`}
@@ -187,7 +190,7 @@ function Gym(props) {
             <i className="fas fa-pen-square"></i> <span>Submit</span>
           </button>
         </div>
-      </div>
+      </div> */}
       <Footer />
     </>
   );
