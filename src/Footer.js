@@ -15,7 +15,7 @@ function Footer() {
           <Link to="/gyms">Gyms</Link>
         </li>
         <li className="footer__menu__element">
-          <Link href="/">Contact</Link>
+          <Link to="/">Contact</Link>
         </li>
       </ul>
 

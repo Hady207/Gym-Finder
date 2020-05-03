@@ -83,7 +83,9 @@ function Nav(props) {
         <Link to="/signup" className="button navigation__forms--signup">
           Sign up
         </Link>
-        <Link className="button navigation__forms--login">Login</Link>
+        <Link to="/login" className="button navigation__forms--login">
+          Login
+        </Link>
       </div>
     </nav>
   );
