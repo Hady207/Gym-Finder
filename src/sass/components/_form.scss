@@ -1,5 +1,5 @@
 .form__signup {
-  width: calc(100% - 53rem);
+  width: calc(100% - 51%);
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 9);
   background: rgb(233, 235, 242);
   padding: 2rem;
@@ -13,6 +13,16 @@
   border-radius: 3px;
 
   @include respond(wide-screen) {
+    width: calc(100% - 53rem);
     top: 56%;
+  }
+
+  @include respond(tab-port) {
+    width: calc(100% - 13%);
+  }
+
+  @include respond(phone) {
+    width: calc(100% - 16%);
+    top: 53%;
   }
 }

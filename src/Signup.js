@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import useInput from "./hooks/useInput";
 function Signup() {
   const [formNum, setNum] = useState(0);
+  const [value, handleChange, reset] = useInput();
   return (
     <>
       <Nav regular />
@@ -50,6 +52,8 @@ function Signup() {
                     placeholder="Ahmad"
                     name="firstname"
                     id="fname"
+                    value={value}
+                    onChange={handleChange}
                   />
                   <label for="lname">Last Name: </label>
                   <input
@@ -58,6 +62,8 @@ function Signup() {
                     type="text"
                     name="lastname"
                     id="lname"
+                    value={value}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="signup__group">
@@ -78,9 +84,21 @@ function Signup() {
                 </div>
                 <div className="signup__group">
                   <label for="address">Address: </label>
-                  <input type="text" name="address" id="address" />
+                  <input
+                    value={value}
+                    onChange={handleChange}
+                    type="text"
+                    name="address"
+                    id="address"
+                  />
                   <label for="phone">Phone: </label>
-                  <input type="phone" name="phone" id="phone" />
+                  <input
+                    value={value}
+                    onChange={handleChange}
+                    type="phone"
+                    name="phone"
+                    id="phone"
+                  />
                 </div>
                 <div className="signup__button">
                   <button

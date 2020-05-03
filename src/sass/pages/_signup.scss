@@ -8,6 +8,9 @@
   @include respond(wide-screen) {
     height: 81vh;
   }
+  @include respond(phone) {
+    height: 83vh;
+  }
   h1 {
     font-family: $font-title;
     letter-spacing: 0.1rem;
@@ -22,6 +25,10 @@
 
     @include respond(wide-screen) {
       font-size: 3rem;
+    }
+    @include respond(phone) {
+      font-size: 1.6rem;
+      top: 10%;
     }
   }
 }
@@ -45,12 +52,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      @include respond(phone) {
+        justify-content: flex-start;
+      }
     }
 
     &--right {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
     }
   }
 
@@ -67,10 +77,23 @@
     .signup__group:not(:last-child) {
       margin-bottom: 1.5rem;
     }
+
+    @include respond(phone) {
+      label {
+        font-size: 1.5rem;
+        align-self: flex-start;
+      }
+    }
   }
 
   &__inputs--3 {
     display: none;
+    @include respond(phone) {
+      label {
+        font-size: 1.5rem;
+        align-self: flex-start;
+      }
+    }
   }
 
   &__circle {
@@ -101,6 +124,15 @@
     display: flex;
     align-items: center;
 
+    @include respond(phone) {
+      flex-direction: column;
+      label {
+        align-self: flex-start;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+    }
+
     label {
       font-family: $font-title;
       font-size: 1.8rem;
@@ -109,7 +141,10 @@
     }
 
     label[for="city"] {
-      margin-left: 2.5rem;
+      margin-left: 2rem;
+      @include respond(phone) {
+        margin-left: 0;
+      }
     }
 
     input[type="phone"],
@@ -119,6 +154,7 @@
     input[type="number"],
     select {
       padding: 0.3rem;
+      // width: 26%;
       border-radius: 4px;
       height: 3rem;
       border: none;
@@ -134,16 +170,45 @@
       }
     }
 
+    input[type="phone"],
+    input[type="text"],
+    input[type="number"] {
+      width: 26%;
+    }
+
+    @include respond(phone) {
+      input[type="phone"],
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="number"],
+      select {
+        width: 26%;
+        width: 70%;
+        text-align: center;
+        // margin-top: 1rem;
+        margin-right: 0;
+      }
+    }
+
     #city,
     #birthdate {
-      width: 17rem;
+      width: 26%;
       height: 3rem;
+
+      @include respond(phone) {
+        text-align: center;
+        width: 56%;
+      }
     }
 
     #height,
     #weight {
       width: 7rem;
       text-align: center;
+      @include respond(phone) {
+        width: 12rem;
+      }
     }
   }
 }
