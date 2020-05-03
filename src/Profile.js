@@ -11,7 +11,7 @@ function Profile() {
         <div className="profile__grid">
           <div className="profile__sidebar">
             <div className="profile__sidebar--img">
-              <img src="/img/General Gym.jpg" alt="" />
+              <img src="/img/General Gym.jpg" alt="profile" />
             </div>
             <h2 className="profile__sidebar--name">Hadi Maher</h2>
             <div className="profile__menu">

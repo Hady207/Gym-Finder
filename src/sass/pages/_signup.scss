@@ -83,7 +83,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    transition: all 0.3s ease-in-out;
     &:not(:last-child) {
       margin-bottom: 6rem;
 
@@ -239,4 +239,12 @@
     height: 2rem;
     width: 3rem;
   }
+}
+
+.signup__circle--set {
+  border: 2px solid orange;
+}
+
+.signup__circle--go {
+  border: 2px solid $accent-color-2;
 }

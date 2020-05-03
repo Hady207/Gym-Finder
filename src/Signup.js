@@ -11,11 +11,29 @@ function Signup() {
         <form className="form__signup">
           <div className="signup__grid">
             <div className="signup__grid--left">
-              <div className="signup__circle signup__circle--1">1</div>
+              <div
+                className={`signup__circle signup__circle--1 ${
+                  formNum > 0 ? "signup__circle--go" : ""
+                } `}
+              >
+                1
+              </div>
 
-              <div className="signup__circle signup__circle--2">2</div>
+              <div
+                className={`signup__circle signup__circle--2 ${
+                  formNum > 1 ? "signup__circle--go" : ""
+                }`}
+              >
+                2
+              </div>
 
-              <div className="signup__circle signup__circle--3">3</div>
+              <div
+                className={`signup__circle signup__circle--3 ${
+                  formNum > 2 ? "signup__circle--go" : ""
+                }`}
+              >
+                3
+              </div>
             </div>
             <div className="signup__grid--right">
               {/* First sign up group */}
