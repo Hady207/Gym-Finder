@@ -8,7 +8,7 @@ function Signup() {
       <Nav regular />
       <main className="signup-main">
         <h1>Sign Up and Enjoy Gym finder features</h1>
-        <form className="form">
+        <form className="form__signup">
           <div className="signup__grid">
             <div className="signup__grid--left">
               <div className="signup__circle signup__circle--1">1</div>
@@ -49,10 +49,13 @@ function Signup() {
                   <input type="date" name="birthdate" id="birthdate" />
                   <label for="city">City: </label>
                   <select required id="city">
+                    <option selected disabled>
+                      Select a city
+                    </option>
                     <option>Salmiya</option>
-                    <option>Salmiya</option>
-                    <option>Salmiya</option>
-                    <option>Salmiya</option>
+                    <option>Hawally</option>
+                    <option>Farawanya</option>
+                    <option>Jahra</option>
                   </select>
                 </div>
                 <div className="signup__group">
@@ -133,21 +136,39 @@ function Signup() {
                 }`}
               >
                 <div className="signup__question">
-                  <p>Have you ever went to these gyms ?</p>
-                  <select required id="gym">
-                    <option>Golds Gym</option>
-                    <option>Iron Man</option>
-                    <option>Flex</option>
-                    <option>Fitness first me</option>
-                  </select>
+                  <p>Have you ever went to a gym ?</p>
+                  <div className="question__group">
+                    <input type="checkbox" />
+                    <select disabled required id="gym">
+                      <option selected disabled>
+                        Select A Gym
+                      </option>
+                      <option>Golds Gym</option>
+                      <option>Iron Man</option>
+                      <option>Flex</option>
+                      <option>Fitness first me</option>
+                    </select>
+                  </div>
                 </div>
                 <div className="signup__group">
                   <label for="weight">Weight</label>
-                  <input type="number" id="weight" />
+                  <input
+                    min="30"
+                    max="300"
+                    placeholder="60KG"
+                    type="number"
+                    id="weight"
+                  />
                 </div>
                 <div className="signup__group">
                   <label for="height">Height</label>
-                  <input type="number" id="height" />
+                  <input
+                    min="120"
+                    max="270"
+                    placeholder="180CM"
+                    type="number"
+                    id="height"
+                  />
                 </div>
                 <div className="signup__buttons">
                   <button
@@ -156,7 +177,9 @@ function Signup() {
                   >
                     <i class="fas fa-angle-left"></i> Prev
                   </button>
-                  <button className="signup__button--next">Signup</button>
+                  <button type="submit" className="signup__button--next">
+                    Signup
+                  </button>
                 </div>
               </div>
             </div>

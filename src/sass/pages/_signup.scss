@@ -4,8 +4,10 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-
   height: 83vh;
+  @include respond(wide-screen) {
+    height: 81vh;
+  }
   h1 {
     font-family: $font-title;
     letter-spacing: 0.1rem;
@@ -17,17 +19,25 @@
     left: 50%;
     top: 15%;
     transform: translate(-50%, -15%);
+
+    @include respond(wide-screen) {
+      font-size: 3rem;
+    }
   }
 }
 
 .signup {
+  &__inputs {
+    width: 100%;
+  }
+
   &__inputs--1 {
     display: none;
   }
 
   &__grid {
     display: grid;
-    grid-template-columns: 6% 1fr;
+    grid-template-columns: 1fr 15fr;
     grid-gap: 8rem;
 
     &--left {
@@ -45,7 +55,6 @@
   }
 
   &__inputs--2 {
-    padding-top: 3rem;
     display: none;
     #email,
     #password,
@@ -53,6 +62,10 @@
       padding: 2rem;
       width: 33rem;
       font-size: 1.8rem;
+    }
+
+    .signup__group:not(:last-child) {
+      margin-bottom: 1.5rem;
     }
   }
 
@@ -102,7 +115,9 @@
     input[type="phone"],
     input[type="text"],
     input[type="email"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="number"],
+    select {
       padding: 0.3rem;
       border-radius: 4px;
       height: 3rem;
@@ -123,6 +138,12 @@
     #birthdate {
       width: 17rem;
       height: 3rem;
+    }
+
+    #height,
+    #weight {
+      width: 7rem;
+      text-align: center;
     }
   }
 }
@@ -194,7 +215,7 @@
 .signup__question {
   margin-bottom: 3rem;
   #gym {
-    width: 94%;
+    width: 81%;
     padding: 0.5rem 0.5rem;
     border-radius: 4px;
     margin-top: 1rem;
@@ -209,4 +230,13 @@
 
 .signup__show {
   display: block;
+}
+
+.question__group {
+  display: flex;
+  align-items: center;
+  input {
+    height: 2rem;
+    width: 3rem;
+  }
 }
