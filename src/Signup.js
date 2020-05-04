@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Signup1 from "./Signup Components/Signup1";
 import Signup2 from "./Signup Components/Signup2";
 import Signup3 from "./Signup Components/Signup3";
-import useInput from "./hooks/useInput";
+
 function Signup() {
   const [formNum, setNum] = useState(0);
 

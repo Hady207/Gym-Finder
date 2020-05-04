@@ -1,6 +1,11 @@
 import React from "react";
+import useInput from "../hooks/useInput";
 
 function Signup2({ formNum, setNum }) {
+  const [email, setEmail] = useInput();
+  const [password, setPassword] = useInput();
+  const [rPassword, setRPassword] = useInput();
+
   return (
     <div
       className={`signup__inputs signup__inputs--2 ${
@@ -9,15 +14,35 @@ function Signup2({ formNum, setNum }) {
     >
       <div className="signup__group">
         <label htmlFor="email">Email:</label>
-        <input id="email" type="email" placeholder="doe@example.com" />
+        <input
+          id="email"
+          value={email}
+          onChange={setEmail}
+          type="email"
+          placeholder="doe@example.com"
+        />
       </div>
       <div className="signup__group">
         <label htmlFor="password">Password:</label>
-        <input id="password" type="password" placeholder="••••••••" required />
+        <input
+          id="password"
+          value={password}
+          onChange={setPassword}
+          type="password"
+          placeholder="••••••••"
+          required
+        />
       </div>
       <div className="signup__group">
         <label htmlFor="rpassword">Repeat Password:</label>
-        <input id="rpassword" type="password" placeholder="••••••••" required />
+        <input
+          id="rpassword"
+          value={rPassword}
+          onChange={setRPassword}
+          type="password"
+          placeholder="••••••••"
+          required
+        />
       </div>
       <div className="signup__group">
         <div className="signup__profilePicture">

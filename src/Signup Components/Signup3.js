@@ -1,6 +1,12 @@
 import React from "react";
+import useInput from "../hooks/useInput";
+import useToggle from "../hooks/useToggle";
 
 function Signup3({ formNum, setNum }) {
+  const [toggle, setToggle] = useToggle();
+  const [gym, setGym] = useInput();
+  const [weight, setWeight] = useInput();
+  const [height, setHeight] = useInput();
   return (
     <div
       className={`signup__inputs signup__inputs--3${
@@ -10,16 +16,28 @@ function Signup3({ formNum, setNum }) {
       <div className="signup__question">
         <p>Have you ever went to a gym ?</p>
         <div className="question__group">
-          <input type="checkbox" />
-          <select disabled required id="gym">
-            <option defaultValue disabled>
-              Select A Gym
-            </option>
-            <option>Golds Gym</option>
-            <option>Iron Man</option>
-            <option>Flex</option>
-            <option>Fitness first me</option>
-          </select>
+          <input type="checkbox" value={toggle} onChange={setToggle} />
+          {toggle ? (
+            <select value={gym} onChange={setGym} required id="gym">
+              <option defaultValue disabled>
+                Select A Gym
+              </option>
+              <option value="Golds Gym">Golds Gym</option>
+              <option value="Iron Man">Iron Man</option>
+              <option value="Flex">Flex</option>
+              <option value="Fitness first me">Fitness first me</option>
+            </select>
+          ) : (
+            <select value={gym} onChange={setGym} disabled required id="gym">
+              <option defaultValue disabled>
+                Select A Gym
+              </option>
+              <option value="Golds Gym">Golds Gym</option>
+              <option value="Iron Man">Iron Man</option>
+              <option value="Flex">Flex</option>
+              <option value="Fitness first me">Fitness first me</option>
+            </select>
+          )}
         </div>
       </div>
       <div className="signup__group">
@@ -27,6 +45,8 @@ function Signup3({ formNum, setNum }) {
         <input
           min="30"
           max="300"
+          onChange={setWeight}
+          value={weight}
           placeholder="60KG"
           type="number"
           id="weight"
@@ -37,6 +57,8 @@ function Signup3({ formNum, setNum }) {
         <input
           min="120"
           max="270"
+          onChange={setHeight}
+          value={height}
           placeholder="180CM"
           type="number"
           id="height"

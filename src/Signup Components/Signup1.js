@@ -2,7 +2,12 @@ import React from "react";
 import useInput from "../hooks/useInput";
 
 function Signup1({ formNum, setNum }) {
-  const [value, handleChange, reset] = useInput();
+  const [fValue, fnameChange] = useInput();
+  const [lValue, lnameChange] = useInput();
+  const [dateValue, dateChange] = useInput();
+  const [phoneValue, phoneChange] = useInput();
+  const [cityValue, cityChange] = useInput();
+  const [addressValue, addressChange] = useInput();
   return (
     <div
       className={`signup__inputs signup__inputs--1 ${
@@ -17,8 +22,8 @@ function Signup1({ formNum, setNum }) {
           placeholder="Ahmad"
           name="firstname"
           id="fname"
-          // value={value}
-          // onChange={handleChange}
+          value={fValue}
+          onChange={fnameChange}
         />
         <label htmlFor="lname">Last Name: </label>
         <input
@@ -27,39 +32,45 @@ function Signup1({ formNum, setNum }) {
           type="text"
           name="lastname"
           id="lname"
-          // value={value}
-          // onChange={handleChange}
+          value={lValue}
+          onChange={lnameChange}
         />
       </div>
       <div className="signup__group">
         <label required htmlFor="birthdate">
           Birthday:
         </label>
-        <input type="date" name="birthdate" id="birthdate" />
+        <input
+          type="date"
+          name="birthdate"
+          id="birthdate"
+          onChange={dateChange}
+          value={dateValue}
+        />
         <label htmlFor="city">City: </label>
-        <select required id="city">
+        <select value={cityValue} onChange={cityChange} required id="city">
           <option defaultValue disabled>
             Select a city
           </option>
-          <option>Salmiya</option>
-          <option>Hawally</option>
-          <option>Farawanya</option>
-          <option>Jahra</option>
+          <option value="Salmiya">Salmiya</option>
+          <option value="Hawally">Hawally</option>
+          <option value="Farawanya">Farawanya</option>
+          <option value="Jahra">Jahra</option>
         </select>
       </div>
       <div className="signup__group">
         <label htmlFor="address">Address: </label>
         <input
-          // value={value}
-          // onChange={handleChange}
+          value={addressValue}
+          onChange={addressChange}
           type="text"
           name="address"
           id="address"
         />
         <label htmlFor="phone">Phone: </label>
         <input
-          // value={value}
-          // onChange={handleChange}
+          value={phoneValue}
+          onChange={phoneChange}
           type="phone"
           name="phone"
           id="phone"
