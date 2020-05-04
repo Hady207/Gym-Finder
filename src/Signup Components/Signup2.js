@@ -20,6 +20,7 @@ function Signup2({ formNum, setNum }) {
           onChange={setEmail}
           type="email"
           placeholder="doe@example.com"
+          required
         />
       </div>
       <div className="signup__group">

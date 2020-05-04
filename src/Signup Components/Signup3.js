@@ -7,6 +7,7 @@ function Signup3({ formNum, setNum }) {
   const [gym, setGym] = useInput();
   const [weight, setWeight] = useInput();
   const [height, setHeight] = useInput();
+
   return (
     <div
       className={`signup__inputs signup__inputs--3${

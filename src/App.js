@@ -3,6 +3,7 @@ import Home from "./Home";
 import Gyms from "./Gyms";
 import Gym from "./Gym";
 import Signup from "./Signup";
+import Login from "./Login";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
@@ -10,9 +11,9 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/signup" render={() => <Signup />} />
-        {/* <Route exact path="/signup">
-          <Signup />
-        </Route> */}
+        <Route exact path="/login">
+          <Login />
+        </Route>
         <Route exact path="/gyms/:name">
           <Gym />
         </Route>

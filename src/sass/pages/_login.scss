@@ -1,0 +1,111 @@
+.login__grid {
+  height: 83vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  &--left {
+    // align-self: center;
+    justify-self: center;
+    width: 50%;
+    display: grid;
+
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: $font-title;
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+  }
+
+  &--right {
+    background-image: url("../../img/gym6.jpg");
+    background-attachment: fixed;
+    background-size: 50%;
+  }
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  label {
+    margin-right: 2rem;
+    font-family: $font-title;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    align-self: center;
+  }
+  .login__form--email {
+    font-size: 1.6rem;
+    padding: 0.3rem;
+    width: 31rem;
+    height: 4rem;
+    border-radius: 4px;
+    border: none;
+    margin-right: 2rem;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    &:invalid {
+      border-bottom: 2px solid $urgent-color;
+    }
+
+    &:valid {
+      border-bottom: 2px solid $accent-color-2;
+    }
+
+    &:focus {
+      box-shadow: 0px 1px 6px 0 rgba(0, 0, 0, 0.9);
+    }
+  }
+  .login__form--password {
+    padding: 0.3rem;
+    width: 31rem;
+    font-size: 1.6rem;
+    height: 4rem;
+    border-radius: 4px;
+    border: none;
+    margin-right: 2rem;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    &:invalid {
+      border-bottom: 2px solid $urgent-color;
+    }
+
+    &:valid {
+      border-bottom: 2px solid $accent-color-2;
+    }
+
+    &:focus {
+      box-shadow: 0px 1px 6px 0 rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+.login__button {
+  padding: 0.7rem 1.2rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid green;
+  background: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+    background: green;
+    color: white;
+  }
+
+  &:active {
+    i {
+      animation: heroArrow 1s ease-in-out;
+    }
+  }
+}
