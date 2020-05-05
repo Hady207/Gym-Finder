@@ -1,69 +1,54 @@
 import React from "react";
-import useInput from "../hooks/useInput";
-import useToggle from "../hooks/useToggle";
 
-function Signup3({ formNum, setNum }) {
-  const [toggle, setToggle] = useToggle();
-  const [gym, setGym] = useInput();
-  const [weight, setWeight] = useInput();
-  const [height, setHeight] = useInput();
+function Signup3({ formNum, setNum, manage }) {
+  const onChange = (e) => {
+    manage({ field: e.target.name, value: e.target.value });
+  };
 
   return (
     <div
-      className={`signup__inputs signup__inputs--3${
+      className={`signup__inputs signup__inputs--2 ${
         formNum === 2 ? "signup__show" : ""
       }`}
     >
-      <div className="signup__question">
-        <p>Have you ever went to a gym ?</p>
-        <div className="question__group">
-          <input type="checkbox" value={toggle} onChange={setToggle} />
-          {toggle ? (
-            <select value={gym} onChange={setGym} required id="gym">
-              <option defaultValue disabled>
-                Select A Gym
-              </option>
-              <option value="Golds Gym">Golds Gym</option>
-              <option value="Iron Man">Iron Man</option>
-              <option value="Flex">Flex</option>
-              <option value="Fitness first me">Fitness first me</option>
-            </select>
-          ) : (
-            <select value={gym} onChange={setGym} disabled required id="gym">
-              <option defaultValue disabled>
-                Select A Gym
-              </option>
-              <option value="Golds Gym">Golds Gym</option>
-              <option value="Iron Man">Iron Man</option>
-              <option value="Flex">Flex</option>
-              <option value="Fitness first me">Fitness first me</option>
-            </select>
-          )}
+      <div className="signup__group">
+        <label htmlFor="email">Email:</label>
+        <input
+          id="email"
+          onChange={onChange}
+          type="email"
+          name="email"
+          placeholder="doe@example.com"
+          required
+        />
+      </div>
+      <div className="signup__group">
+        <label htmlFor="password">Password:</label>
+        <input
+          id="password"
+          onChange={onChange}
+          name="password"
+          type="password"
+          placeholder="••••••••"
+          required
+        />
+      </div>
+      <div className="signup__group">
+        <label htmlFor="rpassword">Repeat Password:</label>
+        <input
+          id="rpassword"
+          onChange={onChange}
+          type="password"
+          name="rpassword"
+          placeholder="••••••••"
+          required
+        />
+      </div>
+      <div className="signup__group">
+        <div className="signup__profilePicture">
+          <img src={require("../img/default.jpg")} alt="Profile" />
         </div>
-      </div>
-      <div className="signup__group">
-        <label htmlFor="weight">Weight</label>
-        <input
-          min="30"
-          max="300"
-          onChange={setWeight}
-          value={weight}
-          placeholder="60KG"
-          type="number"
-          id="weight"
-        />
-      </div>
-      <div className="signup__group">
-        <label htmlFor="height">Height</label>
-        <input
-          min="120"
-          max="270"
-          onChange={setHeight}
-          value={height}
-          placeholder="180CM"
-          type="number"
-          id="height"
-        />
+        <input type="file" id="myFile" name="filePicture" />
       </div>
       <div className="signup__buttons">
         <button

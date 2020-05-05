@@ -1,55 +1,70 @@
 import React from "react";
-import useInput from "../hooks/useInput";
 
-function Signup2({ formNum, setNum }) {
-  const [email, setEmail] = useInput();
-  const [password, setPassword] = useInput();
-  const [rPassword, setRPassword] = useInput();
+import useToggle from "../hooks/useToggle";
+
+function Signup2({ formNum, setNum, manage }) {
+  const [toggle, setToggle] = useToggle();
+
+  const onChange = (e) => {
+    manage({ field: e.target.name, value: e.target.value });
+  };
 
   return (
     <div
-      className={`signup__inputs signup__inputs--2 ${
+      className={`signup__inputs signup__inputs--3${
         formNum === 1 ? "signup__show" : ""
       }`}
     >
-      <div className="signup__group">
-        <label htmlFor="email">Email:</label>
-        <input
-          id="email"
-          value={email}
-          onChange={setEmail}
-          type="email"
-          placeholder="doe@example.com"
-          required
-        />
-      </div>
-      <div className="signup__group">
-        <label htmlFor="password">Password:</label>
-        <input
-          id="password"
-          value={password}
-          onChange={setPassword}
-          type="password"
-          placeholder="••••••••"
-          required
-        />
-      </div>
-      <div className="signup__group">
-        <label htmlFor="rpassword">Repeat Password:</label>
-        <input
-          id="rpassword"
-          value={rPassword}
-          onChange={setRPassword}
-          type="password"
-          placeholder="••••••••"
-          required
-        />
-      </div>
-      <div className="signup__group">
-        <div className="signup__profilePicture">
-          <img src={require("../img/default.jpg")} alt="Profile" />
+      <div className="signup__question">
+        <p>Have you ever went to a gym ?</p>
+        <div className="question__group">
+          <input type="checkbox" value={toggle} onChange={setToggle} />
+          {toggle ? (
+            <select name="gym" onChange={onChange} required id="gym">
+              <option defaultValue disabled>
+                Select A Gym
+              </option>
+              <option value="Golds Gym">Golds Gym</option>
+              <option value="Iron Man">Iron Man</option>
+              <option value="Flex">Flex</option>
+              <option value="Fitness first me">Fitness first me</option>
+            </select>
+          ) : (
+            <select name="gym" onChange={onChange} disabled required id="gym">
+              <option defaultValue disabled>
+                Select A Gym
+              </option>
+              <option value="Golds Gym">Golds Gym</option>
+              <option value="Iron Man">Iron Man</option>
+              <option value="Flex">Flex</option>
+              <option value="Fitness first me">Fitness first me</option>
+            </select>
+          )}
         </div>
-        <input type="file" id="myFile" name="filename" />
+      </div>
+      <div className="signup__group">
+        <label htmlFor="weight">Weight</label>
+        <input
+          min="30"
+          max="300"
+          onChange={onChange}
+          name="weight"
+          placeholder="60KG"
+          type="number"
+          id="weight"
+        />
+      </div>
+      <div className="signup__group">
+        <label htmlFor="height">Height</label>
+        <input
+          min="120"
+          max="270"
+          onChange={onChange}
+          name="height"
+          placeholder="180CM"
+          type="number"
+          id="height"
+        />
       </div>
       <div className="signup__buttons">
         <button
@@ -58,6 +73,7 @@ function Signup2({ formNum, setNum }) {
         >
           <i className="fas fa-angle-left"></i> Prev
         </button>
+
         <button
           onClick={() => setNum((n) => n + 1)}
           className="signup__button--next"
