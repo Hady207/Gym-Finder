@@ -2,7 +2,12 @@ import React from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
+import useInput from "./hooks/useInput";
+
 const Login = () => {
+  const [email, handleEmailChange] = useInput();
+  const [password, handlePasswordChagne] = useInput();
+
   return (
     <>
       <Nav regular />
@@ -15,6 +20,8 @@ const Login = () => {
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={handleEmailChange}
                 className="login__form--email"
                 placeholder="doe@example.com"
               />
@@ -26,6 +33,8 @@ const Login = () => {
                 type="password"
                 className="login__form--password"
                 placeholder="••••••••"
+                value={password}
+                onChange={handlePasswordChagne}
                 required
               />
             </div>

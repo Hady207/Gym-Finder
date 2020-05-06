@@ -31,7 +31,6 @@ function Signup() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log("render");
   return (
     <>
       <Nav regular />
