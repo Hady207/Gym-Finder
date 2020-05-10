@@ -1,31 +1,12 @@
 import React from "react";
-import Home from "./Home";
-import Gyms from "./Gyms";
-import Gym from "./Gym";
-import Signup from "./Signup";
-import Login from "./Login";
-import { Switch, Route } from "react-router-dom";
+import Routes from "./Routes";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Switch>
-        <Route exact path="/signup" render={() => <Signup />} />
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/gyms/:name">
-          <Gym />
-        </Route>
-        <Route exact path="/gyms">
-          <Gyms />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Routes />
     </div>
   );
-}
+};
 
 export default App;

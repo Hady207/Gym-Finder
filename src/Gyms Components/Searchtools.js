@@ -1,16 +1,25 @@
 import React from "react";
 
-function Searchtools() {
+function Searchtools({ inputManage }) {
+  const onChange = (e) => {
+    inputManage({ field: e.target.name, value: e.target.value });
+  };
   return (
     <div className="gyms__searchtools">
       <div className="gyms__searchtools--searchbar">
-        <input type="search" placeholder="Search for a gym" name="" id="" />
+        <input
+          type="search"
+          placeholder="Search for a gym"
+          name="search"
+          id=""
+          onChange={onChange}
+        />
         <i className="fas fa-search searchIcon"></i>
         {/* <!-- <i className="far fa-times-circle closeIcon"></i> --> */}
       </div>
 
       <div className="gyms__searchtools--ratings">
-        <label for="rating">Rating</label>
+        <label htmlFor="rating">Rating</label>
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" />
@@ -19,14 +28,14 @@ function Searchtools() {
       </div>
 
       <div className="gyms__searchtools--price">
-        <label for="price">Price</label>
-        <input type="range" name="" id="price" />
+        <label htmlFor="price">Price</label>
+        <input onChange={onChange} type="range" name="price" id="price" />
       </div>
 
       <div className="gyms__searchtools--location">
-        <label for="location">Choose a location:</label>
-        <select id="location">
-          <option selected value="">
+        <label htmlFor="location">Choose a location:</label>
+        <select onChange={onChange} name="location" id="location">
+          <option defaultValue value="">
             All
           </option>
           <option value="volvo">Farawniya</option>
@@ -37,19 +46,42 @@ function Searchtools() {
       </div>
 
       <div className="gyms__searchtools--gender">
-        <input type="radio" id="male" name="gender" value="male" />
-        <label for="male">Male</label>
+        <input
+          onChange={onChange}
+          type="radio"
+          id="male"
+          name="gender"
+          value="male"
+        />
+        <label htmlFor="male">Male</label>
         <br />
-        <input type="radio" id="female" name="gender" value="female" />
-        <label for="female">Female</label>
+        <input
+          onChange={onChange}
+          type="radio"
+          id="female"
+          name="gender"
+          value="female"
+        />
+        <label htmlFor="female">Female</label>
         <br />
-        <input type="radio" id="other" name="gender" value="other" />
-        <label for="other">Both</label>
+        <input
+          onChange={onChange}
+          type="radio"
+          id="other"
+          name="gender"
+          value="mixed"
+        />
+        <label htmlFor="other">Both</label>
       </div>
 
       <div className="gyms__searchtools--discounts">
-        <label for="discount">Discounts</label>
-        <input id="discount" type="checkbox" />
+        <label htmlFor="discount">Discounts</label>
+        <input
+          onChange={onChange}
+          id="discount"
+          name="discount"
+          type="checkbox"
+        />
       </div>
     </div>
   );

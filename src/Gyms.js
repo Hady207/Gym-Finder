@@ -1,47 +1,47 @@
-import React from "react";
+import React, { useReducer } from "react";
 import Nav from "./Nav";
 import GymCard from "./Gym Components/GymCard";
 import Searchtools from "./Gyms Components/Searchtools";
+import Gymtype from "./Gyms Components/Gymtype";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
 
-function Gyms(props) {
+const Gyms = (props) => {
+  const initVal = {
+    // search
+    search: "",
+    // rating
+    rating: 3,
+    // price
+    price: 30,
+    // location
+    location: "",
+    // gender
+    gender: "M",
+    // discounts
+    discounts: false,
+    // type
+    type: "",
+  };
+  const reducer = (state, action) => {
+    return {
+      ...state,
+      [action.field]: action.value,
+    };
+  };
+  const [state, dispatch] = useReducer(reducer, initVal);
+  console.log(state);
   return (
     <>
       <Nav regular />
       <main className="gyms">
         <div className="gyms__layout">
-          <Searchtools />
+          <Searchtools inputManage={dispatch} />
           <div className="gyms__sidebar">
-            Gym Types
-            <div className="gyms__sidebarContainer">
-              <ul className="gyms__list">
-                <li className="gyms__list--element gyms__list--element--active">
-                  <img
-                    src={require("./img/General Gym.jpg")}
-                    alt="General Gym"
-                  />
-                  <span>General Club</span>
-                </li>
-                <li className="gyms__list--element">
-                  <img
-                    src={require("./img/Health club.jpg")}
-                    alt="Health Club"
-                  />
-                  <span>Health Club</span>
-                </li>
-                <li className="gyms__list--element">
-                  <img
-                    src={require("./img/Cross Fit.jpg")}
-                    alt="Crossfit Club"
-                  />
-                  <span>Crossfit Club</span>
-                </li>
-              </ul>
-            </div>
+            {/* Gym Types */}
+            <Gymtype />
           </div>
           <div className="gyms__grid">
-            grid here
+            {/* grid here */}
             <div className="gym__innerGrid">
               {/* <!-- card start here --> */}
               <GymCard />
@@ -56,6 +56,6 @@ function Gyms(props) {
       <Footer />
     </>
   );
-}
+};
 
 export default Gyms;

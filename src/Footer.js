@@ -19,7 +19,9 @@ function Footer() {
         </li>
       </ul>
 
-      <h2 className="footer__title">G F</h2>
+      <h2 className="footer__title">
+        <Link to="/">G F</Link>
+      </h2>
 
       <div className="footer__info">
         <div className="footer__info--copyright">
