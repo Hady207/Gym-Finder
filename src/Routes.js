@@ -14,18 +14,11 @@ const Routes = () => {
       <Route exact path="/login">
         <Login />
       </Route>
-      <Route exact path="/profile">
-        <Profile />
-      </Route>
-      <Route exact path="/gyms/:name">
-        <Gym />
-      </Route>
-      <Route exact path="/gyms">
-        <Gyms />
-      </Route>
-      <Route exact path="/">
-        <Home />
-      </Route>
+      <Route exact path="/profile" render={() => <Profile />} />
+      <Route exact path="/gyms/:name" render={() => <Gym />} />
+
+      <Route exact path="/gyms" render={() => <Gyms />} />
+      <Route exact path="/" render={(routeProps) => <Home {...routeProps} />} />
     </Switch>
   );
 };

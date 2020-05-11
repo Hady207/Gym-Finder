@@ -36,7 +36,7 @@ const Profile = () => {
                 </li>
                 <li className="profile__li">
                   <NavLink to="/profile/edit" className="profile__link">
-                    <i class="fas fa-user-edit"></i> Edit
+                    <i className="fas fa-user-edit"></i> Edit
                   </NavLink>
                 </li>
               </ul>

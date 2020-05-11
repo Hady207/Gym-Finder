@@ -76,7 +76,7 @@ const Nav = (props) => {
               <i className="fas fa-dumbbell"></i> Gyms
             </NavLink>
           </li>
-          {/* <li className="side__items">
+          <li className="side__items">
             <a
               href="/"
               className="side__link"
@@ -84,7 +84,7 @@ const Nav = (props) => {
             >
               <i className="fas fa-envelope-open"></i> Contact
             </a>
-          </li> */}
+          </li>
           <div className="navigation__forms--side">
             <button className="button navigation__forms--signup">
               Sign up

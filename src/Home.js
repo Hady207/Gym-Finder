@@ -4,7 +4,7 @@ import Footer from "./Footer";
 // import "./App.css";
 import "./sass/main.scss";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
       <header className="header">

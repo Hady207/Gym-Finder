@@ -94,6 +94,8 @@
     width: 100%;
     &::before {
       content: "";
+      -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
       transition: width 0.7s ease-in-out;
       display: inline-block;
       height: 100%;
