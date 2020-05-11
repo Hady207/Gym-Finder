@@ -24,6 +24,7 @@ const Login = () => {
                 onChange={handleEmailChange}
                 className="login__form--email"
                 placeholder="doe@example.com"
+                required
               />
             </div>
             <div className="login__container">

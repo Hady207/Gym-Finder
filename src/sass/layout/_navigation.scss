@@ -158,21 +158,8 @@
 
   // brand container
   &__brand {
-    // position: absolute;
-    // left: 50%;
-    // transform: translateX(-50%);
-
-    // @include respond(tab-land) {
-    //   position: static;
-    //   left: 0%;
-    //   transform: translateX(0%);
-    // }
     cursor: pointer;
-    // @include respond(phone) {
-    //   position: static;
-    //   left: 0%;
-    //   transform: translateX(0%);
-    // }
+
     &--title {
       font-family: $font-brand;
       color: white;
