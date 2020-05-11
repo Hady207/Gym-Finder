@@ -4,7 +4,7 @@ import Footer from "./Footer";
 // import "./App.css";
 import "./sass/main.scss";
 
-function Home() {
+const Home = () => {
   return (
     <>
       <header className="header">
@@ -64,6 +64,6 @@ function Home() {
       <Footer />
     </>
   );
-}
+};
 
 export default Home;

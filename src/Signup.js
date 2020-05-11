@@ -5,7 +5,7 @@ import Signup1 from "./Signup Components/Signup1";
 import Signup2 from "./Signup Components/Signup3";
 import Signup3 from "./Signup Components/Signup2";
 
-function Signup() {
+const Signup = () => {
   const [formNum, setNum] = useState(0);
   const initialState = {
     firstName: "",
@@ -74,6 +74,6 @@ function Signup() {
       <Footer />
     </>
   );
-}
+};
 
 export default Signup;

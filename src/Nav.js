@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import useToggle from "./hooks/useToggle";
 
-function Nav(props) {
+const Nav = (props) => {
   const { regular } = props;
   const [isOpen, setOpen] = useToggle();
 
@@ -52,8 +52,8 @@ function Nav(props) {
             </NavLink>
           </li>
           <li className="side__items">
-            <NavLink to="/Gyms" className="side__link">
-              <i className="fas fa-info"></i> About
+            <NavLink to="/profile" className="side__link">
+              <i className="fas fa-info"></i> Profile Test
             </NavLink>
           </li>
           <li className="side__items">
@@ -89,6 +89,6 @@ function Nav(props) {
       </div>
     </nav>
   );
-}
+};
 
 export default Nav;
