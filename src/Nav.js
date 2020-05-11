@@ -46,26 +46,45 @@ const Nav = (props) => {
       ></div>
       <div className={`navigation__side ${isOpen ? "side__show" : ""}`}>
         <ul className="side__menu">
-          <li className="side__items side__active">
-            <NavLink to="/" className="side__link ">
+          <li className="side__items ">
+            <NavLink
+              to="/"
+              exact
+              className="side__link"
+              activeClassName="side__link--active"
+            >
               <i className="fas fa-home"></i> Home
             </NavLink>
           </li>
           <li className="side__items">
-            <NavLink to="/profile" className="side__link">
+            <NavLink
+              to="/profile"
+              exact
+              className="side__link"
+              activeClassName="side__link--active"
+            >
               <i className="fas fa-info"></i> Profile Test
             </NavLink>
           </li>
           <li className="side__items">
-            <NavLink to="/Gyms" className="side__link">
+            <NavLink
+              to="/Gyms"
+              exact
+              className="side__link"
+              activeClassName="side__link--active"
+            >
               <i className="fas fa-dumbbell"></i> Gyms
             </NavLink>
           </li>
-          <li className="side__items">
-            <a href="/" className="side__link">
+          {/* <li className="side__items">
+            <a
+              href="/"
+              className="side__link"
+              activeClassName="side__link--active"
+            >
               <i className="fas fa-envelope-open"></i> Contact
             </a>
-          </li>
+          </li> */}
           <div className="navigation__forms--side">
             <button className="button navigation__forms--signup">
               Sign up
@@ -75,7 +94,7 @@ const Nav = (props) => {
         </ul>
       </div>
       <div className="navigation__brand">
-        <NavLink to="/" className="side__link ">
+        <NavLink to="/" className="brand__link ">
           <h1 className="navigation__brand--title">G F</h1>
         </NavLink>
       </div>

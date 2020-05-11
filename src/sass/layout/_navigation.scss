@@ -108,51 +108,53 @@
         margin-bottom: 3px;
         z-index: 3;
 
-        &:before {
-          -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
-          position: absolute;
-          top: 0;
-          left: 0;
-          content: "";
-          background-color: #757575;
-          width: 0px;
-          height: 100%;
-          transition: transform 0.2s,
-            width 0.4s cubic-bezier(0.16, 0.51, 0.9, 0.75),
-            // transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
-              background-color 0.1s;
-        }
+        // &:before {
+        //   -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+        //   clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        //   content: "";
+        //   background-color: #757575;
+        //   width: 0px;
+        //   height: 100%;
+        //   transition: transform 0.2s,
+        //     width 0.4s cubic-bezier(0.16, 0.51, 0.9, 0.75),
+        //     // transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        //       background-color 0.1s;
+        // }
 
-        &:hover::before {
-          transform: scaleY(1);
-          width: 100%;
+        &:hover {
+          .side__link::before {
+            transform: scaleY(1);
+            width: 100%;
+          }
         }
       }
 
       // acitve links
-      &__active {
-        position: relative;
-        box-shadow: 10px 15px 5px 0px rgba(0, 0, 0, 0.75);
-        font-style: italic;
-        -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
-        filter: drop-shadow(10px 10px 5px 0px rgba(0, 0, 0, 0.75));
-        &::before {
-          -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
-          position: absolute;
-          top: 0;
-          left: 0;
-          content: "";
-          // background-color: $dark-primary-color;
-          background-color: $accent-color-2;
-          width: 100%;
-          height: 100%;
-          z-index: 0;
-          transform: scaleY(1);
-        }
-      }
+      // &__active {
+      //   position: relative;
+      //   box-shadow: 10px 15px 5px 0px rgba(0, 0, 0, 0.75);
+      //   font-style: italic;
+      //   -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      //   clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      //   filter: drop-shadow(10px 10px 5px 0px rgba(0, 0, 0, 0.75));
+      //   &::before {
+      //     -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      //     clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     content: "";
+      //     z-index: -333;
+      //     background-color: $accent-color-2;
+      //     width: 100%;
+      //     height: 100%;
+      //     z-index: 0;
+      //     transform: scaleY(1);
+      //   }
+      // }
     }
   }
 
@@ -186,16 +188,47 @@
     color: white;
     text-transform: capitalize;
     transition: all 0.2s ease-in;
-    position: relative;
     z-index: 3;
     letter-spacing: 0.1rem;
     i {
       margin-right: 1rem;
     }
+    &::before {
+      -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      background-color: #757575;
+      width: 0px;
+      height: 100%;
+      z-index: -333;
+      transition: transform 0.2s, width 0.4s cubic-bezier(0.16, 0.51, 0.9, 0.75);
+      // // transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      //   background-color 0.1s;
+    }
   }
-  &__link:hover {
-    margin-top: 0.3rem;
-    border-bottom: 2px solid #e67e22;
+
+  .side__link--active {
+    // box-shadow: 10px 15px 5px 0px rgba(0, 0, 0, 0.75);
+    // font-style: italic;
+    // -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+    // clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+    // filter: drop-shadow(10px 10px 5px 0px rgba(0, 0, 0, 0.75));
+    &::before {
+      -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      background-color: $accent-color-2;
+      width: 100%;
+      height: 100%;
+      z-index: -333;
+      transform: scaleY(1);
+    }
   }
 
   &__forms {
