@@ -1,6 +1,6 @@
 import React from "react";
-
-function Searchtools({ inputManage }) {
+import ReactStars from "react-rating-stars-component";
+const Searchtools = ({ inputManage }) => {
   const onChange = (e) => {
     inputManage({ field: e.target.name, value: e.target.value });
   };
@@ -19,12 +19,23 @@ function Searchtools({ inputManage }) {
       </div>
 
       <div className="gyms__searchtools--ratings">
-        <label htmlFor="rating">Rating</label>
+        {/* <label htmlFor="rating">Rating</label> */}
+        {/* <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" />
-        <input type="checkbox" id="rating" name="" value="" />
-        <input type="checkbox" id="rating" name="" value="" />
+        <input type="checkbox" id="rating" name="" value="" /> */}
+        <ReactStars
+          name="rating"
+          count={5}
+          onChange={onChange}
+          size={30}
+          half={true}
+          emptyIcon={<i className="fas fa-star"></i>}
+          halfIcon={<i className="fas fa-star-half-alt"></i>}
+          fullIcon={<i className="fas fa-star"></i>}
+          color2={"#00c853"}
+        />
       </div>
 
       <div className="gyms__searchtools--price">
@@ -85,6 +96,6 @@ function Searchtools({ inputManage }) {
       </div>
     </div>
   );
-}
+};
 
 export default Searchtools;
