@@ -1,6 +1,7 @@
 import React from "react";
-import Finder1 from "./Finder1";
-
+import FinderType from "./FinderType";
+import FinderIntrest from "./FinderIntrest";
+import FinderDuration from "./FinderDuration";
 const FinderWidget = () => {
   return (
     <div className="finder__bg">
@@ -8,9 +9,10 @@ const FinderWidget = () => {
         <i class="fas fa-times"></i>
       </div>
       <div className="finder__inner">
-        <Finder1 />
-        <div className="finder__q2"></div>
-        <div className="finder__q3"></div>
+        {/* <FinderType /> */}
+        <FinderIntrest />
+        {/* <div className="finder__q2"></div>
+        <div className="finder__q3"></div> */}
         <div className="finder__navigationarrows">
           <i className="fas fa-arrow-left"></i>
           <i className="fas fa-arrow-right"></i>

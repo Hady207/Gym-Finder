@@ -1,6 +1,6 @@
 import React from "react";
 
-const Finder1 = () => {
+const FinderType = () => {
   return (
     <div className="finder__q1">
       <h1 className="finder__title">Choose the Gym</h1>
@@ -47,4 +47,4 @@ const Finder1 = () => {
   );
 };
 
-export default Finder1;
+export default FinderType;
