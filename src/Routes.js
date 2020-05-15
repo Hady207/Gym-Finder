@@ -6,6 +6,7 @@ import Gym from "./Gym";
 import Profile from "./Profile";
 import Signup from "./Signup";
 import Login from "./Login";
+import FinderWidget from "./Finder Components/FinderWidget";
 
 const Routes = () => {
   return (
@@ -18,6 +19,7 @@ const Routes = () => {
       <Route exact path="/gyms/:name" render={() => <Gym />} />
 
       <Route exact path="/gyms" render={() => <Gyms />} />
+      <Route path="/finder" render={() => <FinderWidget />} />
       <Route
         exact
         path="/"

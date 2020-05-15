@@ -7,14 +7,17 @@ const Profile = () => {
     <>
       <Nav regular />
       <header className="coverHeader">
-        <img src={require("./img/Health club.jpg")} alt="cover header" />
+        <img
+          src={require("./img/Profile/general-gym.jpg")}
+          alt="cover header"
+        />
       </header>
 
       <main className="profile">
         <div className="profile__grid">
           <div className="profile__sidebar">
             <div className="profile__sidebar--img">
-              <img src={require("./img/General Gym.jpg")} alt="profile" />
+              <img src={require("./img/Profile/default.jpg")} alt="profile" />
             </div>
             <h2 className="profile__sidebar--name">Hadi Maher</h2>
             <div className="profile__menu">

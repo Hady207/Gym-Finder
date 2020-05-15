@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import useInputReducer from "./hooks/useInputReducer";
 import Nav from "./Nav";
