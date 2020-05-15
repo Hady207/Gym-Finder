@@ -1,5 +1,6 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
+import StarRatings from "react-star-ratings";
 const Searchtools = ({ inputManage }) => {
   const onChange = (e) => {
     inputManage({ field: e.target.name, value: e.target.value });
@@ -36,6 +37,14 @@ const Searchtools = ({ inputManage }) => {
           fullIcon={<i className="fas fa-star"></i>}
           color2={"#00c853"}
         />
+        {/* <StarRatings
+          starRatedColor="blue"
+          changeRating={onChange}
+          numberOfStars={5}
+          name="rating"
+          starDimension="40px"
+          starSpacing="15px" 
+        />*/}
       </div>
 
       <div className="gyms__searchtools--price">

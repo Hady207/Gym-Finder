@@ -15,7 +15,7 @@ const Home = (props) => {
             <span className="header__button--icon">
               <i className="fas fa-arrow-right"></i>
             </span>
-            <span className="header__button--text">learn More</span>
+            <span className="header__button--text">Finder widgit</span>
           </button>
         </div>
       </header>

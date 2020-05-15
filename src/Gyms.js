@@ -1,4 +1,6 @@
 import React, { useReducer } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import useInputReducer from "./hooks/useInputReducer";
 import Nav from "./Nav";
 import GymCard from "./Gym Components/GymCard";
 import Searchtools from "./Gyms Components/Searchtools";
@@ -22,14 +24,7 @@ const Gyms = (props) => {
     // type
     type: "",
   };
-  const reducer = (state, action) => {
-    return {
-      ...state,
-      [action.field]: action.value,
-    };
-  };
-  const [state, dispatch] = useReducer(reducer, initVal);
-  console.log(state);
+  const [state, dispatch] = useInputReducer(initVal);
   return (
     <>
       <Nav regular />
@@ -44,10 +39,12 @@ const Gyms = (props) => {
             {/* grid here */}
             <div className="gym__innerGrid">
               {/* <!-- card start here --> */}
+
               <GymCard />
               <GymCard />
               <GymCard />
               <GymCard />
+
               {/* <!-- card end here --> */}
             </div>
           </div>

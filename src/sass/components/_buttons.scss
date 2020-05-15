@@ -101,7 +101,7 @@
     left: 44px;
     font-size: 1.9rem;
     color: white;
-    width: 12.6rem;
+    width: 14.6rem;
     text-transform: uppercase;
 
     @include respond(phone) {
@@ -111,7 +111,7 @@
   }
 
   &:hover {
-    width: 19rem;
+    width: 20rem;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     backface-visibility: hidden;
     .header__button--icon {
