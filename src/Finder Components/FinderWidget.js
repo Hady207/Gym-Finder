@@ -10,9 +10,8 @@ const FinderWidget = () => {
       </div>
       <div className="finder__inner">
         {/* <FinderType /> */}
-        <FinderIntrest />
-        {/* <div className="finder__q2"></div>
-        <div className="finder__q3"></div> */}
+        <FinderDuration />
+        {/* <FinderIntrest /> */}
         <div className="finder__navigationarrows">
           <i className="fas fa-arrow-left"></i>
           <i className="fas fa-arrow-right"></i>

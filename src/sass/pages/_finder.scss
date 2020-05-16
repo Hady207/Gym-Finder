@@ -2,13 +2,18 @@
 .finder {
   &__title {
     position: absolute;
-    top: -18%;
+    top: -28%;
     left: 50%;
     color: white;
     transform: translateX(-50%);
     font-family: $font-title;
     letter-spacing: 0.2rem;
     text-transform: capitalize;
+    width: 100%;
+    text-align: center;
+    @include respond(wide-screen) {
+      font-size: 2.5rem;
+    }
   }
   &__bg {
     height: 100vh;
@@ -54,6 +59,7 @@
 // finder Q1
 
 .finder__q1,
+.finder__q2,
 .finder__q3 {
   width: 100%;
   display: flex;
@@ -62,6 +68,9 @@
     position: relative;
     cursor: pointer;
     width: 36rem;
+    @include respond(wide-screen) {
+      width: 25rem;
+    }
     &:hover {
       img {
         filter: grayscale(1);
@@ -90,6 +99,38 @@
       //   width: 36rem;
     }
   }
+  .finder__duration {
+    width: 36rem;
+    height: 45rem;
+    background: white;
+    cursor: pointer;
+    @include respond(wide-screen) {
+      width: 25rem;
+      height: 38rem;
+    }
+
+    .choice__icon {
+      height: 17%;
+      position: relative;
+      top: 35%;
+
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .choice__title {
+      font-family: $font-title;
+      color: $secondary-text;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
 }
 
 .activeChoice {
@@ -114,6 +155,7 @@
       text-align: center;
       font-family: $font-title;
       font-size: 2rem;
+      margin-bottom: 1rem;
     }
   }
   &--crossfit {
@@ -121,6 +163,16 @@
   &--iron {
   }
   &--health {
+  }
+
+  &--staff {
+    height: 38rem;
+  }
+  &--equipment {
+    height: 38rem;
+  }
+  &--both {
+    height: 38rem;
   }
 }
 
