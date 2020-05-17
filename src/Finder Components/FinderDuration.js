@@ -5,7 +5,9 @@ import { ReactComponent as YearIcon } from "../icons/yearIcon.svg";
 const FinderDuration = () => {
   return (
     <div className="finder__q2">
-      <h1 className="finder__title">Choose the subscription duration</h1>
+      <h1 className="finder__title duration__title">
+        Choose the subscription duration
+      </h1>
       {/* Here is the first choice */}
       <div className="finder__duration finder__duration--month">
         <MonthIcon className="choice__icon" />
