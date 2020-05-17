@@ -3,7 +3,7 @@ import FinderType from "./FinderType";
 import FinderIntrest from "./FinderIntrest";
 import FinderDuration from "./FinderDuration";
 
-const FinderWidget = () => {
+const FinderWidget = ({ close }) => {
   const [visible, setVisible] = useState(1);
   const [type, setType] = useState("");
   const [duration, setDuration] = useState(1);
@@ -12,7 +12,7 @@ const FinderWidget = () => {
   return (
     <div className="finder__bg">
       <div className="finder__cancel">
-        <i className="fas fa-times" />
+        <i onClick={() => close(false)} className="fas fa-times" />
       </div>
       <div className="finder__inner">
         {visible === 1 && <FinderType Type={setType} />}

@@ -2,16 +2,18 @@ import React from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 // import "./App.css";
+import useToggle from "./hooks/useToggle";
 import "./sass/main.scss";
-
+import FinderWidget from "./Finder Components/FinderWidget";
 const Home = (props) => {
+  const [open, setOpen] = useToggle();
   return (
     <>
       <header className="header">
         <Nav />
         <div className="header__hero">
           <h1 className="header__hero--title">Find the ideal gym today</h1>
-          <button className="header__button">
+          <button onClick={() => setOpen(true)} className="header__button">
             <span className="header__button--icon">
               <i className="fas fa-arrow-right"></i>
             </span>
@@ -19,7 +21,7 @@ const Home = (props) => {
           </button>
         </div>
       </header>
-
+      {open && <FinderWidget close={setOpen} />}
       <main className="main">
         <section className="about">
           <h2 className="about__title">
