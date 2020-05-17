@@ -4,7 +4,7 @@ import FinderIntrest from "./FinderIntrest";
 import FinderDuration from "./FinderDuration";
 
 const FinderWidget = () => {
-  const [num, setNum] = useState(2);
+  const [visible, setVisible] = useState(1);
   const [type, setType] = useState("");
   const [duration, setDuration] = useState(1);
   const [intrest, setIntrest] = useState("");
@@ -15,18 +15,29 @@ const FinderWidget = () => {
         <i className="fas fa-times" />
       </div>
       <div className="finder__inner">
-        {num === 1 && <FinderType Type={setType} />}
-        {num === 2 && <FinderDuration Duration={setDuration} />}
-        {num === 3 && <FinderIntrest Intrest={setIntrest} />}
-        <div className="finder__navigationarrows">
-          <i
-            onClick={() => setNum((num) => num - 1)}
-            className="fas fa-arrow-left"
-          />
-          <i
-            onClick={() => setNum((num) => num + 1)}
-            className="fas fa-arrow-right"
-          />
+        {visible === 1 && <FinderType Type={setType} />}
+        {visible === 2 && <FinderDuration Duration={setDuration} />}
+        {visible === 3 && <FinderIntrest Intrest={setIntrest} />}
+        <div
+          className={`finder__navigationarrows ${
+            visible === 1 && "push__right"
+          }`}
+        >
+          {visible !== 1 && (
+            <i
+              onClick={() => setVisible((num) => num - 1)}
+              className="fas fa-arrow-left"
+            />
+          )}
+          {visible <= 2 && (
+            <i
+              onClick={() => setVisible((num) => num + 1)}
+              className={`fas fa-arrow-right`}
+            />
+          )}
+          {visible === 3 && (
+            <button className="button widget__submit">Submit</button>
+          )}
         </div>
       </div>
     </div>

@@ -219,6 +219,10 @@
   }
 }
 
+.push__right {
+  justify-content: flex-end;
+}
+
 // titles selectors
 .type__title {
   @include respond(wide-screen) {
@@ -243,5 +247,20 @@
   @include respond(phone) {
     top: -24%;
     font-size: 2.4rem;
+  }
+}
+
+.widget__submit {
+  font-family: $font-title;
+  background: none;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.9rem;
+  border-bottom: 1px solid;
+  border-radius: 0px;
+  transition: all 0.3s ease-in-out;
+  &:active {
+    border-bottom: 1px solid $accent-color-2;
   }
 }
