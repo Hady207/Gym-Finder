@@ -1,11 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const FinderType = () => {
+const FinderType = ({ Type }) => {
+  useEffect(() => {
+    const crossfit = document.querySelector("#crossfit");
+    const iron = document.querySelector("#iron");
+    const health = document.querySelector("#health");
+    // Crossfit
+    crossfit.addEventListener("click", () => {
+      if (
+        iron.classList.contains("activeChoice") ||
+        health.classList.contains("activeChoice")
+      ) {
+        iron.classList.remove("activeChoice");
+        health.classList.remove("activeChoice");
+      }
+      crossfit.classList.add("activeChoice");
+      Type("crossfit");
+    });
+    // Iron
+    iron.addEventListener("click", () => {
+      if (
+        crossfit.classList.contains("activeChoice") ||
+        health.classList.contains("activeChoice")
+      ) {
+        crossfit.classList.remove("activeChoice");
+        health.classList.remove("activeChoice");
+      }
+      iron.classList.add("activeChoice");
+      Type("iron");
+    });
+    // Health
+    health.addEventListener("click", () => {
+      if (
+        crossfit.classList.contains("activeChoice") ||
+        iron.classList.contains("activeChoice")
+      ) {
+        crossfit.classList.remove("activeChoice");
+        iron.classList.remove("activeChoice");
+      }
+      health.classList.add("activeChoice");
+      Type("health");
+    });
+  });
   return (
     <div className="finder__q1">
       <h1 className="finder__title type__title">Choose the Gym</h1>
       {/* Here is the first choice */}
-      <div className="finder__typeofworkout finder__typeofworkout--crossfit">
+      <div
+        id="crossfit"
+        className="finder__typeofworkout finder__typeofworkout--crossfit"
+      >
         <img src={require("../img/widget/cross-fit-gym.jpg")} alt="Cross Fit" />
         <h4 className="choice__description choice__description--crossfit">
           <span className="choice__description--span-1 crossfit__description--span-1">
@@ -18,7 +62,10 @@ const FinderType = () => {
         </h4>
       </div>
       {/* Here is the Second choice */}
-      <div className="finder__typeofworkout finder__typeofworkout--iron">
+      <div
+        id="iron"
+        className="finder__typeofworkout finder__typeofworkout--iron"
+      >
         <img src={require("../img/widget/iron-gym.jpg")} alt="iron gym" />
         <h4 className="choice__description choice__description--iron">
           <span className="choice__description--span-1 iron__description--span-1">
@@ -31,7 +78,10 @@ const FinderType = () => {
         </h4>
       </div>
       {/* Here is the Third choice */}
-      <div className="finder__typeofworkout finder__typeofworkout--health">
+      <div
+        id="health"
+        className="finder__typeofworkout finder__typeofworkout--health"
+      >
         <img src={require("../img/widget/health-club.jpg")} alt="health-club" />
         <h4 className="choice__description choice__description--health">
           <span className="choice__description--span-1 health__description--span-1">
