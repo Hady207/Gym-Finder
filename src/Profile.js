@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as WeightIcon } from "./icons/weight.svg";
+import { ReactComponent as WeightIcon } from "./img/icons/weight.svg";
 
 import { NavLink } from "react-router-dom";
 const Profile = () => {

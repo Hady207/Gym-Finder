@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { ReactComponent as MonthIcon } from "../icons/month.svg";
-import { ReactComponent as SixMonthIcon } from "../icons/months.svg";
-import { ReactComponent as YearIcon } from "../icons/yearIcon.svg";
+import { ReactComponent as MonthIcon } from "../img/icons/month.svg";
+import { ReactComponent as SixMonthIcon } from "../img/icons/months.svg";
+import { ReactComponent as YearIcon } from "../img/icons/yearIcon.svg";
 const FinderDuration = ({ Duration }) => {
   useEffect(() => {
     const month = document.querySelector("#month");
