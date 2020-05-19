@@ -1,11 +1,10 @@
 import React from "react";
 import { ReactComponent as WeightIcon } from "./icons/weight.svg";
-import Nav from "./Nav";
+
 import { NavLink } from "react-router-dom";
 const Profile = () => {
   return (
     <>
-      <Nav regular />
       <header className="coverHeader">
         <img
           src={require("./img/Profile/general-gym.jpg")}

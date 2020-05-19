@@ -1,6 +1,4 @@
 import React from "react";
-import Nav from "./Nav";
-import Footer from "./Footer";
 // import "./App.css";
 import useToggle from "./hooks/useToggle";
 import "./sass/main.scss";
@@ -10,7 +8,6 @@ const Home = (props) => {
   return (
     <>
       <header className="header">
-        <Nav />
         <div className="header__hero">
           <h1 className="header__hero--title">Find the ideal gym today</h1>
           <button onClick={() => setOpen(true)} className="header__button">
@@ -62,8 +59,6 @@ const Home = (props) => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

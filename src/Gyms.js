@@ -1,11 +1,9 @@
 import React from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+//import { CSSTransition, TransitionGroup } from "react-transition-group";
 import useInputReducer from "./hooks/useInputReducer";
-import Nav from "./Nav";
 import GymCard from "./Gym Components/GymCard";
 import Searchtools from "./Gyms Components/Searchtools";
 import Gymtype from "./Gyms Components/Gymtype";
-import Footer from "./Footer";
 
 const Gyms = (props) => {
   const initVal = {
@@ -27,7 +25,6 @@ const Gyms = (props) => {
   const [state, dispatch] = useInputReducer(initVal);
   return (
     <>
-      <Nav regular />
       <main className="gyms">
         <div className="gyms__layout">
           <Searchtools inputManage={dispatch} />
@@ -39,18 +36,15 @@ const Gyms = (props) => {
             {/* grid here */}
             <div className="gym__innerGrid">
               {/* <!-- card start here --> */}
-
               <GymCard />
               <GymCard />
               <GymCard />
               <GymCard />
-
               {/* <!-- card end here --> */}
             </div>
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 };

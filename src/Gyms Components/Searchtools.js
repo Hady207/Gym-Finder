@@ -1,6 +1,6 @@
 import React from "react";
-import ReactStars from "react-rating-stars-component";
-import StarRatings from "react-star-ratings";
+// import ReactStars from "react-rating-stars-component";
+// import StarRatings from "react-star-ratings";
 const Searchtools = ({ inputManage }) => {
   const onChange = (e) => {
     inputManage({ field: e.target.name, value: e.target.value });
@@ -26,7 +26,7 @@ const Searchtools = ({ inputManage }) => {
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" /> */}
-        <ReactStars
+        {/* <ReactStars
           name="rating"
           count={5}
           onChange={onChange}
@@ -36,7 +36,7 @@ const Searchtools = ({ inputManage }) => {
           halfIcon={<i className="fas fa-star-half-alt"></i>}
           fullIcon={<i className="fas fa-star"></i>}
           color2={"#00c853"}
-        />
+        /> */}
         {/* <StarRatings
           starRatedColor="blue"
           changeRating={onChange}

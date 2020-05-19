@@ -1,6 +1,4 @@
 import React from "react";
-import Nav from "./Nav";
-import Footer from "./Footer";
 
 import useInput from "./hooks/useInput";
 
@@ -10,7 +8,6 @@ const Login = () => {
 
   return (
     <>
-      <Nav regular />
       <div className="login__grid">
         <div className="login__grid--left">
           <h1>Login and Save Your time</h1>
@@ -46,7 +43,6 @@ const Login = () => {
         </div>
         <div className="login__grid--right"></div>
       </div>
-      <Footer />
     </>
   );
 };

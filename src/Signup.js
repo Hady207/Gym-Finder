@@ -1,6 +1,5 @@
 import React, { useState, useReducer } from "react";
-import Nav from "./Nav";
-import Footer from "./Footer";
+
 import Signup1 from "./Signup Components/Signup1";
 import Signup2 from "./Signup Components/Signup3";
 import Signup3 from "./Signup Components/Signup2";
@@ -33,7 +32,6 @@ const Signup = () => {
 
   return (
     <>
-      <Nav regular />
       <main className="signup-main">
         <h1>Sign Up and Enjoy Gym finder features</h1>
         <form className="form__signup">
@@ -71,7 +69,6 @@ const Signup = () => {
           </div>
         </form>
       </main>
-      <Footer />
     </>
   );
 };

@@ -1,15 +1,12 @@
 import React from "react";
-import Nav from "./Nav";
 import useToggle from "./hooks/useToggle";
 import ReviewCard from "./Gym Components/ReviewCard";
 import ReviewForm from "./Gym Components/reviewForm";
-import Footer from "./Footer";
 
 const Gym = (props) => {
   const [open, setOpen] = useToggle();
   return (
     <>
-      <Nav />
       <header className="gym">
         <div className="gym__cutway">
           <div className="gym__overlay"></div>
@@ -153,8 +150,6 @@ const Gym = (props) => {
       </section>
 
       <ReviewForm open={open} setOpen={setOpen} />
-
-      <Footer />
     </>
   );
 };
