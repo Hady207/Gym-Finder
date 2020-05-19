@@ -7,7 +7,7 @@ function Signup3({ formNum, setNum, manage }) {
 
   return (
     <div
-      className={`signup__inputs signup__inputs--2 ${
+      className={`signup__inputs signup__inputs--3 ${
         formNum === 2 ? "signup__show" : ""
       }`}
     >

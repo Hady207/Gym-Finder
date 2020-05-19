@@ -11,14 +11,19 @@ function Signup2({ formNum, setNum, manage }) {
 
   return (
     <div
-      className={`signup__inputs signup__inputs--3${
+      className={`signup__inputs signup__inputs--2${
         formNum === 1 ? "signup__show" : ""
       }`}
     >
       <div className="signup__question">
         <p>Have you ever went to a gym ?</p>
         <div className="question__group">
-          <input type="checkbox" value={toggle} onChange={setToggle} />
+          <input
+            id="gymCheck"
+            type="checkbox"
+            value={toggle}
+            onChange={setToggle}
+          />
           {toggle ? (
             <select name="gym" onChange={onChange} required id="gym">
               <option defaultValue disabled>

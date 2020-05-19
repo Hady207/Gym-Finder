@@ -46,13 +46,16 @@
     display: grid;
     grid-template-columns: 1fr 15fr;
     grid-gap: 8rem;
-
+    @include respond(phone) {
+      display: block;
+    }
     &--left {
       display: flex;
       flex-direction: column;
       align-items: center;
-      // justify-content: center;
+      justify-content: space-around;
       @include respond(phone) {
+        display: none;
         justify-content: flex-start;
       }
     }
@@ -61,23 +64,14 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
+      @include respond(phone) {
+        margin-left: 2rem;
+      }
     }
   }
 
   &__inputs--2 {
     display: none;
-    #email,
-    #password,
-    #rpassword {
-      padding: 2rem;
-      width: 33rem;
-      font-size: 1.8rem;
-    }
-
-    .signup__group:not(:last-child) {
-      margin-bottom: 1.5rem;
-    }
-
     @include respond(phone) {
       label {
         font-size: 1.5rem;
@@ -88,6 +82,11 @@
 
   &__inputs--3 {
     display: none;
+
+    .signup__group:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
     @include respond(phone) {
       label {
         font-size: 1.5rem;
@@ -109,13 +108,6 @@
     transition: all 0.3s ease-in-out;
     &:not(:last-child) {
       margin-bottom: 6rem;
-
-      //   &:after {
-      //     content: "";
-      //     height: 23px;
-      //     width: 23px;
-      //     background-color: red;
-      //   }
     }
   }
 
@@ -123,22 +115,24 @@
     margin-bottom: 3rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    // @include respond(phone) {
-    //   flex-direction: column;
-    //   label {
-    //     align-self: flex-start;
-    //     margin-bottom: 0.5rem;
-    //     margin-top: 0.5rem;
-    //   }
-    // }
+    justify-content: space-evenly;
 
-    // label {
-    //   font-family: $font-title;
-    //   font-size: 1.8rem;
-    //   text-transform: uppercase;
-    //   width: 25rem;
-    // }
+    @include respond(phone) {
+      flex-direction: column;
+      margin-bottom: 2rem;
+      label {
+        align-self: flex-start;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+    }
+
+    label {
+      font-family: $font-title;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      width: 25rem;
+    }
 
     // label[for="city"] {
     //   margin-left: 2rem;
@@ -153,9 +147,8 @@
     #height,
     #weight {
       padding: 0.3rem;
-      // width: 100%;
       border-radius: 4px;
-      height: 3rem;
+      height: 3.5rem;
       border: none;
       margin-right: 2rem;
       outline: none;
@@ -173,26 +166,35 @@
       }
     }
 
+    #email,
+    #password,
+    #rpassword {
+      padding: 2rem;
+      width: 33rem;
+      font-size: 1.8rem;
+      @include respond(phone) {
+        width: 23rem;
+      }
+    }
+
     // input[type="phone"],
     // input[type="text"],
     // input[type="number"] {
     //   width: 26%;
     // }
 
-    // @include respond(phone) {
-    //   input[type="phone"],
-    //   input[type="text"],
-    //   input[type="email"],
-    //   input[type="password"],
-    //   input[type="number"],
-    //   select {
-    //     width: 26%;
-    //     width: 70%;
-    //     text-align: center;
-    //     // margin-top: 1rem;
-    //     margin-right: 0;
-    //   }
-    // }
+    @include respond(phone) {
+      input[type="phone"],
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 26%;
+        width: 70%;
+        text-align: center;
+        // margin-top: 1rem;
+        margin-right: 0;
+      }
+    }
 
     // #city,
     // #birthdate {
@@ -207,7 +209,7 @@
 
     #height,
     #weight {
-      width: 7rem;
+      width: 17rem;
       text-align: center;
       @include respond(phone) {
         width: 12rem;
@@ -237,19 +239,11 @@
     margin-bottom: 0.5rem;
   }
 
-  label[for="city"] {
-    @include respond(phone) {
-      margin-left: 0;
-    }
-  }
   input[type="phone"],
   input[type="text"],
-  input[type="email"],
-  input[type="password"],
   input[type="number"],
   select {
     padding: 0.3rem;
-    // width: 100%;
     border-radius: 4px;
     height: 3.5rem;
     border: none;
@@ -272,6 +266,7 @@
   input[type="number"] {
     width: 100%;
   }
+
   #city,
   #birthdate {
     width: 100%;
@@ -279,7 +274,7 @@
     // padding: 1rem;
     @include respond(phone) {
       text-align: center;
-      width: 56%;
+      width: 100%;
     }
   }
 }
@@ -350,8 +345,13 @@
 
 .signup__question {
   margin-bottom: 3rem;
+  #gymCheck {
+    position: relative;
+    top: 6px;
+    margin-right: 1.5rem;
+  }
   #gym {
-    width: 81%;
+    width: 76%;
     padding: 0.5rem 0.5rem;
     border-radius: 4px;
     margin-top: 1rem;
@@ -372,7 +372,7 @@
   display: flex;
   align-items: center;
   input {
-    height: 2rem;
+    height: 3rem;
     width: 3rem;
   }
 }
