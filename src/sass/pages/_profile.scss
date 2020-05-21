@@ -112,9 +112,10 @@
 .profile__main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 3rem;
+  // grid-gap: 3rem;
 
   .gymbox {
+    border-radius: 10px;
     height: 100%;
     user-select: none;
     box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.979);
@@ -124,6 +125,15 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out, opacity 0.4s ease-in-out;
+    &:hover {
+      transform: scale(1);
+    }
+    &:active {
+      transform: scale(0.9);
+      opacity: 0;
+    }
     p {
       text-align: center;
       font-family: $font-title;
@@ -165,6 +175,34 @@
         font-family: $font-title;
         margin-top: 1.5rem;
       }
+    }
+  }
+}
+
+.review__screen {
+  .review__undo {
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    i {
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      i {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:active {
+      .reviews__box {
+        opacity: 0;
+      }
+    }
+  }
+  .reviews__box {
+    // transition: all 0.3s ease-in-out;
+    &:hover {
+      // transform: skewX(-14deg);
     }
   }
 }

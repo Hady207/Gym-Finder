@@ -9,7 +9,7 @@ const stars = (rating) => {
 };
 
 function ReviewCard(props) {
-  const { author, profile, rating, text } = props;
+  const { author, profile, rating, text, gym } = props;
 
   return (
     <>
@@ -17,15 +17,24 @@ function ReviewCard(props) {
       <div className="reviews__box">
         <div className="reviews__info">
           <div className="reviews__info--container">
-            <div className="reviews__info--img">
-              <img src={require(`../img/${profile}.png`)} alt="" />
-            </div>
+            {profile && (
+              <div className="reviews__info--img">
+                <img src={require(`../img/${profile}.png`)} alt="" />
+              </div>
+            )}
+
             <h3 className="reviews__info--name">{author}</h3>
+            <span className="trash">
+              <i className="fas fa-trash-alt"></i>
+            </span>
           </div>
 
           <div className="reviews__info--rating">
-            {stars(rating)}
-            <span>2 months ago</span>
+            <span className="review--stars">{stars(rating)}</span>
+            <div className="date-gym">
+              <span className="review--gym">{gym}</span>
+              <span className="review--date">2 months ago</span>
+            </div>
           </div>
         </div>
 

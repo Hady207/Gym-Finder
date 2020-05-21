@@ -25,10 +25,10 @@ const Footer = () => {
 
       <div className="footer__info">
         <div className="footer__info--copyright">
-          all rights reserved for Gym finder
+          All rights reserved for Gym finder
         </div>
         <div className="footer__info--developer">
-          design and developed by Hadi Maher
+          Design and developed by Hadi Maher
         </div>
       </div>
     </footer>

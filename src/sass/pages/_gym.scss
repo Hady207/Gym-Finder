@@ -379,18 +379,21 @@
       margin-bottom: 2rem;
     }
 
-    &:hover {
-      transform: translateZ(120px) skewX(-14deg);
-    }
+    // &:hover {
+    //   transform: translateZ(120px) skewX(-14deg);
+    // }
   }
 
   &__info {
     background-color: $card-background;
-    // background-color: blue;
+    width: 19%;
     padding: 1rem 1.5rem;
+    transition: all 0.3s ease-in-out;
     &--container {
       display: flex;
       align-items: center;
+      transition: all 0.3s ease-in-out;
+      justify-content: space-between;
     }
     &--img {
       height: 6.5rem;
@@ -412,18 +415,44 @@
       margin-left: 1rem;
     }
 
-    &--rating {
-      font-size: 2rem;
-      margin-left: 1rem;
-      display: inline-block;
+    .trash:hover {
+      transform: scale(1.5);
+      transition: all 0.3s ease-in-out;
+      i {
+        color: orangered;
+      }
+    }
 
-      margin-top: 0.5rem;
-      color: $accent-color-2;
-      span {
-        font-size: 1.5rem;
+    &--rating {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .review--stars {
+        font-size: 2rem;
+
+        display: inline-block;
+
+        color: $accent-color-2;
+      }
+
+      .date-gym {
+        display: flex;
+        align-items: center;
+      }
+
+      .review--date {
+        font-size: 1.4rem;
         font-style: italic;
         color: $primary-text;
-        margin-left: 0.3rem;
+        margin-left: 0.5rem;
+      }
+
+      .review--gym {
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 700;
+        color: #212121;
       }
     }
   }
@@ -434,6 +463,9 @@
     width: 81%;
     font-weight: 500;
     background: #fff;
+    p {
+      word-break: break-all;
+    }
   }
 }
 
@@ -498,12 +530,19 @@
   .review__info {
     width: 30%;
   }
-  .reviews__info--rating {
-    i {
-      cursor: pointer;
-      color: $accent-color-2;
-    }
-  }
+  // .reviews__info--rating {
+  //   .review--stars {
+  //     i {
+  //       cursor: pointer;
+  //       color: $accent-color-2;
+  //     }
+  //   }
+
+  //   .review--date {
+  //   }
+  //   .review--gym {
+  //   }
+  // }
   .reviews__info--img {
     height: 6.5rem;
     width: 6.5rem;

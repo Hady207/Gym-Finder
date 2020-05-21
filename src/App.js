@@ -8,7 +8,6 @@ const App = () => {
   const manageNav = (location) => {
     if (
       location.pathname === "/signup" ||
-      location.pathname === "/profile" ||
       location.pathname === "/login" ||
       location.pathname === "/Gyms"
     ) {

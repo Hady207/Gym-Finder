@@ -1,8 +1,12 @@
-import React from "react";
-import { ReactComponent as WeightIcon } from "./img/icons/weight.svg";
+import React, { useState } from "react";
 
+import useToggle from "./hooks/useToggle";
+import { ReactComponent as WeightIcon } from "./img/icons/weight.svg";
 import { NavLink } from "react-router-dom";
+import ReviewCard from "./Gym Components/ReviewCard";
+
 const Profile = () => {
+  const [reviewToggle, changeReviewToggle] = useToggle();
   return (
     <>
       <header className="coverHeader">
@@ -32,7 +36,11 @@ const Profile = () => {
                   </NavLink>
                 </li>
                 <li className="profile__li">
-                  <NavLink to="/profile/reviews" className="profile__link">
+                  <NavLink
+                    to="/profile/reviews"
+                    className="profile__link"
+                    onClick={changeReviewToggle}
+                  >
                     <i className="fas fa-pencil-alt"></i> Reviews
                   </NavLink>
                 </li>
@@ -45,26 +53,43 @@ const Profile = () => {
             </div>
           </div>
           {/* <!-- divider --> */}
-          <div className="profile__main">
-            <div className="gymbox gymbox__memberships">
-              <img src={require("./img/logo.png")} alt="Gym Name" />
-              <p>your membership expires in 30 days</p>
+          {!reviewToggle && (
+            <div className="profile__main">
+              <div className="gymbox gymbox__memberships">
+                <img src={require("./img/logo.png")} alt="Gym Name" />
+                <p>your membership expires in 30 days</p>
+              </div>
+              <div className="gymbox gymbox__workoutSchedual">
+                <WeightIcon />
+                <h1>Today is Chest Day</h1>
+                <ul>
+                  <li>upper body 3 sets 10 reps</li>
+                  <li>upper body 3 sets 10 reps</li>
+                  <li>upper body 3 sets 10 reps</li>
+                </ul>
+              </div>
+              <div
+                className="gymbox gymbox__reviews"
+                onClick={changeReviewToggle}
+              >
+                <span className="half-circle">25</span>
+                <p>you've reviewed 25 Gyms</p>
+              </div>
             </div>
-            <div className="gymbox gymbox__workoutSchedual">
-              <WeightIcon />
-              {/* <!-- Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> --> */}
-              <h1>Today is Chest Day</h1>
-              <ul>
-                <li>upper body 3 sets 10 reps</li>
-                <li>upper body 3 sets 10 reps</li>
-                <li>upper body 3 sets 10 reps</li>
-              </ul>
+          )}
+          {reviewToggle && (
+            <div className="review__screen">
+              <span className="review__undo" onClick={changeReviewToggle}>
+                <i class="fas fa-undo-alt" />
+              </span>
+              <ReviewCard
+                author="Hadi Maher"
+                text="hello World"
+                rating={4}
+                gym="Golds Gym"
+              />
             </div>
-            <div className="gymbox gymbox__reviews">
-              <span className="half-circle">25</span>
-              <p>you've reviewed 25 Gyms</p>
-            </div>
-          </div>
+          )}
         </div>
       </main>
     </>
