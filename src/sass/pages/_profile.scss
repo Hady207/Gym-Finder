@@ -9,7 +9,6 @@
 }
 
 .profile {
-  // background: palegreen;
   width: 80%;
   background: $dark-main;
   position: absolute;
@@ -19,6 +18,10 @@
   z-index: 12;
   padding: 1rem;
   box-shadow: 1px 1px 5px 0 black;
+
+  @include respond(wide-screen) {
+    top: 15%;
+  }
 }
 
 .profile__grid {
