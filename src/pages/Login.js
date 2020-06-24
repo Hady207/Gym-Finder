@@ -1,6 +1,6 @@
 import React from "react";
 
-import useInput from "./hooks/useInput";
+import useInput from "../hooks/useInput";
 
 const Login = () => {
   const [email, handleEmailChange] = useInput();

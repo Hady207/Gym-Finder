@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import useToggle from "./hooks/useToggle";
-import { ReactComponent as WeightIcon } from "./img/icons/weight.svg";
+import useToggle from "../hooks/useToggle";
+import { ReactComponent as WeightIcon } from "../img/icons/weight.svg";
 import { NavLink } from "react-router-dom";
-import ReviewCard from "./Gym Components/ReviewCard";
+import ReviewCard from "../Components/Gym Components/ReviewCard";
 
 const Profile = () => {
   const [reviewToggle, changeReviewToggle] = useToggle();
@@ -11,7 +11,7 @@ const Profile = () => {
     <>
       <header className="coverHeader">
         <img
-          src={require("./img/Profile/general-gym.jpg")}
+          src={require("../img/Profile/general-gym.jpg")}
           alt="cover header"
         />
       </header>
@@ -20,7 +20,7 @@ const Profile = () => {
         <div className="profile__grid">
           <div className="profile__sidebar">
             <div className="profile__sidebar--img">
-              <img src={require("./img/Profile/default.jpg")} alt="profile" />
+              <img src={require("../img/Profile/default.jpg")} alt="profile" />
             </div>
             <h2 className="profile__sidebar--name">Hadi Maher</h2>
             <div className="profile__menu">
@@ -56,7 +56,7 @@ const Profile = () => {
           {!reviewToggle && (
             <div className="profile__main">
               <div className="gymbox gymbox__memberships">
-                <img src={require("./img/logo.png")} alt="Gym Name" />
+                <img src={require("../img/logo.png")} alt="Gym Name" />
                 <p>your membership expires in 30 days</p>
               </div>
               <div className="gymbox gymbox__workoutSchedual">

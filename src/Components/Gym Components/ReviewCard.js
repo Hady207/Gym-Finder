@@ -19,7 +19,7 @@ function ReviewCard(props) {
           <div className="reviews__info--container">
             {profile && (
               <div className="reviews__info--img">
-                <img src={require(`../img/${profile}.png`)} alt="" />
+                <img src={require(`../../img/${profile}.png`)} alt="" />
               </div>
             )}
 

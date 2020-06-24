@@ -18,7 +18,7 @@ function reviewForm(props) {
           <div className="reviews__info">
             <div className="reviews__info--container">
               <div className="reviews__info--img">
-                <img src={require("../img/logo.png")} alt="" />
+                <img src={require("../../img/logo.png")} alt="" />
               </div>
               <h3 className="reviews__info--name">Hadi Maher</h3>
             </div>

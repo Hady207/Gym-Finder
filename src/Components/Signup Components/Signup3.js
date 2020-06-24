@@ -46,7 +46,7 @@ function Signup3({ formNum, setNum, manage }) {
       </div>
       <div className="signup__group">
         <div className="signup__profilePicture">
-          <img src={require("../img/Profile/default.jpg")} alt="Profile" />
+          <img src={require("../../img/Profile/default.jpg")} alt="Profile" />
         </div>
         <input type="file" id="myFile" name="filePicture" />
       </div>

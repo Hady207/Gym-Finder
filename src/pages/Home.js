@@ -1,8 +1,8 @@
 import React from "react";
 // import "./App.css";
-import useToggle from "./hooks/useToggle";
-import "./sass/main.scss";
-import FinderWidget from "./Finder Components/FinderWidget";
+import useToggle from "../hooks/useToggle";
+
+import FinderWidget from "../Components/Finder Components/FinderWidget";
 const Home = (props) => {
   const [open, setOpen] = useToggle();
   return (
@@ -42,17 +42,17 @@ const Home = (props) => {
             <div className="about__grid--right">
               <div className="flex-container-1">
                 <div className="img__container--1">
-                  <img src={require("./img/gym2.jpg")} alt="gym-2" />
+                  <img src={require("../img/gym2.jpg")} alt="gym-2" />
                 </div>
               </div>
               <div className="flex-container-2">
                 <div className="img__container--2">
-                  <img src={require("./img/gym3.jpg")} alt="gym-3" />
+                  <img src={require("../img/gym3.jpg")} alt="gym-3" />
                 </div>
               </div>
               <div className="flex-container-3">
                 <div className="img__container--3">
-                  <img src={require("./img/gym5.jpg")} alt="gym-5" />
+                  <img src={require("../img/gym5.jpg")} alt="gym-5" />
                 </div>
               </div>
             </div>

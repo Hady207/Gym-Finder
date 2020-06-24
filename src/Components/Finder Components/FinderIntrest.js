@@ -51,7 +51,7 @@ const FinderIntrest = ({ Intrest }) => {
         id="staff"
         className="finder__typeofworkout finder__typeofworkout--staff"
       >
-        <img src={require("../img/widget/staff.jpg")} alt="staff" />
+        <img src={require("../../img/widget/staff.jpg")} alt="staff" />
         <h4 className="choice__description choice__description--staff">
           <span className="choice__description--span-1 staff__description--span-1">
             Staff
@@ -67,7 +67,10 @@ const FinderIntrest = ({ Intrest }) => {
         id="equipment"
         className="finder__typeofworkout finder__typeofworkout--equipment"
       >
-        <img src={require("../img/widget/gym-equipment.jpg")} alt="equipment" />
+        <img
+          src={require("../../img/widget/gym-equipment.jpg")}
+          alt="equipment"
+        />
         <h4 className="choice__description choice__description--equipment">
           <span className="choice__description--span-1 equipment__description--span-1">
             Equipment
@@ -83,7 +86,7 @@ const FinderIntrest = ({ Intrest }) => {
         id="both"
         className="finder__typeofworkout finder__typeofworkout--both"
       >
-        <img src={require("../img/widget/both.jpg")} alt="both" />
+        <img src={require("../../img/widget/both.jpg")} alt="both" />
         <h4 className="choice__description choice__description--both">
           <span className="choice__description--span-1 both__description--span-1">
             Both

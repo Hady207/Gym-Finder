@@ -50,7 +50,10 @@ const FinderType = ({ Type }) => {
         id="crossfit"
         className="finder__typeofworkout finder__typeofworkout--crossfit"
       >
-        <img src={require("../img/widget/cross-fit-gym.jpg")} alt="Cross Fit" />
+        <img
+          src={require("../../img/widget/cross-fit-gym.jpg")}
+          alt="Cross Fit"
+        />
         <h4 className="choice__description choice__description--crossfit">
           <span className="choice__description--span-1 crossfit__description--span-1">
             Cross Fit Gym
@@ -66,7 +69,7 @@ const FinderType = ({ Type }) => {
         id="iron"
         className="finder__typeofworkout finder__typeofworkout--iron"
       >
-        <img src={require("../img/widget/iron-gym.jpg")} alt="iron gym" />
+        <img src={require("../../img/widget/iron-gym.jpg")} alt="iron gym" />
         <h4 className="choice__description choice__description--iron">
           <span className="choice__description--span-1 iron__description--span-1">
             Gym
@@ -82,7 +85,10 @@ const FinderType = ({ Type }) => {
         id="health"
         className="finder__typeofworkout finder__typeofworkout--health"
       >
-        <img src={require("../img/widget/health-club.jpg")} alt="health-club" />
+        <img
+          src={require("../../img/widget/health-club.jpg")}
+          alt="health-club"
+        />
         <h4 className="choice__description choice__description--health">
           <span className="choice__description--span-1 health__description--span-1">
             Health Club

@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
-import Home from "./Home";
-import Gyms from "./Gyms";
-import Gym from "./Gym";
-import Profile from "./Profile";
-import Signup from "./Signup";
-import Login from "./Login";
-import FinderWidget from "./Finder Components/FinderWidget";
+import Home from "./pages/Home";
+import Gyms from "./pages/Gyms";
+import Gym from "./pages/Gym";
+import Profile from "./pages/Profile";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import FinderWidget from "./Components/Finder Components/FinderWidget";
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const Routes = ({ manageNav }) => {

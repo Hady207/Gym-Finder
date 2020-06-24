@@ -1,6 +1,6 @@
 import React from "react";
 
-import useToggle from "../hooks/useToggle";
+import useToggle from "../../hooks/useToggle";
 
 function Signup2({ formNum, setNum, manage }) {
   const [toggle, setToggle] = useToggle();

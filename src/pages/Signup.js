@@ -1,8 +1,8 @@
 import React, { useState, useReducer } from "react";
 
-import Signup1 from "./Signup Components/Signup1";
-import Signup2 from "./Signup Components/Signup3";
-import Signup3 from "./Signup Components/Signup2";
+import Signup1 from "../Components/Signup Components/Signup1";
+import Signup2 from "../Components/Signup Components/Signup3";
+import Signup3 from "../Components/Signup Components/Signup2";
 
 const Signup = () => {
   const [formNum, setNum] = useState(0);

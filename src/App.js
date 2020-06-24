@@ -1,7 +1,8 @@
 import React from "react";
 import Routes from "./Routes";
+import "./sass/main.scss";
 import Nav from "./Nav";
-import Footer from "./Footer";
+import Footer from "./pages/Footer";
 
 const App = () => {
   const [regular, setRegular] = React.useState(false);
@@ -9,6 +10,7 @@ const App = () => {
     if (
       location.pathname === "/signup" ||
       location.pathname === "/login" ||
+      location.pathname === "/profile" ||
       location.pathname === "/Gyms"
     ) {
       setRegular(true);

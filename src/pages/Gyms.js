@@ -1,9 +1,9 @@
 import React from "react";
 //import { CSSTransition, TransitionGroup } from "react-transition-group";
-import useInputReducer from "./hooks/useInputReducer";
-import GymCard from "./Gym Components/GymCard";
-import Searchtools from "./Gyms Components/Searchtools";
-import Gymtype from "./Gyms Components/Gymtype";
+import useInputReducer from "../hooks/useInputReducer";
+import GymCard from "../Components/Gym Components/GymCard";
+import Searchtools from "../Components/Gyms Components/Searchtools";
+import Gymtype from "../Components/Gyms Components/Gymtype";
 
 const Gyms = (props) => {
   const initVal = {
