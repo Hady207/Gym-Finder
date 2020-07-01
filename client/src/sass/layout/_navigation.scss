@@ -74,7 +74,7 @@
     height: 100%;
     width: 15vw;
     transform: translateX(-100vw);
-    transition: all 0.55s linear;
+    transition: all 0.3s;
 
     // transition: 0.2s linear;
     @include respond(wide-screen) {
@@ -262,7 +262,7 @@
 }
 
 .side__show {
-  transition: all 0.55s linear;
+  transition: all 0.3s;
   transform: translateX(0vw);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
