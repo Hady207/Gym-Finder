@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-import useToggle from "./hooks/useToggle";
+import React, { useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import useToggle from './hooks/useToggle';
 
 const Nav = (props) => {
   const { regular } = props;
   const [isOpen, setOpen] = useToggle();
 
   useEffect(() => {
-    const main = document.querySelector(".main");
-    const secondPicture = document.querySelector(".flex-container-2");
+    const main = document.querySelector('.main');
+    const secondPicture = document.querySelector('.flex-container-2');
     if (main && secondPicture) {
       if (isOpen) {
-        main.classList.add("main__go--right");
-        secondPicture.classList.add("flex-container-2-adjust");
+        main.classList.add('main__go--right');
+        secondPicture.classList.add('flex-container-2-adjust');
       } else {
-        main.classList.remove("main__go--right");
-        secondPicture.classList.remove("flex-container-2-adjust");
+        main.classList.remove('main__go--right');
+        secondPicture.classList.remove('flex-container-2-adjust');
       }
     }
   });
@@ -23,28 +23,28 @@ const Nav = (props) => {
   useEffect(() => {
     // Update the document title using the browser API
     if (!regular) {
-      const navbar = document.querySelector(".navigation");
+      const navbar = document.querySelector('.navigation');
 
-      window.addEventListener("scroll", scrollMenu);
+      window.addEventListener('scroll', scrollMenu);
 
       function scrollMenu() {
         if (window.pageYOffset >= 250) {
-          navbar.classList.add("menu__transparent");
+          navbar.classList.add('menu__transparent');
         } else {
-          navbar.classList.remove("menu__transparent");
+          navbar.classList.remove('menu__transparent');
         }
       }
     }
   }, []);
 
   return (
-    <nav className={`navigation ${regular ? "regular__menu" : ""}`}>
+    <nav className={`navigation ${regular ? 'regular__menu' : ''}`}>
       <div
         id="hamburger"
-        className={`navigation__icon ${isOpen ? "icon__active" : ""}`}
+        className={`navigation__icon ${isOpen ? 'icon__active' : ''}`}
         onClick={setOpen}
       ></div>
-      <div className={`navigation__side ${isOpen ? "side__show" : ""}`}>
+      <div className={`navigation__side ${isOpen ? 'side__show' : ''}`}>
         <ul className="side__menu">
           <li className="side__items ">
             <NavLink
@@ -95,7 +95,7 @@ const Nav = (props) => {
       </div>
       <div className="navigation__brand">
         <NavLink to="/" className="brand__link ">
-          <h1 className="navigation__brand--title">G F</h1>
+          <h1 className="navigation__brand--title">Gym Finder</h1>
         </NavLink>
       </div>
       <div className="navigation__forms">

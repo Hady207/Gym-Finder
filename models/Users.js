@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const validator = require('validator');
 
 const UserSchema = new mongoose.Schema(
   {
@@ -6,12 +7,13 @@ const UserSchema = new mongoose.Schema(
       firstName: { type: String },
       lastName: { type: String },
     },
-    age: Number,
+    birthday: Date,
     email: {
       type: String,
-      required: [true, "please provide an email"],
+      required: [true, 'please provide an email'],
       unique: true,
       lowercase: true,
+      validate: [validator.isEmail, 'Please provide a valid email'],
     },
     password: {
       type: String,
@@ -19,11 +21,15 @@ const UserSchema = new mongoose.Schema(
       minlength: 8,
       select: false,
     },
-    profileImage: { type: String, default: "profile.jpg" },
+    profileImage: { type: String, default: 'profile.jpg' },
+    location: {
+      type: String,
+      default: 'Point',
+    },
     role: {
       type: String,
-      enum: ["admin", "user"],
-      default: "user",
+      enum: ['admin', 'user'],
+      default: 'user',
     },
     body: {
       height: { type: Number, min: 130, max: 250 },
@@ -32,7 +38,7 @@ const UserSchema = new mongoose.Schema(
     active: { type: Boolean, default: true, select: false },
     gym: {
       type: mongoose.Schema.ObjectId,
-      ref: "Gym",
+      ref: 'Gym',
     },
     preference: {
       Gymtype: String,
@@ -40,7 +46,11 @@ const UserSchema = new mongoose.Schema(
       staff: String,
     },
   },
-  { toJSON: { virtuals: true }, toObject: { virtuals: true } },
+  { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-module.exports = mongoose.model("User", UserSchema);
+UserSchema.virtual('age').get(function () {
+  return Date.now() - this.birthday;
+});
+
+module.exports = mongoose.model('User', UserSchema);

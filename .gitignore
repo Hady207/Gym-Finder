@@ -2,3 +2,4 @@ node_modules
 notes.txt
 .env
 .prettierrc
+dev-data
