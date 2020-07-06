@@ -1,25 +1,25 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer } from 'react';
 
-import Signup1 from "../Components/Signup Components/Signup1";
-import Signup2 from "../Components/Signup Components/Signup3";
-import Signup3 from "../Components/Signup Components/Signup2";
+import Signup1 from '../Components/Signup Components/Signup1';
+import Signup2 from '../Components/Signup Components/Signup3';
+import Signup3 from '../Components/Signup Components/Signup2';
 
 const Signup = () => {
   const [formNum, setNum] = useState(0);
   const initialState = {
-    firstName: "",
-    lastName: "",
-    birthDate: "",
-    city: "",
-    address: "",
-    phone: "",
-    email: "",
-    password: "",
-    rpassword: "",
-    filePicture: "",
-    gym: "",
-    weight: "",
-    height: "",
+    firstName: '',
+    lastName: '',
+    birthDate: '',
+    city: '',
+    address: '',
+    phone: '',
+    email: '',
+    password: '',
+    rpassword: '',
+    filePicture: '',
+    gym: '',
+    weight: '',
+    height: '',
   };
   const reducer = (state, action) => {
     return {
@@ -39,7 +39,7 @@ const Signup = () => {
             <div className="signup__grid--left">
               <div
                 className={`signup__circle signup__circle--1 ${
-                  formNum > 0 ? "signup__circle--go" : ""
+                  formNum > 0 ? 'signup__circle--go' : ''
                 } `}
               >
                 1
@@ -47,7 +47,7 @@ const Signup = () => {
 
               <div
                 className={`signup__circle signup__circle--2 ${
-                  formNum > 1 ? "signup__circle--go" : ""
+                  formNum > 1 ? 'signup__circle--go' : ''
                 }`}
               >
                 2
@@ -55,7 +55,7 @@ const Signup = () => {
 
               <div
                 className={`signup__circle signup__circle--3 ${
-                  formNum > 2 ? "signup__circle--go" : ""
+                  formNum > 2 ? 'signup__circle--go' : ''
                 }`}
               >
                 3

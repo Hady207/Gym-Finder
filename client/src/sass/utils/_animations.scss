@@ -1,3 +1,12 @@
+@keyframes bounce {
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes heroArrow {
   0% {
     // opacity: 1;

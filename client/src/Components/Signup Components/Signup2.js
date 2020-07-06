@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import useToggle from "../../hooks/useToggle";
+import useToggle from '../../hooks/useToggle';
 
 function Signup2({ formNum, setNum, manage }) {
   const [toggle, setToggle] = useToggle();
@@ -12,7 +12,7 @@ function Signup2({ formNum, setNum, manage }) {
   return (
     <div
       className={`signup__inputs signup__inputs--2${
-        formNum === 1 ? "signup__show" : ""
+        formNum === 1 ? 'signup__show' : ''
       }`}
     >
       <div className="signup__question">
