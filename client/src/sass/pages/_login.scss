@@ -21,7 +21,7 @@
   }
 
   &--right {
-    background-image: url("../../img/gym6.jpg");
+    background-image: url('../../assets/img/Gyms/gym6.jpg');
     background-attachment: fixed;
     background-size: 50%;
     @include respond(tab-land) {

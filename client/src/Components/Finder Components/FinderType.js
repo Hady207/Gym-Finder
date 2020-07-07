@@ -1,45 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 const FinderType = ({ Type }) => {
   useEffect(() => {
-    const crossfit = document.querySelector("#crossfit");
-    const iron = document.querySelector("#iron");
-    const health = document.querySelector("#health");
+    const crossfit = document.querySelector('#crossfit');
+    const iron = document.querySelector('#iron');
+    const health = document.querySelector('#health');
     // Crossfit
-    crossfit.addEventListener("click", () => {
+    crossfit.addEventListener('click', () => {
       if (
-        iron.classList.contains("activeChoice") ||
-        health.classList.contains("activeChoice")
+        iron.classList.contains('activeChoice') ||
+        health.classList.contains('activeChoice')
       ) {
-        iron.classList.remove("activeChoice");
-        health.classList.remove("activeChoice");
+        iron.classList.remove('activeChoice');
+        health.classList.remove('activeChoice');
       }
-      crossfit.classList.add("activeChoice");
-      Type("crossfit");
+      crossfit.classList.add('activeChoice');
+      Type('crossfit');
     });
     // Iron
-    iron.addEventListener("click", () => {
+    iron.addEventListener('click', () => {
       if (
-        crossfit.classList.contains("activeChoice") ||
-        health.classList.contains("activeChoice")
+        crossfit.classList.contains('activeChoice') ||
+        health.classList.contains('activeChoice')
       ) {
-        crossfit.classList.remove("activeChoice");
-        health.classList.remove("activeChoice");
+        crossfit.classList.remove('activeChoice');
+        health.classList.remove('activeChoice');
       }
-      iron.classList.add("activeChoice");
-      Type("iron");
+      iron.classList.add('activeChoice');
+      Type('iron');
     });
     // Health
-    health.addEventListener("click", () => {
+    health.addEventListener('click', () => {
       if (
-        crossfit.classList.contains("activeChoice") ||
-        iron.classList.contains("activeChoice")
+        crossfit.classList.contains('activeChoice') ||
+        iron.classList.contains('activeChoice')
       ) {
-        crossfit.classList.remove("activeChoice");
-        iron.classList.remove("activeChoice");
+        crossfit.classList.remove('activeChoice');
+        iron.classList.remove('activeChoice');
       }
-      health.classList.add("activeChoice");
-      Type("health");
+      health.classList.add('activeChoice');
+      Type('health');
     });
   });
   return (
@@ -51,7 +51,7 @@ const FinderType = ({ Type }) => {
         className="finder__typeofworkout finder__typeofworkout--crossfit"
       >
         <img
-          src={require("../../img/widget/cross-fit-gym.jpg")}
+          src={require('../../assets/img/widget/cross-fit-gym.jpg')}
           alt="Cross Fit"
         />
         <h4 className="choice__description choice__description--crossfit">
@@ -69,7 +69,10 @@ const FinderType = ({ Type }) => {
         id="iron"
         className="finder__typeofworkout finder__typeofworkout--iron"
       >
-        <img src={require("../../img/widget/iron-gym.jpg")} alt="iron gym" />
+        <img
+          src={require('../../assets/img/widget/iron-gym.jpg')}
+          alt="iron gym"
+        />
         <h4 className="choice__description choice__description--iron">
           <span className="choice__description--span-1 iron__description--span-1">
             Gym
@@ -86,7 +89,7 @@ const FinderType = ({ Type }) => {
         className="finder__typeofworkout finder__typeofworkout--health"
       >
         <img
-          src={require("../../img/widget/health-club.jpg")}
+          src={require('../../assets/img/widget/health-club.jpg')}
           alt="health-club"
         />
         <h4 className="choice__description choice__description--health">

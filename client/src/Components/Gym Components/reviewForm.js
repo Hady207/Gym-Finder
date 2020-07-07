@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 // import useToggle from "./hooks/useToggle";
 
 // const [open, setOpen] = useToggle(true);
-function reviewForm(props) {
+const reviewForm = (props) => {
   const { open, setOpen } = props;
   return (
     <div
       className={`review__form ${
-        open ? "review__form--show" : "review__form--hide"
+        open ? 'review__form--show' : 'review__form--hide'
       }`}
     >
       <span onClick={setOpen} className="crossIcon">
@@ -18,7 +18,7 @@ function reviewForm(props) {
           <div className="reviews__info">
             <div className="reviews__info--container">
               <div className="reviews__info--img">
-                <img src={require("../../img/logo.png")} alt="" />
+                <img src={require('../../assets/img/logo.png')} alt="" />
               </div>
               <h3 className="reviews__info--name">Hadi Maher</h3>
             </div>
@@ -43,6 +43,6 @@ function reviewForm(props) {
       </div>
     </div>
   );
-}
+};
 
 export default reviewForm;

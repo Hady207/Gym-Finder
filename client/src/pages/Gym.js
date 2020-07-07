@@ -1,7 +1,7 @@
-import React from "react";
-import useToggle from "../hooks/useToggle";
-import ReviewCard from "../Components/Gym Components/ReviewCard";
-import ReviewForm from "../Components/Gym Components/reviewForm";
+import React from 'react';
+import useToggle from '../hooks/useToggle';
+import ReviewCard from '../Components/Gym Components/ReviewCard';
+import ReviewForm from '../Components/Gym Components/reviewForm';
 
 const Gym = (props) => {
   const [open, setOpen] = useToggle();
@@ -11,7 +11,7 @@ const Gym = (props) => {
         <div className="gym__cutway">
           <div className="gym__overlay"></div>
           <img
-            src={require("../img/gym2.jpg")}
+            src={require('../assets/img/Gyms/gym2.jpg')}
             className="gym__img"
             alt="gym name"
           />
@@ -48,7 +48,10 @@ const Gym = (props) => {
         <div className="staff__grid">
           <div className="staff__card staff__card--1">
             <div className="staff__card--img">
-              <img src={require("../img/gym6.jpg")} alt="name of the couch" />
+              <img
+                src={require('../assets/img/Gyms/gym6.jpg')}
+                alt="name of the couch"
+              />
             </div>
             <div className="staff__card--info">
               <h3 className="name">name of the coach here</h3>
@@ -58,7 +61,10 @@ const Gym = (props) => {
 
           <div className="staff__card staff__card--2">
             <div className="staff__card--img">
-              <img src={require("../img/gym6.jpg")} alt="name of the couch" />
+              <img
+                src={require('../assets/img/Gyms/gym6.jpg')}
+                alt="name of the couch"
+              />
             </div>
             <div className="staff__card--info">
               <h3 className="name">name of the coach here</h3>
@@ -68,7 +74,10 @@ const Gym = (props) => {
 
           <div className="staff__card staff__card--3">
             <div className="staff__card--img">
-              <img src={require("../img/gym6.jpg")} alt="name of the couch" />
+              <img
+                src={require('../assets/img/Gyms/gym6.jpg')}
+                alt="name of the couch"
+              />
             </div>
             <div className="staff__card--info">
               <h3 className="name">name of the coach here</h3>
@@ -110,13 +119,13 @@ const Gym = (props) => {
             <i className="fas fa-angle-left"></i>
           </div>
           <div className="gallery__photo gallery__photo--1">
-            <img src={require("../img/gym1.jpg")} alt="" />
+            <img src={require('../assets/img/Gyms/gym1.jpg')} alt="" />
           </div>
           <div className="gallery__photo gallery__photo--2 gallery__photo--active">
-            <img src={require("../img/gym2.jpg")} alt="" />
+            <img src={require('../assets/img/Gyms/gym2.jpg')} alt="" />
           </div>
           <div className="gallery__photo gallery__photo--3">
-            <img src={require("../img/gym3.jpg")} alt="" />
+            <img src={require('../assets/img/Gyms/gym3.jpg')} alt="" />
           </div>
           <div className="gallery__arrow gallery__arrow--right">
             <i className="fas fa-angle-right"></i>

@@ -1,46 +1,47 @@
-import React, { useEffect } from "react";
-import { ReactComponent as MonthIcon } from "../../img/icons/month.svg";
-import { ReactComponent as SixMonthIcon } from "../../img/icons/months.svg";
-import { ReactComponent as YearIcon } from "../../img/icons/yearIcon.svg";
+import React, { useEffect } from 'react';
+
+import { ReactComponent as MonthIcon } from '../../assets/icons/month.svg';
+import { ReactComponent as SixMonthIcon } from '../../assets/icons/months.svg';
+import { ReactComponent as YearIcon } from '../../assets/icons/yearIcon.svg';
 const FinderDuration = ({ Duration }) => {
   useEffect(() => {
-    const month = document.querySelector("#month");
-    const sixMonth = document.querySelector("#sixMonth");
-    const year = document.querySelector("#year");
+    const month = document.querySelector('#month');
+    const sixMonth = document.querySelector('#sixMonth');
+    const year = document.querySelector('#year');
     // Month
-    month.addEventListener("click", () => {
+    month.addEventListener('click', () => {
       if (
-        sixMonth.classList.contains("activeChoice") ||
-        year.classList.contains("activeChoice")
+        sixMonth.classList.contains('activeChoice') ||
+        year.classList.contains('activeChoice')
       ) {
-        sixMonth.classList.remove("activeChoice");
-        year.classList.remove("activeChoice");
+        sixMonth.classList.remove('activeChoice');
+        year.classList.remove('activeChoice');
       }
-      month.classList.add("activeChoice");
+      month.classList.add('activeChoice');
       Duration(1);
     });
     // Six Month
-    sixMonth.addEventListener("click", () => {
+    sixMonth.addEventListener('click', () => {
       if (
-        month.classList.contains("activeChoice") ||
-        year.classList.contains("activeChoice")
+        month.classList.contains('activeChoice') ||
+        year.classList.contains('activeChoice')
       ) {
-        month.classList.remove("activeChoice");
-        year.classList.remove("activeChoice");
+        month.classList.remove('activeChoice');
+        year.classList.remove('activeChoice');
       }
-      sixMonth.classList.add("activeChoice");
+      sixMonth.classList.add('activeChoice');
       Duration(6);
     });
     // year
-    year.addEventListener("click", () => {
+    year.addEventListener('click', () => {
       if (
-        month.classList.contains("activeChoice") ||
-        sixMonth.classList.contains("activeChoice")
+        month.classList.contains('activeChoice') ||
+        sixMonth.classList.contains('activeChoice')
       ) {
-        month.classList.remove("activeChoice");
-        sixMonth.classList.remove("activeChoice");
+        month.classList.remove('activeChoice');
+        sixMonth.classList.remove('activeChoice');
       }
-      year.classList.add("activeChoice");
+      year.classList.add('activeChoice');
       Duration(12);
     });
   });

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const stars = (rating) => {
   const stars = [];
@@ -19,7 +19,10 @@ function ReviewCard(props) {
           <div className="reviews__info--container">
             {profile && (
               <div className="reviews__info--img">
-                <img src={require(`../../img/${profile}.png`)} alt="" />
+                <img
+                  src={require(`../../assets/img/Profile/${profile}`)}
+                  alt={author}
+                />
               </div>
             )}
 

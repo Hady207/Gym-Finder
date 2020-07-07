@@ -1,10 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 function GymCard(props) {
   return (
     <Link to="/gyms/hello" className="gym__cards">
       <div className="gym__cards--img">
-        <img src={require("../../img/gym3.jpg")} alt="" />
+        <img
+          src={require('../../assets/img/Gyms/gym3.jpg')}
+          alt="name of the gym here"
+        />
       </div>
       <h2 className="gym__cards--name">Golds Gym</h2>
       <h6>Gym Type: General Club</h6>

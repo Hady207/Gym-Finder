@@ -1,44 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 const FinderIntrest = ({ Intrest }) => {
   useEffect(() => {
-    const staff = document.querySelector("#staff");
-    const equipment = document.querySelector("#equipment");
-    const both = document.querySelector("#both");
-    staff.addEventListener("click", () => {
+    const staff = document.querySelector('#staff');
+    const equipment = document.querySelector('#equipment');
+    const both = document.querySelector('#both');
+    staff.addEventListener('click', () => {
       if (
-        equipment.classList.contains("activeChoice") ||
-        both.classList.contains("activeChoice")
+        equipment.classList.contains('activeChoice') ||
+        both.classList.contains('activeChoice')
       ) {
-        equipment.classList.remove("activeChoice");
-        both.classList.remove("activeChoice");
+        equipment.classList.remove('activeChoice');
+        both.classList.remove('activeChoice');
       }
-      staff.classList.add("activeChoice");
-      Intrest("staff");
+      staff.classList.add('activeChoice');
+      Intrest('staff');
     });
     // Six staff
-    equipment.addEventListener("click", () => {
+    equipment.addEventListener('click', () => {
       if (
-        staff.classList.contains("activeChoice") ||
-        both.classList.contains("activeChoice")
+        staff.classList.contains('activeChoice') ||
+        both.classList.contains('activeChoice')
       ) {
-        staff.classList.remove("activeChoice");
-        both.classList.remove("activeChoice");
+        staff.classList.remove('activeChoice');
+        both.classList.remove('activeChoice');
       }
-      equipment.classList.add("activeChoice");
-      Intrest("equipment");
+      equipment.classList.add('activeChoice');
+      Intrest('equipment');
     });
     // both
-    both.addEventListener("click", () => {
+    both.addEventListener('click', () => {
       if (
-        staff.classList.contains("activeChoice") ||
-        equipment.classList.contains("activeChoice")
+        staff.classList.contains('activeChoice') ||
+        equipment.classList.contains('activeChoice')
       ) {
-        staff.classList.remove("activeChoice");
-        equipment.classList.remove("activeChoice");
+        staff.classList.remove('activeChoice');
+        equipment.classList.remove('activeChoice');
       }
-      both.classList.add("activeChoice");
-      Intrest("both");
+      both.classList.add('activeChoice');
+      Intrest('both');
     });
   });
   return (
@@ -51,7 +51,7 @@ const FinderIntrest = ({ Intrest }) => {
         id="staff"
         className="finder__typeofworkout finder__typeofworkout--staff"
       >
-        <img src={require("../../img/widget/staff.jpg")} alt="staff" />
+        <img src={require('../../assets/img/widget/staff.jpg')} alt="staff" />
         <h4 className="choice__description choice__description--staff">
           <span className="choice__description--span-1 staff__description--span-1">
             Staff
@@ -68,7 +68,7 @@ const FinderIntrest = ({ Intrest }) => {
         className="finder__typeofworkout finder__typeofworkout--equipment"
       >
         <img
-          src={require("../../img/widget/gym-equipment.jpg")}
+          src={require('../../assets/img/widget/gym-equipment.jpg')}
           alt="equipment"
         />
         <h4 className="choice__description choice__description--equipment">
@@ -86,7 +86,7 @@ const FinderIntrest = ({ Intrest }) => {
         id="both"
         className="finder__typeofworkout finder__typeofworkout--both"
       >
-        <img src={require("../../img/widget/both.jpg")} alt="both" />
+        <img src={require('../../assets/img/widget/both.jpg')} alt="both" />
         <h4 className="choice__description choice__description--both">
           <span className="choice__description--span-1 both__description--span-1">
             Both
