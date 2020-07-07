@@ -95,7 +95,11 @@ const Nav = (props) => {
       </div>
       <div className="navigation__brand">
         <NavLink to="/" className="brand__link ">
-          <h1 className="navigation__brand--title">Gym Finder</h1>
+          {/* <h1 className="navigation__brand--title">Gym Finder</h1> */}
+          <img
+            className="navigation__brand--img"
+            src={require('./assets/icons/logo_transparent.png')}
+          />
         </NavLink>
       </div>
       <div className="navigation__forms">

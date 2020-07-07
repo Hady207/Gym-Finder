@@ -173,6 +173,13 @@
         margin-left: 2.5rem;
       }
     }
+
+    &--img {
+      height: 6rem;
+      @include respond(tab-port) {
+        height: 3rem;
+      }
+    }
   }
 
   // inidviual a tags

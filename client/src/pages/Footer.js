@@ -20,7 +20,12 @@ const Footer = () => {
       </ul>
 
       <h2 className="footer__title">
-        <Link to="/">Gym Finder</Link>
+        <Link to="/">
+          <img
+            className="navigation__brand--img"
+            src={require('../assets/icons/logo_transparent.png')}
+          />
+        </Link>
       </h2>
 
       <div className="footer__info">

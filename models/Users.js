@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema(
       firstName: { type: String },
       lastName: { type: String },
     },
-    birthday: Date,
+    birthdate: Date,
     email: {
       type: String,
       required: [true, 'please provide an email'],
@@ -42,15 +42,15 @@ const UserSchema = new mongoose.Schema(
     },
     preference: {
       Gymtype: String,
-      equipment: String,
-      staff: String,
+      equipment: { type: Boolean, default: false },
+      staff: { type: Boolean, default: false },
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
 UserSchema.virtual('age').get(function () {
-  return Date.now() - this.birthday;
+  return Date.now() - this.birthdate;
 });
 
 module.exports = mongoose.model('User', UserSchema);
