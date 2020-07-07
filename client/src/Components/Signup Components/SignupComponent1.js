@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SignupComponent1 = ({ dispatch, setStage }) => {
+const SignupComponent1 = ({ values, dispatch, setStage }) => {
   const onChange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value });
   };
@@ -8,7 +8,14 @@ const SignupComponent1 = ({ dispatch, setStage }) => {
     <div className="signup__container">
       <div className="signup__group">
         <label htmlFor="name">Full Name</label>
-        <input type="text" id="name" name="name" required onChange={onChange} />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={values.name}
+          required
+          onChange={onChange}
+        />
       </div>
       <div className="signup__group">
         <label htmlFor="email">Email</label>
@@ -16,6 +23,7 @@ const SignupComponent1 = ({ dispatch, setStage }) => {
           type="email"
           id="email"
           name="email"
+          value={values.email}
           required
           onChange={onChange}
         />
@@ -25,6 +33,7 @@ const SignupComponent1 = ({ dispatch, setStage }) => {
         <input
           type="password"
           id="password"
+          value={values.password}
           name="password"
           onChange={onChange}
         />
@@ -35,6 +44,7 @@ const SignupComponent1 = ({ dispatch, setStage }) => {
           type="password"
           id="rpassword"
           name="rpassword"
+          value={values.rpassword}
           onChange={onChange}
           required
         />

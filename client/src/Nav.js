@@ -35,7 +35,7 @@ const Nav = (props) => {
         }
       }
     }
-  }, []);
+  }, [regular]);
 
   return (
     <nav className={`navigation ${regular ? 'regular__menu' : ''}`}>

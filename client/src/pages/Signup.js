@@ -1,15 +1,14 @@
 import React, { useState, useReducer } from 'react';
 
-import Signup1 from '../Components/Signup Components/Signup1';
-import Signup2 from '../Components/Signup Components/Signup3';
-import Signup3 from '../Components/Signup Components/Signup2';
+import SignupC1 from '../Components/Signup Components/SignupComponent1';
+import SignupC2 from '../Components/Signup Components/SignupComponent2';
+import SignupC3 from '../Components/Signup Components/SignupComponent3';
 
 const Signup = () => {
-  const [formNum, setNum] = useState(0);
+  const [stage, setStage] = useState(100);
   const initialState = {
-    firstName: '',
-    lastName: '',
-    birthDate: '',
+    name: '',
+    birthdate: '',
     city: '',
     address: '',
     phone: '',
@@ -20,6 +19,9 @@ const Signup = () => {
     gym: '',
     weight: '',
     height: '',
+    gymType: '',
+    equipment: false,
+    staff: false,
   };
   const reducer = (state, action) => {
     return {
@@ -35,38 +37,32 @@ const Signup = () => {
       <main className="signup-main">
         <h1>Sign Up and Enjoy Gym finder features</h1>
         <form className="form__signup">
-          <div className="signup__grid">
-            <div className="signup__grid--left">
+          <div className="signup__progress">
+            <progress min="0" max="100" value={stage} step="33"></progress>
+            <div className="indicator__container">
+              <div className="form-progress-indicator one active"></div>
               <div
-                className={`signup__circle signup__circle--1 ${
-                  formNum > 0 ? 'signup__circle--go' : ''
-                } `}
-              >
-                1
-              </div>
-
-              <div
-                className={`signup__circle signup__circle--2 ${
-                  formNum > 1 ? 'signup__circle--go' : ''
+                className={`form-progress-indicator two ${
+                  stage >= 50 && 'active'
                 }`}
-              >
-                2
-              </div>
-
+              ></div>
               <div
-                className={`signup__circle signup__circle--3 ${
-                  formNum > 2 ? 'signup__circle--go' : ''
+                className={`form-progress-indicator three ${
+                  stage === 100 && 'active'
                 }`}
-              >
-                3
-              </div>
+              ></div>
             </div>
-            <div className="signup__grid--right">
-              <Signup1 formNum={formNum} setNum={setNum} manage={dispatch} />
-              <Signup2 formNum={formNum} setNum={setNum} manage={dispatch} />
-              <Signup3 formNum={formNum} setNum={setNum} manage={dispatch} />
-            </div>
+            {/* <div class="form-progress-indicator four"></div> */}
           </div>
+          {stage === 0 && (
+            <SignupC1 setStage={setStage} values={state} dispatch={dispatch} />
+          )}
+          {stage === 50 && (
+            <SignupC2 values={state} setStage={setStage} dispatch={dispatch} />
+          )}
+          {stage === 100 && (
+            <SignupC3 setStage={setStage} values={state} dispatch={dispatch} />
+          )}
         </form>
       </main>
     </>

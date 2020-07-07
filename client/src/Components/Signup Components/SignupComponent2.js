@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SignupComponent2 = ({ dispatch, setStage }) => {
+const SignupComponent2 = ({ values, dispatch, setStage }) => {
   const onChange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value });
   };
@@ -9,7 +9,13 @@ const SignupComponent2 = ({ dispatch, setStage }) => {
     <div className="signup__container">
       <div className="signup__group">
         <label htmlFor="date">Birthday</label>
-        <input type="date" id="date" name="date" onChange={onChange} />
+        <input
+          type="date"
+          id="date"
+          name="birthdate"
+          value={values.birthdate}
+          onChange={onChange}
+        />
       </div>
 
       <div className="signup__group">
@@ -17,6 +23,7 @@ const SignupComponent2 = ({ dispatch, setStage }) => {
         <input
           type="hiddin"
           id="location"
+          value={values.location}
           name="location"
           onChange={onChange}
         />
@@ -32,6 +39,7 @@ const SignupComponent2 = ({ dispatch, setStage }) => {
           max="300"
           onChange={onChange}
           name="weight"
+          value={values.weight}
           placeholder="60KG"
           type="number"
           id="weight"
@@ -44,6 +52,7 @@ const SignupComponent2 = ({ dispatch, setStage }) => {
           min="120"
           max="270"
           onChange={onChange}
+          value={values.height}
           name="height"
           placeholder="180CM"
           type="number"

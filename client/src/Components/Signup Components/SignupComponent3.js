@@ -1,12 +1,17 @@
 import React from 'react';
 import useToggle from '../../hooks/useToggle';
 
-const SignupComponent3 = ({ setStage, dispatch }) => {
+const SignupComponent3 = ({ values, setStage, dispatch }) => {
   const [toggleGym, setToggleGym] = useToggle();
   const [toggleType, setToggleType] = useToggle();
 
   const onChange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value });
+  };
+
+  const onCheckBoxChange = (e) => {
+    console.log(e.target.value);
+    dispatch({ field: e.target.name, value: e.target.checked });
   };
 
   return (
@@ -22,7 +27,13 @@ const SignupComponent3 = ({ setStage, dispatch }) => {
           />
 
           {toggleGym ? (
-            <select name="gym" onChange={onChange} required id="gym">
+            <select
+              name="gym"
+              onChange={onChange}
+              required
+              value={values.gym}
+              id="gym"
+            >
               <option defaultValue disabled>
                 Select A Gym
               </option>
@@ -32,7 +43,14 @@ const SignupComponent3 = ({ setStage, dispatch }) => {
               <option value="Fitness first me">Fitness first me</option>
             </select>
           ) : (
-            <select name="gym" onChange={onChange} disabled required id="gym">
+            <select
+              name="gym"
+              onChange={onChange}
+              value={values.gym}
+              disabled
+              required
+              id="gym"
+            >
               <option defaultValue disabled>
                 Select A Gym
               </option>
@@ -55,7 +73,13 @@ const SignupComponent3 = ({ setStage, dispatch }) => {
             onChange={setToggleType}
           />
           {toggleType ? (
-            <select name="gymType" onChange={onChange} required id="gym">
+            <select
+              name="gymType"
+              onChange={onChange}
+              value={values.gymType}
+              required
+              id="gym"
+            >
               <option defaultValue disabled>
                 Select A Gym Type
               </option>
@@ -67,6 +91,7 @@ const SignupComponent3 = ({ setStage, dispatch }) => {
             <select
               name="gymType"
               onChange={onChange}
+              value={values.gymType}
               disabled
               required
               id="gym"
@@ -89,17 +114,20 @@ const SignupComponent3 = ({ setStage, dispatch }) => {
             type="checkbox"
             id="equipment"
             name="equipment"
+            onChange={onCheckBoxChange}
             value="equipment"
           />
           <label htmlFor="equipment">Equipment</label>
         </div>
         <div className="signup__group--container">
-          <input type="checkbox" id="staff" name="staff" value="staff" />
+          <input
+            type="checkbox"
+            id="staff"
+            name="staff"
+            onChange={onCheckBoxChange}
+            value="staff"
+          />
           <label htmlFor="staff">Staff</label>
-        </div>
-        <div className="signup__group--container">
-          <input type="checkbox" id="both" name="both" value="both" />
-          <label htmlFor="both">Both</label>
         </div>
       </div>
 

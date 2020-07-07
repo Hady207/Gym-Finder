@@ -1,16 +1,18 @@
+$green: rgb(11, 204, 108);
+
 .signup-main {
   background-image: linear-gradient(45deg, rgba(black, 0.4), rgba(black, 0.5)),
-    url("../../img/signupbg.jpg");
+    url('../../img/signupbg.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 83vh;
+  height: 83.8vh;
   @include respond(wide-screen) {
     height: 81vh;
   }
-  @include respond(phone) {
-    height: 83vh;
-  }
+  // @include respond(phone) {
+  //   height: 83vh;
+  // }
   h1 {
     font-family: $font-title;
     letter-spacing: 0.1rem;
@@ -18,10 +20,10 @@
     text-transform: capitalize;
     margin-left: 1rem;
     text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 15%;
-    transform: translate(-50%, -15%);
+    position: relative;
+    // left: 50%;
+    // top: 15%;
+    // transform: translate(-50%, -15%);
 
     @include respond(wide-screen) {
       font-size: 3rem;
@@ -33,225 +35,137 @@
   }
 }
 
-.signup {
-  &__inputs {
-    width: 100%;
+// Form here
+.form__signup {
+  display: flex;
+  flex-direction: column;
+  @media only screen and(min-width: 1400px) {
+    width: 25%;
   }
+}
 
-  &__inputs--1 {
-    display: none;
-  }
+.signup__progress {
+  position: relative;
+  display: block;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 400px;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr 15fr;
-    grid-gap: 8rem;
-    @include respond(phone) {
-      display: block;
-    }
-    &--left {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      @include respond(phone) {
-        display: none;
-        justify-content: flex-start;
-      }
-    }
-
-    &--right {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      @include respond(phone) {
-        margin-left: 2rem;
-      }
-    }
-  }
-
-  &__inputs--2 {
-    display: none;
-    @include respond(phone) {
-      label {
-        font-size: 1.5rem;
-        align-self: flex-start;
-      }
-    }
-  }
-
-  &__inputs--3 {
-    display: none;
-
-    .signup__group:not(:last-child) {
-      margin-bottom: 1.5rem;
-    }
-
-    @include respond(phone) {
-      label {
-        font-size: 1.5rem;
-        align-self: flex-start;
-      }
-    }
-  }
-
-  &__circle {
-    border: 2px solid grey;
-    border-radius: 25%;
-    border-radius: 70%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
+  .indicator__container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease-in-out;
-    &:not(:last-child) {
-      margin-bottom: 6rem;
-    }
+    justify-content: space-between;
+    position: relative;
+    top: -10px;
   }
 
-  &__group {
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    @include respond(phone) {
-      flex-direction: column;
-      margin-bottom: 2rem;
-      label {
-        align-self: flex-start;
-        margin-bottom: 0.5rem;
-        margin-top: 0.5rem;
-      }
+  progress {
+    display: block;
+    position: relative;
+    top: 2px;
+    left: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: $green;
+    width: 97%;
+    height: 5px;
+    background: none;
+    transition: 1s;
+    will-change: contents;
+    &::-webkit-progress-bar {
+      background-color: #ddd;
+      //   background-color: white;
     }
 
-    label {
-      font-family: $font-title;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      width: 25rem;
-    }
-
-    // label[for="city"] {
-    //   margin-left: 2rem;
-    //   @include respond(phone) {
-    //     margin-left: 0;
-    //   }
-    // }
-
-    #email,
-    #password,
-    #rpassword,
-    #height,
-    #weight {
-      padding: 0.3rem;
-      border-radius: 4px;
-      height: 3.5rem;
-      border: none;
-      margin-right: 2rem;
-      outline: none;
-      transition: all 0.2s ease-in-out;
-      &:invalid {
-        border-bottom: 2px solid $urgent-color;
-      }
-
-      &:valid {
-        border-bottom: 2px solid $accent-color-2;
-      }
-      &:focus {
-        transform: scale(1.1);
-        box-shadow: 1px 1px 5px black;
-      }
-    }
-
-    #email,
-    #password,
-    #rpassword {
-      padding: 2rem;
-      width: 33rem;
-      font-size: 1.8rem;
-      @include respond(phone) {
-        width: 23rem;
-      }
-    }
-
-    // input[type="phone"],
-    // input[type="text"],
-    // input[type="number"] {
-    //   width: 26%;
-    // }
-
-    @include respond(phone) {
-      input[type="phone"],
-      input[type="text"],
-      input[type="number"],
-      select {
-        width: 26%;
-        width: 70%;
-        text-align: center;
-        // margin-top: 1rem;
-        margin-right: 0;
-      }
-    }
-
-    // #city,
-    // #birthdate {
-    //   width: 26%;
-    //   height: 3rem;
-
-    //   @include respond(phone) {
-    //     text-align: center;
-    //     width: 56%;
-    //   }
-    // }
-
-    #height,
-    #weight {
-      width: 17rem;
-      text-align: center;
-      @include respond(phone) {
-        width: 12rem;
-      }
+    &::-webkit-progress-value {
+      background-color: $green;
+      transition: all 0.5s ease-in-out;
     }
   }
 }
 
-.signup__subgroup {
+.form-progress-indicator {
+  // position: absolute;
+  top: -6px;
+  left: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  transition-delay: 0.3s;
+  will-change: transform;
+
+  &.one {
+    left: 0;
+  }
+  &.two {
+    left: 50%;
+  }
+  &.three {
+    left: 97%;
+  }
+  &.four {
+    left: 100%;
+  }
+
+  &.active {
+    animation: bounce 0.5s forwards;
+    animation-delay: 0.5s;
+    border-color: $green;
+  }
+}
+
+.signup__progress--circle {
+  border: 2px solid grey;
+
+  height: 50px;
+  width: 50px;
+  border-radius: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.signup__container {
+}
+
+.signup__group {
+  position: relative;
   display: flex;
   flex-direction: column;
 
-  @include respond(phone) {
-    flex-direction: column;
-    label {
-      align-self: flex-start;
-      margin-bottom: 0.5rem;
-      margin-top: 0.5rem;
-    }
+  &:not(:last-child) {
+    margin-bottom: 2rem;
   }
-
   label {
+    margin-bottom: 0.4rem;
+    margin-right: 1rem;
+    font-size: 1.9rem;
     font-family: $font-title;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    width: 25rem;
-    margin-bottom: 0.5rem;
+    text-transform: capitalize;
   }
-
-  input[type="phone"],
-  input[type="text"],
-  input[type="number"],
-  select {
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='date'],
+  input[type='hiddin'],
+  input[type='number'] {
     padding: 0.3rem;
     border-radius: 4px;
     height: 3.5rem;
+    width: 30rem;
     border: none;
+
     outline: none;
     transition: all 0.2s ease-in-out;
     &:invalid {
       border-bottom: 2px solid $urgent-color;
     }
+
     &:valid {
       border-bottom: 2px solid $accent-color-2;
     }
@@ -261,22 +175,48 @@
     }
   }
 
-  input[type="phone"],
-  input[type="text"],
-  input[type="number"] {
-    width: 100%;
+  p {
+    font-size: 2rem;
+  }
+}
+
+// for the question checkbox
+.signup__group--container {
+  display: flex;
+  margin-top: 1rem;
+  input[type='checkbox'] {
+    height: 32px;
+    width: 32px;
+    margin-right: 7px;
   }
 
-  #city,
-  #birthdate {
-    width: 100%;
-    height: 3.5rem;
-    // padding: 1rem;
-    @include respond(phone) {
-      text-align: center;
-      width: 100%;
-    }
+  select {
+    width: 90%;
+    height: 32px;
   }
+}
+
+// Custom edits for different input types
+
+input[type='date'] {
+  &::-webkit-datetime-edit {
+    padding: 1rem;
+  }
+}
+
+// Buttons Here
+
+.form__user--location {
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+  right: 9px;
+  top: 35px;
+}
+.buttons__group {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .signup__button,
@@ -284,7 +224,7 @@
   display: flex;
   &--prev {
     padding: 0.7rem 1.2rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     letter-spacing: 0.1rem;
     outline: none;
     border: none;
@@ -301,18 +241,18 @@
   }
   &--next {
     padding: 0.7rem 1.2rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     letter-spacing: 0.1rem;
     outline: none;
     border: none;
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid $green;
     border-radius: 7%;
     background: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     &:hover {
       transform: scale(1.2);
-      background: green;
+      background: $green;
       color: white;
     }
 
@@ -330,57 +270,4 @@
 
 .signup__buttons {
   justify-content: space-between;
-}
-
-.signup__profilePicture {
-  height: 4.3rem;
-  width: 4.3rem;
-  margin-right: 2rem;
-  img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-  }
-}
-
-.signup__question {
-  margin-bottom: 3rem;
-  #gymCheck {
-    position: relative;
-    top: 6px;
-    margin-right: 1.5rem;
-  }
-  #gym {
-    width: 76%;
-    padding: 0.5rem 0.5rem;
-    border-radius: 4px;
-    margin-top: 1rem;
-    outline: none;
-  }
-  p {
-    font-family: $font-title;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-  }
-}
-
-.signup__show {
-  display: block;
-}
-
-.question__group {
-  display: flex;
-  align-items: center;
-  input {
-    height: 3rem;
-    width: 3rem;
-  }
-}
-
-.signup__circle--set {
-  border: 2px solid orange;
-}
-
-.signup__circle--go {
-  border: 2px solid $accent-color-2;
 }
