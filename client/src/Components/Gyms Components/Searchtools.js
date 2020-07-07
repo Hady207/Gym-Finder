@@ -1,9 +1,16 @@
-import React from "react";
-// import ReactStars from "react-rating-stars-component";
-// import StarRatings from "react-star-ratings";
-const Searchtools = ({ inputManage }) => {
+import React from 'react';
+import ReactStars from 'react-rating-stars-component';
+// import StarRatings from 'react-star-ratings';
+
+const Searchtools = ({ values, inputManage }) => {
   const onChange = (e) => {
     inputManage({ field: e.target.name, value: e.target.value });
+  };
+  const onCheckBoxChange = (e) => {
+    inputManage({ field: e.target.name, value: e.target.checked });
+  };
+  const onStarChange = (rating) => {
+    inputManage({ field: 'rating', value: rating });
   };
   return (
     <div className="gyms__searchtools">
@@ -26,25 +33,26 @@ const Searchtools = ({ inputManage }) => {
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" />
         <input type="checkbox" id="rating" name="" value="" /> */}
-        {/* <ReactStars
+        <ReactStars
           name="rating"
           count={5}
-          onChange={onChange}
+          onChange={onStarChange}
           size={30}
           half={true}
+          value={values.rating}
           emptyIcon={<i className="fas fa-star"></i>}
           halfIcon={<i className="fas fa-star-half-alt"></i>}
           fullIcon={<i className="fas fa-star"></i>}
-          color2={"#00c853"}
-        /> */}
+          color2={'#00c853'}
+        />
         {/* <StarRatings
           starRatedColor="blue"
           changeRating={onChange}
           numberOfStars={5}
           name="rating"
           starDimension="40px"
-          starSpacing="15px" 
-        />*/}
+          starSpacing="15px"
+        /> */}
       </div>
 
       <div className="gyms__searchtools--price">
@@ -95,11 +103,11 @@ const Searchtools = ({ inputManage }) => {
       </div>
 
       <div className="gyms__searchtools--discounts">
-        <label htmlFor="discount">Discounts</label>
+        <label htmlFor="discounts">Discounts</label>
         <input
-          onChange={onChange}
-          id="discount"
-          name="discount"
+          onChange={onCheckBoxChange}
+          id="discounts"
+          name="discounts"
           type="checkbox"
         />
       </div>

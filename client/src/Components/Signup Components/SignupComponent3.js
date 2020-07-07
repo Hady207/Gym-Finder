@@ -10,7 +10,6 @@ const SignupComponent3 = ({ values, setStage, dispatch }) => {
   };
 
   const onCheckBoxChange = (e) => {
-    console.log(e.target.value);
     dispatch({ field: e.target.name, value: e.target.checked });
   };
 

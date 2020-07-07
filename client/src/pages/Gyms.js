@@ -1,36 +1,38 @@
-import React from "react";
+import React from 'react';
 //import { CSSTransition, TransitionGroup } from "react-transition-group";
-import useInputReducer from "../hooks/useInputReducer";
-import GymCard from "../Components/Gym Components/GymCard";
-import Searchtools from "../Components/Gyms Components/Searchtools";
-import Gymtype from "../Components/Gyms Components/Gymtype";
+import useInputReducer from '../hooks/useInputReducer';
+import GymCard from '../Components/Gym Components/GymCard';
+import Searchtools from '../Components/Gyms Components/Searchtools';
+import Gymtype from '../Components/Gyms Components/Gymtype';
 
 const Gyms = (props) => {
   const initVal = {
     // search
-    search: "",
+    search: '',
     // rating
     rating: 3,
     // price
     price: 30,
     // location
-    location: "",
+    location: '',
     // gender
-    gender: "M",
+    gender: 'M',
     // discounts
     discounts: false,
     // type
-    type: "",
+    general: false,
+    health: false,
+    crossfit: false,
   };
   const [state, dispatch] = useInputReducer(initVal);
   return (
     <>
       <main className="gyms">
         <div className="gyms__layout">
-          <Searchtools inputManage={dispatch} />
+          <Searchtools inputManage={dispatch} values={state} />
           <div className="gyms__sidebar">
             {/* Gym Types */}
-            <Gymtype />
+            <Gymtype inputManage={dispatch} />
           </div>
           <div className="gyms__grid">
             {/* grid here */}
