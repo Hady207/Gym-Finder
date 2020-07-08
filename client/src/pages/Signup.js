@@ -5,7 +5,7 @@ import SignupC2 from '../Components/Signup Components/SignupComponent2';
 import SignupC3 from '../Components/Signup Components/SignupComponent3';
 
 const Signup = () => {
-  const [stage, setStage] = useState(100);
+  const [stage, setStage] = useState(0);
   const initialState = {
     name: '',
     birthdate: '',
@@ -58,7 +58,7 @@ const Signup = () => {
             <SignupC1 setStage={setStage} values={state} dispatch={dispatch} />
           )}
           {stage === 50 && (
-            <SignupC2 values={state} setStage={setStage} dispatch={dispatch} />
+            <SignupC2 setStage={setStage} values={state} dispatch={dispatch} />
           )}
           {stage === 100 && (
             <SignupC3 setStage={setStage} values={state} dispatch={dispatch} />

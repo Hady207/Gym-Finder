@@ -27,12 +27,6 @@ const Searchtools = ({ values, inputManage }) => {
       </div>
 
       <div className="gyms__searchtools--ratings">
-        {/* <label htmlFor="rating">Rating</label> */}
-        {/* <input type="checkbox" id="rating" name="" value="" />
-        <input type="checkbox" id="rating" name="" value="" />
-        <input type="checkbox" id="rating" name="" value="" />
-        <input type="checkbox" id="rating" name="" value="" />
-        <input type="checkbox" id="rating" name="" value="" /> */}
         <ReactStars
           name="rating"
           count={5}
@@ -45,14 +39,6 @@ const Searchtools = ({ values, inputManage }) => {
           fullIcon={<i className="fas fa-star"></i>}
           color2={'#00c853'}
         />
-        {/* <StarRatings
-          starRatedColor="blue"
-          changeRating={onChange}
-          numberOfStars={5}
-          name="rating"
-          starDimension="40px"
-          starSpacing="15px"
-        /> */}
       </div>
 
       <div className="gyms__searchtools--price">
@@ -99,7 +85,7 @@ const Searchtools = ({ values, inputManage }) => {
           name="gender"
           value="mixed"
         />
-        <label htmlFor="other">Both</label>
+        <label htmlFor="other">Mixed</label>
       </div>
 
       <div className="gyms__searchtools--discounts">

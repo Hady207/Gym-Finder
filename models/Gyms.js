@@ -57,18 +57,20 @@ const GymSchema = new mongoose.Schema(
         description: String,
       },
     ], // embedding document
-    subscribers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }], //referenced here
-    moderators: [
+    // subscribers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }], //referenced here
+    // moderators: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'User',
+    //   },
+    // ], // referenced user
+    gymType: [
       {
-        type: mongoose.Schema.ObjectId,
-        ref: 'User',
+        type: 'String',
+        enum: ['crossfit', 'iron', 'health'],
+        required: true,
       },
-    ], // referenced user
-    gymType: {
-      type: 'String',
-      enum: ['crossfit', 'iron', 'health'],
-      required: true,
-    },
+    ],
     facilities: [String],
     classes: [String],
     staff: [
@@ -93,7 +95,7 @@ GymSchema.virtual('reviews', {
 
 // Document middleware
 GymSchema.pre('save', function (next) {
-  this.slug = slugify(this.GymName, { lower: true });
+  this.slug = slugify(this.gymName, { lower: true });
   next();
 });
 
