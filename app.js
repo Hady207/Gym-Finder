@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const GymRoutes = require('./routes/GymRoutes');
 const ReviewRoutes = require('./routes/ReviewRoute');
 const UserRoutes = require('./routes/UserRoutes');
+const globalErrorHandler = require('./controllers/ErrorController');
 
 const PORT = process.env.PORT || 5000;
 
@@ -44,5 +45,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+
+app.use(globalErrorHandler);
 
 app.listen(PORT, () => console.log(`Server started on ${PORT}`));

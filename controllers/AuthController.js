@@ -1,6 +1,7 @@
 const { promisify } = require('util');
-
 const jwt = require('jsonwebtoken');
+
+const AppError = require('../util/AppError');
 const User = require('../models/Users');
 
 const signToken = (id) => {
@@ -81,12 +82,12 @@ exports.signup = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return console.log('Please provide email and password');
+    return next(new AppError('Please provide email and password!', 400));
   }
   const user = await User.findOne({ email }).select('+password');
 
   if (!user || !(await user.correctPassword(password, user.password)))
-    console.log('Incorrect email or password');
+    return next(new AppError('Incorrect email or password', 401));
 
   createSendToken(user, 200, req, res);
 };
@@ -111,10 +112,10 @@ exports.protect = async (req, res, next) => {
     token = req.cookies.jwt_user_token;
   }
 
-  console.log(token);
-
   if (!token) {
-    return console.log('You are not logged in, Please log in to continue');
+    return next(
+      new AppError('You are not logged in! Please log in to get access.', 401)
+    );
   }
 
   // 2) Verification token
@@ -123,10 +124,12 @@ exports.protect = async (req, res, next) => {
   // 3) Check for the decoded user
   const checkedUser = await User.findById(decoded.id);
   if (!checkedUser) {
-    res.status(401).json({
-      status: 'failed',
-      message: 'the jwt signture has been modified',
-    });
+    next(
+      new AppError(
+        'The user belonging to this token does no longer exist.',
+        401
+      )
+    );
   }
   // 4) put the user on the request object
   req.user = checkedUser;
@@ -136,10 +139,9 @@ exports.protect = async (req, res, next) => {
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
-      res.status(401).json({
-        status: 'fail',
-        message: "you don't have the credintials to access this resources",
-      });
+      return next(
+        new AppError('You do not have permission to perform this action', 403)
+      );
     }
     next();
   };
