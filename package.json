@@ -2,11 +2,11 @@
   "name": "gym-finder-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "App.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node App.js",
     "client": "cd client && npm start",
-    "dev": "nodemon app.js",
+    "dev": "nodemon App.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
@@ -14,16 +14,19 @@
     "url": "git+https://github.com/Hady207/Gym-Finder.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Hadi Maher",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Hady207/Gym-Finder/issues"
   },
   "homepage": "https://github.com/Hady207/Gym-Finder#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.20",
     "slugify": "^1.4.4",
     "validator": "^13.1.1"

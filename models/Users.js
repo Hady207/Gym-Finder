@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const validator = require('validator');
 
+// Document Schema
 const UserSchema = new mongoose.Schema(
   {
     name: {
@@ -20,6 +22,16 @@ const UserSchema = new mongoose.Schema(
       required: [true, `Please provide a password`],
       minlength: 8,
       select: false,
+    },
+    passwordConfirm: {
+      type: String,
+      require: [true, `Please confirm your password`],
+      validate: {
+        validator: function (el) {
+          return el === this.password;
+        },
+        message: `Password are not the same`,
+      },
     },
     profileImage: { type: String, default: 'profile.jpg' },
     location: {
@@ -41,7 +53,7 @@ const UserSchema = new mongoose.Schema(
       ref: 'Gym',
     },
     preference: {
-      Gymtype: String,
+      gymType: String,
       equipment: { type: Boolean, default: false },
       staff: { type: Boolean, default: false },
     },
@@ -52,5 +64,18 @@ const UserSchema = new mongoose.Schema(
 UserSchema.virtual('age').get(function () {
   return Date.now() - this.birthdate;
 });
+
+UserSchema.pre('save', async function (next) {
+  // this if statement will take effect if password has been modified in the update
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 12);
+  this.passwordConfirm = undefined;
+  next();
+});
+
+// instances method
+UserSchema.methods.correctPassword = function (bodyPassword, userPassword) {
+  return bcrypt.compare(bodyPassword, userPassword);
+};
 
 module.exports = mongoose.model('User', UserSchema);

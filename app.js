@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+
 const GymRoutes = require('./routes/GymRoutes');
 const ReviewRoutes = require('./routes/ReviewRoute');
 const UserRoutes = require('./routes/UserRoutes');
@@ -14,6 +16,7 @@ const app = express();
 // middleware pipeline start here
 app.use(express.json());
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+app.use(cookieParser());
 
 // Database Connection
 mongoose
@@ -29,7 +32,7 @@ mongoose
 // API Routes
 app.use('/api/v1/gyms', GymRoutes);
 // app.use('/api/v1/reviews', ReviewRoutes);
-// app.use('/api/v1/user', UserRoutes);
+app.use('/api/v1/user', UserRoutes);
 
 // React specific
 if (process.env.NODE_ENV === 'production') {
