@@ -3,6 +3,7 @@ import Routes from './Routes';
 // import './sass/main.scss';
 import './css/main.min.css';
 import Nav from './Nav';
+import UserStore from './Context/userContext';
 import Footer from './pages/Footer';
 
 const App = () => {
@@ -22,9 +23,11 @@ const App = () => {
 
   return (
     <div className="App">
-      {regular ? <Nav regular /> : <Nav />}
-      <Routes manageNav={manageNav} />
-      <Footer />
+      <UserStore>
+        {regular ? <Nav regular /> : <Nav />}
+        <Routes manageNav={manageNav} />
+        <Footer />
+      </UserStore>
     </div>
   );
 };

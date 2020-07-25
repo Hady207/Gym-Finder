@@ -137,14 +137,14 @@ const Gym = (props) => {
         <div className="reviews__container">
           {/* <!-- Review Box start here --> */}
           <ReviewCard
-            profile="logo"
+            profile="profile.jpg"
             author="Hadi Maher"
             text="hello World"
             rating={4}
           />
 
           <ReviewCard
-            profile="logo"
+            profile="default.jpg"
             author="Mohammed"
             text="hello World 2 "
             rating={2}

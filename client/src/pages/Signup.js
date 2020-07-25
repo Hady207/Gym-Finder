@@ -1,4 +1,5 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
+import axios from 'axios';
 
 import SignupC1 from '../Components/Signup Components/SignupComponent1';
 import SignupC2 from '../Components/Signup Components/SignupComponent2';
@@ -31,6 +32,13 @@ const Signup = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const user = await axios.put('/api/v1/user', state);
+    };
+    fetchData();
+  }, [state]);
 
   return (
     <>

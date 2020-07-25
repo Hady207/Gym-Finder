@@ -4,11 +4,17 @@ const mongoose = require('mongoose');
 const path = require('path');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const CORS = require('cors');
 
 const GymRoutes = require('./routes/GymRoutes');
 const ReviewRoutes = require('./routes/ReviewRoute');
 const UserRoutes = require('./routes/UserRoutes');
 const globalErrorHandler = require('./controllers/ErrorController');
+
+const DB =
+  process.env.NODE_ENV === 'production'
+    ? process.env.DATABASE
+    : process.env.DATABASE_DEV;
 
 const PORT = process.env.PORT || 5000;
 
@@ -18,10 +24,11 @@ const app = express();
 app.use(express.json());
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(cookieParser());
+app.use(CORS());
 
 // Database Connection
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import useToggle from '../hooks/useToggle';
 import { ReactComponent as WeightIcon } from '../assets/icons/weight.svg';
 import { NavLink } from 'react-router-dom';
 import ReviewCard from '../Components/Gym Components/ReviewCard';
+import { UserContext } from '../Context/userContext';
 
 const Profile = () => {
   const [reviewToggle, changeReviewToggle] = useToggle();
+  const { user, token } = useContext(UserContext);
+
   return (
     <>
       <header className="coverHeader">
@@ -25,7 +28,9 @@ const Profile = () => {
                 alt="profile"
               />
             </div>
-            <h2 className="profile__sidebar--name">Hadi Maher</h2>
+            <h2 className="profile__sidebar--name">
+              {user.name.firstName} {user.name.lastName}
+            </h2>
             <div className="profile__menu">
               <ul className="profile__ul">
                 <li className="profile__li">

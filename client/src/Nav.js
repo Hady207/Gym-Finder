@@ -1,10 +1,20 @@
-import React, { useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import useToggle from './hooks/useToggle';
+import { UserContext } from './Context/userContext';
+import Axios from 'axios';
 
 const Nav = (props) => {
+  const { user, setUser } = useContext(UserContext);
   const { regular } = props;
   const [isOpen, setOpen] = useToggle();
+  let history = useHistory();
+
+  const handleLoggingOut = async (e) => {
+    const data = await Axios.get('/api/v1/user/logout');
+    history.goBack();
+    setUser(null);
+  };
 
   useEffect(() => {
     const main = document.querySelector('.main');
@@ -76,7 +86,7 @@ const Nav = (props) => {
               <i className="fas fa-dumbbell"></i> Gyms
             </NavLink>
           </li>
-          <li className="side__items">
+          {/* <li className="side__items">
             <a
               href="/"
               className="side__link"
@@ -84,7 +94,7 @@ const Nav = (props) => {
             >
               <i className="fas fa-envelope-open"></i> Contact
             </a>
-          </li>
+          </li> */}
           <div className="navigation__forms--side">
             <button className="button navigation__forms--signup">
               Sign up
@@ -103,12 +113,34 @@ const Nav = (props) => {
         </NavLink>
       </div>
       <div className="navigation__forms">
-        <Link to="/signup" className="button navigation__forms--signup">
-          Sign up
-        </Link>
-        <Link to="/login" className="button navigation__forms--login">
-          Login
-        </Link>
+        {user ? (
+          <>
+            <Link to="/profile" className="button navigation__forms--profile">
+              {/* <div className="navigation__profile"> */}
+              <img src={require(`./assets/img/Profile/default.jpg`)}></img>
+              <span>
+                {user.name.firstName} {user.name.lastName}
+              </span>
+
+              {/* </div> */}
+            </Link>
+            <button
+              onClick={handleLoggingOut}
+              className="button navigation__forms--signup"
+            >
+              logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/signup" className="button navigation__forms--signup">
+              Sign up
+            </Link>
+            <Link to="/login" className="button navigation__forms--login">
+              Login
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
