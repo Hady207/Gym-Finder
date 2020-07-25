@@ -14,7 +14,7 @@ const App = () => {
       location.pathname === '/signup' ||
       location.pathname === '/login' ||
       location.pathname === '/profile' ||
-      location.pathname === '/Gyms'
+      location.pathname === '/gyms'
     ) {
       setRegular(true);
     } else {

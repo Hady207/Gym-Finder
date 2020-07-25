@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import useToggle from '../hooks/useToggle';
 import ReviewCard from '../Components/Gym Components/ReviewCard';
@@ -20,11 +21,12 @@ const Gym = (props) => {
     };
     fetchData();
   }, [slug]);
-  console.log(data);
   return (
     <>
       {loading ? (
-        <Loading />
+        <CSSTransition in={loading} timeout={2000} classNames="my-node">
+          <Loading />
+        </CSSTransition>
       ) : (
         <>
           <header className="gym">
@@ -82,44 +84,6 @@ const Gym = (props) => {
                   </div>
                 );
               })}
-              {/* <div className="staff__card staff__card--1">
-                <div className="staff__card--img">
-                  <img
-                    src={require('../assets/img/Gyms/gym6.jpg')}
-                    alt="name of the couch"
-                  />
-                </div>
-                <div className="staff__card--info">
-                  <h3 className="name">name of the coach here</h3>
-                  <h5 className="specialty">Weight Lifting</h5>
-                </div>
-              </div>
-
-              <div className="staff__card staff__card--2">
-                <div className="staff__card--img">
-                  <img
-                    src={require('../assets/img/Gyms/gym6.jpg')}
-                    alt="name of the couch"
-                  />
-                </div>
-                <div className="staff__card--info">
-                  <h3 className="name">name of the coach here</h3>
-                  <h5 className="specialty">Cross Fit</h5>
-                </div>
-              </div>
-
-              <div className="staff__card staff__card--3">
-                <div className="staff__card--img">
-                  <img
-                    src={require('../assets/img/Gyms/gym6.jpg')}
-                    alt="name of the couch"
-                  />
-                </div>
-                <div className="staff__card--info">
-                  <h3 className="name">name of the coach here</h3>
-                  <h5 className="specialty">Weight Lifting</h5>
-                </div>
-              </div> */}
             </div>
           </section>
           <section className="information">

@@ -294,7 +294,8 @@
 }
 
 .regular__menu {
-  position: relative;
+  position: fixed;
+  top: 0;
   background-color: rgba($dark-main, 0.95);
   box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.75);
 }

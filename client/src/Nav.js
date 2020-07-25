@@ -78,7 +78,7 @@ const Nav = (props) => {
           </li>
           <li className="side__items">
             <NavLink
-              to="/Gyms"
+              to="/gyms"
               exact
               className="side__link"
               activeClassName="side__link--active"
