@@ -161,7 +161,8 @@
   // brand container
   &__brand {
     cursor: pointer;
-
+    position: relative;
+    left: 4%;
     &--title {
       font-family: $font-title;
       color: white;

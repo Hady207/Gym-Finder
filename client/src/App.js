@@ -5,6 +5,7 @@ import './css/main.min.css';
 import Nav from './Nav';
 import UserStore from './Context/userContext';
 import Footer from './pages/Footer';
+import Loading from './Components/Loading/Loadingbg';
 
 const App = () => {
   const [regular, setRegular] = React.useState(false);

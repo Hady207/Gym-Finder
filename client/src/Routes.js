@@ -26,7 +26,7 @@ const Routes = ({ manageNav }) => {
 
         <AuthRouter exact path="/profile" Component={Profile} user={user} />
         {/* <Route exact path="/profile" render={() => <Profile />} /> */}
-        <Route exact path="/gyms/:name" render={() => <Gym />} />
+        <Route exact path="/gyms/:slug" render={() => <Gym />} />
 
         <Route exact path="/gyms" render={() => <Gyms />} />
         <Route path="/finder" render={() => <FinderWidget />} />

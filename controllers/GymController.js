@@ -2,7 +2,9 @@ const Gyms = require('../models/Gyms');
 
 exports.GetGyms = async (req, res) => {
   try {
-    const gyms = await Gyms.find();
+    const gyms = await Gyms.find().select(
+      '-staff -locations -description -memberships -classes -images'
+    );
     res.status(200).json({
       status: 'success',
       results: gyms.length,

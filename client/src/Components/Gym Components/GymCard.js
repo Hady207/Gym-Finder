@@ -11,10 +11,10 @@ const stars = (rating) => {
 
 function GymCard({ data }) {
   return (
-    <Link to="/gyms/hello" className="gym__cards">
+    <Link to={`/gyms/${data.slug}`} className="gym__cards">
       <div className="gym__cards--img">
         <img
-          src={require(`../../assets/img/Gyms/${data.slug}/${data.headerImage}`)}
+          src={require(`../../assets/img/Gyms/${data.slug}/gym/${data.headerImage}`)}
           alt={data.gymName}
         />
       </div>
