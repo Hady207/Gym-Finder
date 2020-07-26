@@ -5,7 +5,7 @@ const path = require('path');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const CORS = require('cors');
-
+// added commet here
 const GymRoutes = require('./routes/GymRoutes');
 const ReviewRoutes = require('./routes/ReviewRoute');
 const UserRoutes = require('./routes/UserRoutes');
