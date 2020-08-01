@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactStars from 'react-rating-stars-component';
 
 const stars = (rating) => {
+  let loops = Math.floor(rating);
   const stars = [];
-  for (let i = 0; i < rating; i++) {
+  for (let i = 0; i < loops; i++) {
     stars.push(<i className="fas fa-star gym__star--active"></i>);
   }
   return stars;
@@ -26,13 +28,23 @@ function GymCard({ data }) {
         ))}
       </h6>
       <div className="gym__cards--rating">
+        {/* <i className="fas fa-star gym__star--active"></i>
         <i className="fas fa-star gym__star--active"></i>
         <i className="fas fa-star gym__star--active"></i>
         <i className="fas fa-star gym__star--active"></i>
-        <i className="fas fa-star gym__star--active"></i>
-        <i className="fas fa-star-half-alt gym__star--active"></i>
+        <i className="fas fa-star-half-alt gym__star--active"></i> */}
+        {/* {stars(data.rate)} */}
+        <ReactStars
+          count={5}
+          half={true}
+          value={data.rate}
+          emptyIcon={<i className="fas fa-star"></i>}
+          halfIcon={<i className="fas fa-star-half-alt gym__star--active"></i>}
+          fullIcon={<i className="fas fa-star gym__star--active"></i>}
+          color2={'#00c853'}
+        />
         <div className="gym__rating--desc">
-          <span>4.7</span> <span>({data.ratingsQuantity} ratings)</span>
+          <span>{data.rate}</span> <span>({data.ratingsQuantity} ratings)</span>
           <span>15,776 members</span>
         </div>
       </div>

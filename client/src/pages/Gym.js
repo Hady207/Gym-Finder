@@ -61,7 +61,9 @@ const Gym = (props) => {
             <i className="fas fa-star gym__star--active"></i>
             <i className="fas fa-star-half-alt gym__star--active"></i>
             <div className="gym__rating--desc">
-              <span>4.7</span> <span>(2,973 ratings)</span>
+              <span>{data.gym.rate}</span>{' '}
+              <span>({data.gym.ratingsQuantity} ratings)</span>
+              {''}
               <span>15,776 members</span>
             </div>
           </div>

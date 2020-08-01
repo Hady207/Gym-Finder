@@ -34,9 +34,9 @@ const Searchtools = ({ values, inputManage }) => {
           size={30}
           half={true}
           value={values.rating}
-          emptyIcon={<i className="fas fa-star"></i>}
-          halfIcon={<i className="fas fa-star-half-alt"></i>}
-          fullIcon={<i className="fas fa-star"></i>}
+          emptyIcon={<i className="far fa-star"></i>}
+          halfIcon={<i className="fa fa-star-half-alt"></i>}
+          fullIcon={<i className="fa fa-star"></i>}
           color2={'#00c853'}
         />
       </div>

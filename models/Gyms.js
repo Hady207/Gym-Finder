@@ -16,31 +16,38 @@ const GymSchema = new mongoose.Schema(
       trim: true,
     },
     website: String,
-    rate: [
-      {
-        equipmentRating: {
-          type: Number,
-          min: [1, 'Rating must be above 1.0'],
-          max: [5, 'Rating must be below 5.0'],
-          default: 3.5,
-          set: (v) => Math.round(v * 10) / 10,
-        },
-        staffRating: {
-          type: Number,
-          min: [1, 'Rating must be above 1.0'],
-          max: [5, 'Rating must be below 5.0'],
-          default: 3.5,
-          set: (v) => Math.round(v * 10) / 10,
-        },
-        valueRating: {
-          type: Number,
-          min: [1, 'Rating must be above 1.0'],
-          max: [5, 'Rating must be below 5.0'],
-          default: 3.5,
-          set: (v) => Math.round(v * 10) / 10,
-        },
-      },
-    ],
+    // rate: [
+    //   {
+    //     equipmentRating: {
+    //       type: Number,
+    //       min: [1, 'Rating must be above 1.0'],
+    //       max: [5, 'Rating must be below 5.0'],
+    //       default: 3.5,
+    //       set: (v) => Math.round(v * 10) / 10,
+    //     },
+    //     staffRating: {
+    //       type: Number,
+    //       min: [1, 'Rating must be above 1.0'],
+    //       max: [5, 'Rating must be below 5.0'],
+    //       default: 3.5,
+    //       set: (v) => Math.round(v * 10) / 10,
+    //     },
+    //     valueRating: {
+    //       type: Number,
+    //       min: [1, 'Rating must be above 1.0'],
+    //       max: [5, 'Rating must be below 5.0'],
+    //       default: 3.5,
+    //       set: (v) => Math.round(v * 10) / 10,
+    //     },
+    //   },
+    // ],
+    rate: {
+      type: Number,
+      min: [1, 'Rating must be above 1.0'],
+      max: [5, 'Rating must be below 5.0'],
+      default: 3.5,
+      set: (v) => Math.round(v * 10) / 10,
+    },
     ratingsQuantity: {
       type: Number,
       default: 0,
