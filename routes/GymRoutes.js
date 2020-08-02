@@ -1,4 +1,5 @@
 const express = require('express');
+const ReviewRouter = require('../routes/ReviewRoute');
 const {
   GetGyms,
   CreateGym,
@@ -7,6 +8,8 @@ const {
   DeleteGym,
 } = require('../controllers/GymController');
 const router = express.Router();
+
+router.use('/:gymId/review', ReviewRouter);
 
 router.route('/').get(GetGyms).post(CreateGym);
 router.route('/:slug').get(GetGym).patch(UpdateGym).delete(DeleteGym);

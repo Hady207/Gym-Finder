@@ -5,12 +5,14 @@ const path = require('path');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const CORS = require('cors');
-// added commet here
+
+// created modules
 const GymRoutes = require('./routes/GymRoutes');
 const ReviewRoutes = require('./routes/ReviewRoute');
 const UserRoutes = require('./routes/UserRoutes');
 const globalErrorHandler = require('./controllers/ErrorController');
 
+// Database String connection
 const DB =
   process.env.NODE_ENV === 'production'
     ? process.env.DATABASE
@@ -39,7 +41,7 @@ mongoose
 
 // API Routes
 app.use('/api/v1/gyms', GymRoutes);
-// app.use('/api/v1/reviews', ReviewRoutes);
+app.use('/api/v1/reviews', ReviewRoutes);
 app.use('/api/v1/user', UserRoutes);
 
 // React specific

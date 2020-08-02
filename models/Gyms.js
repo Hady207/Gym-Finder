@@ -112,4 +112,9 @@ GymSchema.pre(/^find/, function (next) {
   next();
 });
 
+GymSchema.pre(/^findOne/, function (next) {
+  this.populate('reviews');
+  next();
+});
+
 module.exports = mongoose.model('Gym', GymSchema);
