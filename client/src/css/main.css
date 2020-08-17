@@ -486,6 +486,15 @@ body {
   border-radius: 8px;
 }
 
+.marker {
+  background-image: url("../assets/icons/marker.svg");
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .navigation {
   position: fixed;
   width: 100%;
@@ -816,6 +825,8 @@ footer {
   text-transform: capitalize;
   font-family: "Oswald", sans-serif;
   letter-spacing: 0.2rem;
+  position: relative;
+  bottom: 0;
 }
 
 footer .footer__menu {
@@ -1326,6 +1337,7 @@ footer .footer__title a:visited {
 
 .gyms {
   padding: 9rem 1rem;
+  height: 90vh;
 }
 
 .gyms__layout {
@@ -1797,6 +1809,7 @@ footer .footer__title a:visited {
 
 .information {
   margin-top: 10rem;
+  height: 34rem;
 }
 
 .information__title {
@@ -1812,6 +1825,7 @@ footer .footer__title a:visited {
   justify-content: space-around;
   margin-top: 3rem;
   padding: 1rem;
+  height: 100%;
 }
 
 .information__map {
@@ -2083,6 +2097,14 @@ footer .footer__title a:visited {
   transition: top 0.4s ease-in-out;
 }
 
+.empty__review {
+  display: flex;
+  text-transform: capitalize;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+}
+
 .review__form--show {
   top: 0vh;
   transition: top 0.4s ease-in-out;
@@ -2323,7 +2345,7 @@ footer .footer__title a:visited {
 }
 
 .login__grid {
-  height: 83vh;
+  height: 90vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
@@ -2457,7 +2479,7 @@ footer .footer__title a:visited {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 83.8vh;
+  height: 90vh;
 }
 
 @media (max-width: 1400px) {

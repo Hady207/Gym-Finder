@@ -9,6 +9,8 @@ footer {
   text-transform: capitalize;
   font-family: $font-2;
   letter-spacing: 0.2rem;
+  position: relative;
+  bottom: 0;
 
   .footer__menu {
     height: 34%;

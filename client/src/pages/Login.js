@@ -3,11 +3,12 @@ import axios from 'axios';
 
 import { UserContext } from '../Context/userContext';
 import useInput from '../hooks/useInput';
+import { Link } from 'react-router-dom';
 
 const Login = ({ history }) => {
   const { setUser, setToken } = useContext(UserContext);
-  const [email, setEmail] = useInput();
-  const [password, setPassword] = useInput();
+  const [email, setEmail, restEmail] = useInput();
+  const [password, setPassword, restPassword] = useInput();
 
   const handleLoginIn = async (e) => {
     e.preventDefault();
@@ -23,7 +24,8 @@ const Login = ({ history }) => {
         history.push('/profile');
       }
     } catch (error) {
-      console.log(error);
+      restPassword();
+      alert(error.response.data.message);
     }
   };
 
@@ -64,6 +66,9 @@ const Login = ({ history }) => {
               login
             </button>
           </form>
+          <Link to="/signup" style={{ marginTop: '3rem' }}>
+            Create a new account
+          </Link>
         </div>
         <div className="login__grid--right"></div>
       </div>

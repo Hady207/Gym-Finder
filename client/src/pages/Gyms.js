@@ -54,7 +54,7 @@ const Gyms = (props) => {
               <div className="gym__innerGrid">
                 {/* <!-- card start here --> */}
                 {gyms.map((item) => (
-                  <GymCard data={item} />
+                  <GymCard key={item.id} data={item} />
                 ))}
                 {/* <!-- card end here --> */}
               </div>

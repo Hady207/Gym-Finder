@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
+import Star from '../Gyms Components/Star';
 
 const stars = (rating) => {
   let loops = Math.floor(rating);
@@ -23,8 +24,10 @@ function GymCard({ data }) {
       <h2 className="gym__cards--name">{data.gymName}</h2>
       <h6>
         Gym Type:{' '}
-        {data.gymType.map((i) => (
-          <span style={{ marginRight: 4 }}>{i}</span>
+        {data.gymType.map((i, n) => (
+          <span key={n} style={{ marginRight: 4 }}>
+            {i}
+          </span>
         ))}
       </h6>
       <div className="gym__cards--rating">
@@ -38,9 +41,10 @@ function GymCard({ data }) {
           count={5}
           half={true}
           value={data.rate}
-          emptyIcon={<i className="fas fa-star"></i>}
-          halfIcon={<i className="fas fa-star-half-alt gym__star--active"></i>}
-          fullIcon={<i className="fas fa-star gym__star--active"></i>}
+          size={30}
+          emptyIcon={<Star type="fas fa-star" />}
+          halfIcon={<Star type="fas fa-star-half-alt gym__star--active" />}
+          fullIcon={<Star type="fas fa-star gym__star--active" />}
           color2={'#00c853'}
         />
         <div className="gym__rating--desc">
@@ -51,13 +55,13 @@ function GymCard({ data }) {
       <div className="gym__cards--divider"></div>
       <div className="gym__cards--facilities">
         {data.facilities.map((f) => (
-          <i className={`fas fa-${f}`} />
+          <i key={f} className={`fas fa-${f}`} />
         ))}
         {/* <i className="fas fa-dumbbell"></i>
         <i className="fas fa-hot-tub"></i>
         <i className="fas fa-running"></i>
         <i className="fas fa-swimmer"></i>
-         <i className="fas fa-door-closed"></i> 
+        <i className="fas fa-door-closed"></i>
         <i className="fas fa-utensils"></i> */}
       </div>
     </Link>

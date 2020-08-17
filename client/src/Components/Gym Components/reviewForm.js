@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import ReactStars from 'react-rating-stars-component';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+
 // import useToggle from "./hooks/useToggle";
 
 // const [open, setOpen] = useToggle(true);
-const reviewForm = (props) => {
-  const { open, setOpen } = props;
+const ReviewForm = (props) => {
+  const { open, setOpen, gymId, user } = props;
+  const [rate, setRate] = useState(0);
+  const [review, setReview] = useState('');
+  const ratingChanged = useCallback((newRating) => {
+    setRate(newRating);
+  });
+
+  const handleReviewSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const postedReview = await axios.post(`/api/v1/gyms/${gymId}/review/`, {
+        review,
+        rate,
+      });
+      setReview('');
+      setOpen(false);
+    } catch (error) {
+      alert(error.response.data.message);
+      setOpen(false);
+    }
+  };
+
   return (
     <div
       className={`review__form ${
@@ -13,7 +39,7 @@ const reviewForm = (props) => {
       <span onClick={setOpen} className="crossIcon">
         <i className="far fa-times-circle"></i>
       </span>
-      <div className="review__card">
+      <form onSubmit={handleReviewSubmit} className="review__card">
         <div className="reviews__box">
           <div className="reviews__info">
             <div className="reviews__info--container">
@@ -24,25 +50,39 @@ const reviewForm = (props) => {
             </div>
 
             <div className="reviews__info--rating">
-              <i className="fas fa-star gym__star--active"></i>
-              <i className="fas fa-star gym__star--active"></i>
-              <i className="fas fa-star gym__star--active"></i>
-              <i className="fas fa-star gym__star--active"></i>
-              <i className="fas fa-star-half-alt gym__star--active"></i>
-              <span>4.5/5</span>
+              <ReactStars
+                count={5}
+                value={rate}
+                onChange={ratingChanged}
+                size={27}
+                isHalf={true}
+                emptyIcon={<i className="far fa-star"></i>}
+                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                fullIcon={<i className="fa fa-star"></i>}
+                activeColor="#ffd700"
+              />
+              <span>{rate}/5</span>
             </div>
           </div>
 
           <div className="reviewText__form">
-            <textarea name="reviewText" id=""></textarea>
+            <textarea
+              name="reviewText"
+              id=""
+              onChange={(e) => setReview(e.target.value)}
+              value={review}
+            ></textarea>
           </div>
         </div>
-        <button className="button reviews__button reviews__button--submit">
+        <button
+          type="submit"
+          className="button reviews__button reviews__button--submit"
+        >
           <i className="fas fa-pen-square"></i> <span>Submit</span>
         </button>
-      </div>
+      </form>
     </div>
   );
 };
 
-export default reviewForm;
+export default React.memo(ReviewForm);

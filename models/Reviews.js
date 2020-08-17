@@ -28,7 +28,7 @@ ReviewSchema.index({ gym: 1, user: 1 }, { unique: true });
 ReviewSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'user',
-    select: 'name photo',
+    select: 'name profileImage',
   });
   return next();
 });
@@ -46,7 +46,7 @@ ReviewSchema.statics.calcAverageRatings = async function (gymId) {
       },
     },
   ]);
-  console.log(stats);
+
   if (stats.length > 0) {
     await Gym.findByIdAndUpdate(gymId, {
       ratingsQuantity: stats[0].nRating,

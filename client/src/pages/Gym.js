@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import Axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+import { useParams, Link } from 'react-router-dom';
+import ReactStars from 'react-rating-stars-component';
 
+import { UserContext } from '../Context/userContext';
 import useToggle from '../hooks/useToggle';
 import ReviewCard from '../Components/Gym Components/ReviewCard';
 import ReviewForm from '../Components/Gym Components/reviewForm';
 import Loading from '../Components/Loading/Loadingbg';
+import Star from '../Components/Gyms Components/Star';
+import Map from '../Components/Map';
 
 const Gym = (props) => {
   let { slug } = useParams();
   const [open, setOpen] = useToggle();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({ gym: {} });
+  const { user } = useContext(UserContext);
+
   useEffect(() => {
     const fetchData = async () => {
       const gym = await Axios.get(`/api/v1/gyms/${slug}`);
@@ -21,12 +26,13 @@ const Gym = (props) => {
     };
     fetchData();
   }, [slug]);
+
+  console.log(data.gym);
+
   return (
     <>
       {loading ? (
-        <CSSTransition in={loading} timeout={2000} classNames="my-node">
-          <Loading />
-        </CSSTransition>
+        <Loading />
       ) : (
         <>
           <header className="gym">
@@ -40,10 +46,7 @@ const Gym = (props) => {
               <div className="gym__name">
                 <h1>{data.gym.gymName}</h1>
               </div>
-              {/* <!-- <div className="gym__scroll">
-          <div className="gym__arrow gym__arrow--right"></div>
-          <div className="gym__arrow gym__arrow--left"></div>
-        </div> --> */}
+
               <div className="gym__arrow gym__arrow--right"></div>
               <div className="gym__arrow gym__arrow--left"></div>
             </div>
@@ -55,11 +58,16 @@ const Gym = (props) => {
             <span>avenue: 11</span>
           </div>
           <div className="gym__rating">
-            <i className="fas fa-star gym__star--active"></i>
-            <i className="fas fa-star gym__star--active"></i>
-            <i className="fas fa-star gym__star--active"></i>
-            <i className="fas fa-star gym__star--active"></i>
-            <i className="fas fa-star-half-alt gym__star--active"></i>
+            <ReactStars
+              count={5}
+              half={true}
+              value={data.gym.rate}
+              size={30}
+              emptyIcon={<Star type="fas fa-star" />}
+              halfIcon={<Star type="fas fa-star-half-alt " />}
+              fullIcon={<Star type="fas fa-star " />}
+              color2={'#00c853'}
+            />
             <div className="gym__rating--desc">
               <span>{data.gym.rate}</span>{' '}
               <span>({data.gym.ratingsQuantity} ratings)</span>
@@ -72,7 +80,10 @@ const Gym = (props) => {
             <div className="staff__grid">
               {data.gym.staff.map((coach, i) => {
                 return (
-                  <div className={`staff__card staff__card--${++i}`}>
+                  <div
+                    key={coach.name}
+                    className={`staff__card staff__card--${++i}`}
+                  >
                     <div className="staff__card--img">
                       <img
                         src={require(`../assets/img/Gyms/golds-gym/staff/${coach.profile}`)}
@@ -91,11 +102,7 @@ const Gym = (props) => {
           <section className="information">
             <h2 className="information__title">Who we are</h2>
             <div className="information__container">
-              <div className="information__map">
-                Map here Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Nesciunt, deleniti. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit. Ullam, ipsam.
-              </div>
+              <Map locations={data.gym.locations} />
               <div className="information__desc">
                 <p className="information__desc--1">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -138,29 +145,51 @@ const Gym = (props) => {
             <h2 className="reviews__title">Reviews</h2>
             <div className="reviews__container">
               {/* <!-- Review Box start here --> */}
-              <ReviewCard
-                profile="profile.jpg"
-                author="Hadi Maher"
-                text="hello World"
-                rating={4}
-              />
-
-              <ReviewCard
-                profile="default.jpg"
-                author="Mohammed"
-                text="hello World 2 "
-                rating={2}
-              />
-
+              {data.gym.reviews.length > 0 ? (
+                data.gym.reviews.map((reviewItem) => (
+                  <ReviewCard key={reviewItem._id} review={reviewItem} />
+                ))
+              ) : (
+                <h3 className="empty__review"> be the first to add a review</h3>
+              )}
               {/* <!-- Review Box end here here --> */}
             </div>
 
-            <button className="button reviews__button" onClick={setOpen}>
+            {user.id ? (
+              <button className="button reviews__button" onClick={setOpen}>
+                <i className="fas fa-pen-square"></i>{' '}
+                <span>Add New Review</span>
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="button"
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                }}
+              >
+                login to add a review
+              </Link>
+            )}
+            {/* <button className="button reviews__button" onClick={setOpen}>
               <i className="fas fa-pen-square"></i> <span>Add New Review</span>
-            </button>
+            </button> */}
           </section>
-
-          <ReviewForm open={open} setOpen={setOpen} />
+          {user.id ?? (
+            <ReviewForm
+              open={open}
+              setOpen={setOpen}
+              user={user}
+              gymId={data.gym.id}
+            />
+          )}
+          {/* <ReviewForm
+            open={open}
+            setOpen={setOpen}
+            user={user}
+            gymId={data.gym.id}
+          /> */}
         </>
       )}
     </>

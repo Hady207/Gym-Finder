@@ -48,7 +48,7 @@ exports.createReview = async (req, res, next) => {
       },
     });
   } catch (error) {
-    next(new AppError(error.message, 404));
+    next(new AppError(error, 404));
   }
 };
 

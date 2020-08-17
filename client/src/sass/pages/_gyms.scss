@@ -1,5 +1,6 @@
 .gyms {
   padding: 9rem 1rem;
+  height: 90vh;
   &__layout {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
