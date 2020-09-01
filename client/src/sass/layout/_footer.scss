@@ -12,6 +12,10 @@ footer {
   position: relative;
   bottom: 0;
 
+  @include respond(wide-screen) {
+    display: none;
+  }
+
   .footer__menu {
     height: 34%;
     font-size: 2rem;

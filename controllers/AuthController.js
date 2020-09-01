@@ -37,7 +37,7 @@ const createSendToken = (user, statusCode, req, res) => {
 };
 
 const newUserInfo = (req) => {
-  const {
+  let {
     name,
     email,
     password,
@@ -51,6 +51,8 @@ const newUserInfo = (req) => {
     staff,
   } = req.body;
   const fullname = name.split(' ');
+  height = parseInt(height);
+  weight = parseInt(weight);
   return (userObj = {
     name: {
       firstName: fullname[0],
@@ -64,7 +66,7 @@ const newUserInfo = (req) => {
       height,
       weight,
     },
-    gym,
+
     preference: {
       gymType,
       equipment,

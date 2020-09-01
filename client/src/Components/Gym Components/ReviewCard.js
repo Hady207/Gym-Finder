@@ -12,18 +12,20 @@ const stars = (rating) => {
 
 function ReviewCard(props) {
   // const { author, profile, rating, text, gym, date, userId, reviewId } = props;
-  const { _id, review, rate, user, gym, updatedAt } = props.review;
-  // const { user } = useContext(UserContext);
+  const { _id, review, rate, gym, updatedAt, reRender } = props.review;
 
-  const [isDeleted, setDelete] = useState(false);
+  const { user } = useContext(UserContext);
+
   const handleDelete = async () => {
     try {
       await Axios.delete(`/api/v1/reviews/${_id}`);
-      setDelete(!isDeleted);
+      alert('your review has been deleted');
     } catch (error) {
       alert(error.response.data.message);
     }
   };
+
+  // console.log(user);
 
   return (
     <>
@@ -31,20 +33,21 @@ function ReviewCard(props) {
       <div className="reviews__box">
         <div className="reviews__info">
           <div className="reviews__info--container">
-            {user.profileImage && (
+            {props.author.profileImage && (
               <div className="reviews__info--img">
                 <img
-                  src={require(`../../assets/img/Profile/${user.profileImage}`)}
-                  alt={user.name.firstName}
+                  src={require(`../../assets/img/Profile/${props.author.profileImage}`)}
+                  alt={props.author.name.firstName}
                 />
               </div>
             )}
 
-            <h3 className="reviews__info--name">{`${user.name.firstName} ${user.name.lastName}`}</h3>
-
-            <span className="trash" onClick={handleDelete}>
-              <i className="fas fa-trash-alt"></i>
-            </span>
+            <h3 className="reviews__info--name">{`${props.author.name.firstName} ${props.author.name.lastName}`}</h3>
+            {user && user.id === props.author.id && (
+              <span className="trash" onClick={handleDelete}>
+                <i className="fas fa-trash-alt"></i>
+              </span>
+            )}
           </div>
 
           <div className="reviews__info--rating">

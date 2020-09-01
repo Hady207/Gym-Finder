@@ -96,7 +96,7 @@
     text-decoration: none;
     width: 100%;
     &::before {
-      content: "";
+      content: '';
       -webkit-clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
       clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
       transition: width 0.7s ease-in-out;
@@ -136,6 +136,15 @@
     &:active {
       transform: scale(0.9);
       opacity: 0;
+    }
+    &__map {
+      &:hover {
+        transform: scale(0.9);
+      }
+      &:active {
+        transform: scale(0.9);
+        opacity: 1;
+      }
     }
     p {
       text-align: center;

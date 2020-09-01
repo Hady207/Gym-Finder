@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import Axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
 
 import { UserContext } from '../Context/userContext';
@@ -13,10 +13,16 @@ import Map from '../Components/Map';
 
 const Gym = (props) => {
   let { slug } = useParams();
+  let { history } = useHistory();
   const [open, setOpen] = useToggle();
   const [loading, setLoading] = useState(true);
+  const [reRender, setRerender] = useState(false);
   const [data, setData] = useState({ gym: {} });
   const { user } = useContext(UserContext);
+
+  const handleRerender = () => {
+    setRerender((oldState) => !oldState);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,9 +31,7 @@ const Gym = (props) => {
       setLoading(false);
     };
     fetchData();
-  }, [slug]);
-
-  console.log(data.gym);
+  }, [slug, reRender]);
 
   return (
     <>
@@ -125,7 +129,7 @@ const Gym = (props) => {
 
             <div className="gallery__grid">
               <div className="gallery__arrow gallery__arrow--left">
-                <i className="fas fa-angle-left"></i>
+                {/* <i className="fas fa-angle-left"></i> */}
               </div>
               <div className="gallery__photo gallery__photo--1">
                 <img src={require('../assets/img/Gyms/gym1.jpg')} alt="" />
@@ -137,7 +141,7 @@ const Gym = (props) => {
                 <img src={require('../assets/img/Gyms/gym3.jpg')} alt="" />
               </div>
               <div className="gallery__arrow gallery__arrow--right">
-                <i className="fas fa-angle-right"></i>
+                {/* <i className="fas fa-angle-right"></i> */}
               </div>
             </div>
           </section>
@@ -147,7 +151,13 @@ const Gym = (props) => {
               {/* <!-- Review Box start here --> */}
               {data.gym.reviews.length > 0 ? (
                 data.gym.reviews.map((reviewItem) => (
-                  <ReviewCard key={reviewItem._id} review={reviewItem} />
+                  <ReviewCard
+                    review={reviewItem}
+                    author={reviewItem.user}
+                    reRender={handleRerender}
+                    history={history}
+                    slug={slug}
+                  />
                 ))
               ) : (
                 <h3 className="empty__review"> be the first to add a review</h3>
@@ -155,7 +165,10 @@ const Gym = (props) => {
               {/* <!-- Review Box end here here --> */}
             </div>
 
-            {user.id ? (
+            {user &&
+            data.gym.reviews.filter(
+              (reviewItem) => reviewItem.user.id !== user.id
+            ) ? (
               <button className="button reviews__button" onClick={setOpen}>
                 <i className="fas fa-pen-square"></i>{' '}
                 <span>Add New Review</span>
@@ -176,20 +189,22 @@ const Gym = (props) => {
               <i className="fas fa-pen-square"></i> <span>Add New Review</span>
             </button> */}
           </section>
-          {user.id ?? (
+          {/* {user.role === 'user' ?? (
             <ReviewForm
               open={open}
               setOpen={setOpen}
               user={user}
               gymId={data.gym.id}
             />
-          )}
-          {/* <ReviewForm
+          )} */}
+          <ReviewForm
             open={open}
             setOpen={setOpen}
+            reRender={handleRerender}
             user={user}
+            loading={setLoading}
             gymId={data.gym.id}
-          /> */}
+          />
         </>
       )}
     </>

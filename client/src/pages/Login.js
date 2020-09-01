@@ -21,7 +21,8 @@ const Login = ({ history }) => {
         // setUser((prevState) => ({ ...prevState, ...user.data.data.user }));
         setUser(user.data.data.user);
         setToken(user.data.token);
-        history.push('/profile');
+        // history.push('/profile');
+        history.goBack();
       }
     } catch (error) {
       restPassword();

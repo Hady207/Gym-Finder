@@ -10,6 +10,7 @@ const Nav = (props) => {
   const [isOpen, setOpen] = useToggle();
   let history = useHistory();
 
+  // TODO: check for potential bug in history
   const handleLoggingOut = async (e) => {
     const data = await Axios.get('/api/v1/user/logout');
     history.goBack();
@@ -117,7 +118,9 @@ const Nav = (props) => {
           <>
             <Link to="/profile" className="button navigation__forms--profile">
               {/* <div className="navigation__profile"> */}
-              <img src={require(`./assets/img/Profile/default.jpg`)}></img>
+              <img
+                src={require(`./assets/img/Profile/${user.profileImage}`)}
+              ></img>
               <span>
                 {user.name.firstName} {user.name.lastName}
               </span>

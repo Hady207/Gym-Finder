@@ -829,6 +829,12 @@ footer {
   bottom: 0;
 }
 
+@media (max-width: 1400px) {
+  footer {
+    display: none;
+  }
+}
+
 footer .footer__menu {
   height: 34%;
   font-size: 2rem;
@@ -2246,7 +2252,7 @@ footer .footer__title a:visited {
 }
 
 .profile__link:link::before, .profile__link:visited::before {
-  content: "";
+  content: '';
   clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
   transition: width 0.7s ease-in-out;
   display: inline-block;
@@ -2286,6 +2292,15 @@ footer .footer__title a:visited {
 .profile__main .gymbox:active {
   transform: scale(0.9);
   opacity: 0;
+}
+
+.profile__main .gymbox__map:hover {
+  transform: scale(0.9);
+}
+
+.profile__main .gymbox__map:active {
+  transform: scale(0.9);
+  opacity: 1;
 }
 
 .profile__main .gymbox p {

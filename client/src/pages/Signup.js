@@ -1,12 +1,14 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, { useState, useReducer, useContext } from 'react';
 import axios from 'axios';
 
+import { UserContext } from '../Context/userContext';
 import SignupC1 from '../Components/Signup Components/SignupComponent1';
 import SignupC2 from '../Components/Signup Components/SignupComponent2';
 import SignupC3 from '../Components/Signup Components/SignupComponent3';
 
-const Signup = () => {
+const Signup = ({ history }) => {
   const [stage, setStage] = useState(0);
+  const { setUser, setToken } = useContext(UserContext);
   const initialState = {
     name: '',
     birthdate: '',
@@ -15,7 +17,7 @@ const Signup = () => {
     phone: '',
     email: '',
     password: '',
-    rpassword: '',
+    passwordConfirm: '',
     filePicture: '',
     gym: '',
     weight: '',
@@ -33,18 +35,24 @@ const Signup = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const user = await axios.put('/api/v1/user', state);
-    };
-    fetchData();
-  }, [state]);
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const freshUser = await axios.post('/api/v1/user/signup', state);
+      if (freshUser.data.status === 'success')
+        setUser(freshUser.data.data.user);
+      setToken(freshUser.data.token);
+      history.push('/profile');
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <>
       <main className="signup-main">
         <h1>Sign Up and Enjoy Gym finder features</h1>
-        <form className="form__signup">
+        <form className="form__signup" onSubmit={handleSubmit}>
           <div className="signup__progress">
             <progress min="0" max="100" value={stage} step="33"></progress>
             <div className="indicator__container">

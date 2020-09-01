@@ -4,6 +4,7 @@ import useToggle from '../hooks/useToggle';
 import { ReactComponent as WeightIcon } from '../assets/icons/weight.svg';
 import { NavLink } from 'react-router-dom';
 import ReviewCard from '../Components/Gym Components/ReviewCard';
+import DMap from '../Components/Map/dashboardMap';
 import { UserContext } from '../Context/userContext';
 
 const Profile = () => {
@@ -24,7 +25,7 @@ const Profile = () => {
           <div className="profile__sidebar">
             <div className="profile__sidebar--img">
               <img
-                src={require('../assets/img/Profile/default.jpg')}
+                src={require(`../assets/img/Profile/${user.profileImage}`)}
                 alt="profile"
               />
             </div>
@@ -52,11 +53,11 @@ const Profile = () => {
                     <i className="fas fa-pencil-alt"></i> Reviews
                   </NavLink>
                 </li>
-                <li className="profile__li">
+                {/* <li className="profile__li">
                   <NavLink to="/profile/edit" className="profile__link">
                     <i className="fas fa-user-edit"></i> Edit
                   </NavLink>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -67,6 +68,7 @@ const Profile = () => {
                 <img src={require('../assets/img/logo.png')} alt="Gym Name" />
                 <p>your membership expires in 30 days</p>
               </div>
+              {user.location && <DMap locations={user.location} />}
               <div className="gymbox gymbox__workoutSchedual">
                 <WeightIcon />
                 <h1>Today is Chest Day</h1>

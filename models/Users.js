@@ -35,8 +35,14 @@ const UserSchema = new mongoose.Schema(
     },
     profileImage: { type: String, default: 'profile.jpg' },
     location: {
-      type: String,
-      default: 'Point',
+      type: {
+        type: String,
+        default: 'Point',
+        enum: ['Point'],
+      },
+      coordinate: [Number],
+      address: String,
+      description: String,
     },
     role: {
       type: String,

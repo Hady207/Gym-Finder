@@ -18,7 +18,7 @@ const testObj = {
 };
 
 const UserStore = ({ children }) => {
-  const [user, setUser] = useState(testObj);
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   return (
     <UserContext.Provider value={{ user, setUser, token, setToken }}>

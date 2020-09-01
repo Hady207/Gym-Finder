@@ -43,8 +43,8 @@ const SignupComponent1 = ({ values, dispatch, setStage }) => {
         <input
           type="password"
           id="rpassword"
-          name="rpassword"
-          value={values.rpassword}
+          name="passwordConfirm"
+          value={values.passwordConfirm}
           onChange={onChange}
           required
         />
