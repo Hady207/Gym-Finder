@@ -1,5 +1,5 @@
 .coverHeader {
-  height: 50vh;
+  height: 60vh;
   position: relative;
   img {
     height: 100%;
@@ -115,6 +115,7 @@
 .profile__main {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  opacity: 0;
   // grid-gap: 3rem;
 
   .gymbox {

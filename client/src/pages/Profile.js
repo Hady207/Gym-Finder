@@ -82,8 +82,8 @@ const Profile = () => {
                 className="gymbox gymbox__reviews"
                 onClick={changeReviewToggle}
               >
-                <span className="half-circle">25</span>
-                <p>you've reviewed 25 Gyms</p>
+                <span className="half-circle">0</span>
+                <p>you've reviewed 0 Gyms</p>
               </div>
             </div>
           )}

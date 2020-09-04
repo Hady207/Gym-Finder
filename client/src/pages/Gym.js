@@ -43,7 +43,7 @@ const Gym = (props) => {
             <div className="gym__cutway">
               <div className="gym__overlay"></div>
               <img
-                src={require(`../assets/img/Gyms/golds-gym/gym/${data.gym.headerImage}`)}
+                src={require(`../assets/img/Gyms/${data.gym.slug}/gym/${data.gym.headerImage}`)}
                 className="gym__img"
                 alt="gym name"
               />
@@ -80,7 +80,7 @@ const Gym = (props) => {
             </div>
           </div>
           <section className="staff">
-            <h2 className="staff__title">Golds Gym top staff</h2>
+            <h2 className="staff__title">{`${data.gym.gymName} top staff`}</h2>
             <div className="staff__grid">
               {data.gym.staff.map((coach, i) => {
                 return (
@@ -108,19 +108,14 @@ const Gym = (props) => {
             <div className="information__container">
               <Map locations={data.gym.locations} />
               <div className="information__desc">
-                <p className="information__desc--1">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dignissimos reprehenderit voluptatum hic nihil saepe tempore
-                  quisquam adipisci sint magni quae pariatur a quibusdam
-                  perferendis voluptate quod illo, praesentium aliquid eum!
-                </p>
+                <p className="information__desc--1">{data.gym.description}</p>
 
-                <p className="information__desc--2">
+                {/* <p className="information__desc--2">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Dignissimos reprehenderit voluptatum hic nihil saepe tempore
                   quisquam adipisci sint magni quae pariatur a quibusdam
                   perferendis voluptate quod illo, praesentium aliquid eum!
-                </p>
+                </p> */}
               </div>
             </div>
           </section>

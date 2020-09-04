@@ -39,7 +39,6 @@ function GymCard({ data }) {
         {/* {stars(data.rate)} */}
         <ReactStars
           count={5}
-          half={true}
           value={data.rate}
           size={30}
           emptyIcon={<Star type="fas fa-star" />}

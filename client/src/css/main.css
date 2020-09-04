@@ -825,8 +825,7 @@ footer {
   text-transform: capitalize;
   font-family: "Oswald", sans-serif;
   letter-spacing: 0.2rem;
-  position: relative;
-  bottom: 0;
+  display: none;
 }
 
 @media (max-width: 1400px) {
@@ -2154,7 +2153,7 @@ footer .footer__title a:visited {
 }
 
 .coverHeader {
-  height: 50vh;
+  height: 60vh;
   position: relative;
 }
 
@@ -2268,6 +2267,7 @@ footer .footer__title a:visited {
 .profile__main {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  opacity: 0;
 }
 
 .profile__main .gymbox {
@@ -2360,7 +2360,7 @@ footer .footer__title a:visited {
 }
 
 .login__grid {
-  height: 90vh;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
@@ -2494,12 +2494,12 @@ footer .footer__title a:visited {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 90vh;
+  height: 100vh;
 }
 
 @media (max-width: 1400px) {
   .signup-main {
-    height: 81vh;
+    height: 100vh;
   }
 }
 
@@ -2511,6 +2511,7 @@ footer .footer__title a:visited {
   margin-left: 1rem;
   text-align: center;
   position: relative;
+  top: 9rem;
 }
 
 @media (max-width: 1400px) {
