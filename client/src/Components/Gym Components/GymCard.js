@@ -41,6 +41,7 @@ function GymCard({ data }) {
           count={5}
           value={data.rate}
           size={30}
+          edit={false}
           emptyIcon={<Star type="fas fa-star" />}
           halfIcon={<Star type="fas fa-star-half-alt gym__star--active" />}
           fullIcon={<Star type="fas fa-star gym__star--active" />}

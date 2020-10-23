@@ -1101,7 +1101,8 @@ footer .footer__title a:visited {
 
 .finder__q1,
 .finder__q2,
-.finder__q3 {
+.finder__q3,
+.finder__result {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1110,15 +1111,21 @@ footer .footer__title a:visited {
 @media (max-width: 600px) {
   .finder__q1,
   .finder__q2,
-  .finder__q3 {
+  .finder__q3,
+  .finder__result {
     flex-direction: column;
     align-items: center;
   }
 }
 
 .finder__q1 .finder__typeofworkout,
+.finder__q1 .finder__results,
 .finder__q2 .finder__typeofworkout,
-.finder__q3 .finder__typeofworkout {
+.finder__q2 .finder__results,
+.finder__q3 .finder__typeofworkout,
+.finder__q3 .finder__results,
+.finder__result .finder__typeofworkout,
+.finder__result .finder__results {
   position: relative;
   cursor: pointer;
   width: 36rem;
@@ -1127,8 +1134,13 @@ footer .footer__title a:visited {
 
 @media (max-width: 1400px) {
   .finder__q1 .finder__typeofworkout,
+  .finder__q1 .finder__results,
   .finder__q2 .finder__typeofworkout,
-  .finder__q3 .finder__typeofworkout {
+  .finder__q2 .finder__results,
+  .finder__q3 .finder__typeofworkout,
+  .finder__q3 .finder__results,
+  .finder__result .finder__typeofworkout,
+  .finder__result .finder__results {
     width: 25rem;
     height: 44.5rem;
   }
@@ -1136,8 +1148,13 @@ footer .footer__title a:visited {
 
 @media (max-width: 600px) {
   .finder__q1 .finder__typeofworkout,
+  .finder__q1 .finder__results,
   .finder__q2 .finder__typeofworkout,
-  .finder__q3 .finder__typeofworkout {
+  .finder__q2 .finder__results,
+  .finder__q3 .finder__typeofworkout,
+  .finder__q3 .finder__results,
+  .finder__result .finder__typeofworkout,
+  .finder__result .finder__results {
     width: 24rem;
     height: 12.5rem;
     margin-bottom: 2rem;
@@ -1145,20 +1162,35 @@ footer .footer__title a:visited {
 }
 
 .finder__q1 .finder__typeofworkout:hover img,
+.finder__q1 .finder__results:hover img,
 .finder__q2 .finder__typeofworkout:hover img,
-.finder__q3 .finder__typeofworkout:hover img {
+.finder__q2 .finder__results:hover img,
+.finder__q3 .finder__typeofworkout:hover img,
+.finder__q3 .finder__results:hover img,
+.finder__result .finder__typeofworkout:hover img,
+.finder__result .finder__results:hover img {
   filter: grayscale(1);
 }
 
 .finder__q1 .finder__typeofworkout:hover .choice__description,
+.finder__q1 .finder__results:hover .choice__description,
 .finder__q2 .finder__typeofworkout:hover .choice__description,
-.finder__q3 .finder__typeofworkout:hover .choice__description {
+.finder__q2 .finder__results:hover .choice__description,
+.finder__q3 .finder__typeofworkout:hover .choice__description,
+.finder__q3 .finder__results:hover .choice__description,
+.finder__result .finder__typeofworkout:hover .choice__description,
+.finder__result .finder__results:hover .choice__description {
   opacity: 1;
 }
 
 .finder__q1 .finder__typeofworkout img,
+.finder__q1 .finder__results img,
 .finder__q2 .finder__typeofworkout img,
-.finder__q3 .finder__typeofworkout img {
+.finder__q2 .finder__results img,
+.finder__q3 .finder__typeofworkout img,
+.finder__q3 .finder__results img,
+.finder__result .finder__typeofworkout img,
+.finder__result .finder__results img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -1167,15 +1199,21 @@ footer .footer__title a:visited {
 
 @media (max-width: 600px) {
   .finder__q1 .finder__typeofworkout img,
+  .finder__q1 .finder__results img,
   .finder__q2 .finder__typeofworkout img,
-  .finder__q3 .finder__typeofworkout img {
+  .finder__q2 .finder__results img,
+  .finder__q3 .finder__typeofworkout img,
+  .finder__q3 .finder__results img,
+  .finder__result .finder__typeofworkout img,
+  .finder__result .finder__results img {
     filter: grayscale(0.5);
   }
 }
 
 .finder__q1 .finder__duration,
 .finder__q2 .finder__duration,
-.finder__q3 .finder__duration {
+.finder__q3 .finder__duration,
+.finder__result .finder__duration {
   width: 36rem;
   height: 53.5rem;
   background: white;
@@ -1185,7 +1223,8 @@ footer .footer__title a:visited {
 @media (max-width: 1400px) {
   .finder__q1 .finder__duration,
   .finder__q2 .finder__duration,
-  .finder__q3 .finder__duration {
+  .finder__q3 .finder__duration,
+  .finder__result .finder__duration {
     width: 25rem;
     height: 38rem;
   }
@@ -1194,7 +1233,8 @@ footer .footer__title a:visited {
 @media (max-width: 600px) {
   .finder__q1 .finder__duration,
   .finder__q2 .finder__duration,
-  .finder__q3 .finder__duration {
+  .finder__q3 .finder__duration,
+  .finder__result .finder__duration {
     width: 24rem;
     height: 12.5rem;
     margin-bottom: 2rem;
@@ -1203,7 +1243,8 @@ footer .footer__title a:visited {
 
 .finder__q1 .finder__duration .choice__icon,
 .finder__q2 .finder__duration .choice__icon,
-.finder__q3 .finder__duration .choice__icon {
+.finder__q3 .finder__duration .choice__icon,
+.finder__result .finder__duration .choice__icon {
   height: 17%;
   position: relative;
   top: 35%;
@@ -1214,7 +1255,8 @@ footer .footer__title a:visited {
 
 .finder__q1 .finder__duration .choice__title,
 .finder__q2 .finder__duration .choice__title,
-.finder__q3 .finder__duration .choice__title {
+.finder__q3 .finder__duration .choice__title,
+.finder__result .finder__duration .choice__title {
   font-family: "Montserrat", sans-serif;
   color: #212121;
   text-transform: uppercase;
@@ -1697,7 +1739,7 @@ footer .footer__title a:visited {
   text-transform: capitalize;
   position: absolute;
   bottom: 5rem;
-  left: 13rem;
+  left: 6rem;
 }
 
 @media (max-width: 1400px) {

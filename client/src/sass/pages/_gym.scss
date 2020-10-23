@@ -98,7 +98,8 @@
     text-transform: capitalize;
     position: absolute;
     bottom: 5rem;
-    left: 13rem;
+    // left: 13rem;
+    left: 6rem;
 
     @include respond(wide-screen) {
       font-size: 1.8rem;

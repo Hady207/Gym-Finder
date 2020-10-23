@@ -19,17 +19,17 @@ const Gymtype = ({ inputManage }) => {
         >
           <input
             type="checkbox"
-            name="general"
-            value="general"
+            name="iron"
+            value="iron"
             onClick={handleCheckboxChange}
-            id="general"
+            id="iron"
           />
-          <label htmlFor="general" onClick={togglerGeneral}>
+          <label htmlFor="iron" onClick={togglerGeneral}>
             <img
               src={require('../../assets/img/Gym Types/general-gym.jpg')}
               alt="General Gym"
             />
-            <span>General Club</span>
+            <span>iron Club</span>
           </label>
         </li>
         <li

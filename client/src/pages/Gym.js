@@ -56,10 +56,11 @@ const Gym = (props) => {
             </div>
           </header>
           <div className="gym__address">
-            <span>Salmiya</span>
+            {/* <span>Salmiya</span>
             <span>nasser al badr street</span>
             <span>block: 12</span>
-            <span>avenue: 11</span>
+            <span>avenue: 11</span> */}
+            {data.gym.locations[0].address}
           </div>
           <div className="gym__rating">
             <ReactStars
@@ -67,6 +68,7 @@ const Gym = (props) => {
               half={true}
               value={data.gym.rate}
               size={30}
+              edit={false}
               emptyIcon={<Star type="fas fa-star" />}
               halfIcon={<Star type="fas fa-star-half-alt " />}
               fullIcon={<Star type="fas fa-star " />}
@@ -76,7 +78,7 @@ const Gym = (props) => {
               <span>{data.gym.rate}</span>{' '}
               <span>({data.gym.ratingsQuantity} ratings)</span>
               {''}
-              <span>15,776 members</span>
+              <span>0 members</span>
             </div>
           </div>
           <section className="staff">
