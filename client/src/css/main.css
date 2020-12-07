@@ -2309,7 +2309,6 @@ footer .footer__title a:visited {
 .profile__main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  opacity: 0;
 }
 
 .profile__main .gymbox {
@@ -2381,6 +2380,11 @@ footer .footer__title a:visited {
   text-align: center;
   font-family: "Montserrat", sans-serif;
   margin-top: 1.5rem;
+}
+
+.gymbox__memberships svg {
+  height: 10rem;
+  width: 100%;
 }
 
 .review__screen .review__undo {

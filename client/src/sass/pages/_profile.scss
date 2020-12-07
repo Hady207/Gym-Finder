@@ -115,7 +115,7 @@
 .profile__main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  opacity: 0;
+  // opacity: 0;
   // grid-gap: 3rem;
 
   .gymbox {
@@ -189,6 +189,13 @@
         margin-top: 1.5rem;
       }
     }
+  }
+}
+
+.gymbox__memberships {
+  svg {
+    height: 10rem;
+    width: 100%;
   }
 }
 

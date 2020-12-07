@@ -59,7 +59,7 @@ const GymSchema = new mongoose.Schema(
           default: 'Point',
           enum: ['Point'],
         },
-        coordinate: [Number],
+        coordinate: { type: Array, default: [48.091771, 29.347441] },
         address: String,
         description: String,
       },

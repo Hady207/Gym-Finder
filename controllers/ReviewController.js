@@ -22,6 +22,21 @@ exports.getReviews = async (req, res, next) => {
   }
 };
 
+exports.getReviewForMyself = async (req, res, next) => {
+  try {
+    const reviews = await Review.find({ user: req.user.id });
+    res.status(200).json({
+      status: 'success',
+      results: reviews.length,
+      data: {
+        reviews,
+      },
+    });
+  } catch (error) {
+    next(new AppError(error.message, 400));
+  }
+};
+
 // for the admin
 exports.getReview = async (req, res, next) => {
   try {

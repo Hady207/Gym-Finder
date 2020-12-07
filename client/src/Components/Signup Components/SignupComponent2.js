@@ -18,7 +18,7 @@ const SignupComponent2 = ({ values, dispatch, setStage }) => {
         />
       </div>
 
-      <div className="signup__group">
+      {/* <div className="signup__group">
         <label htmlFor="location">Location</label>
         <input
           type="hiddin"
@@ -30,7 +30,7 @@ const SignupComponent2 = ({ values, dispatch, setStage }) => {
         <span className="form__user--location">
           <i class="fas fa-map-marker-alt"></i>
         </span>
-      </div>
+      </div> */}
 
       <div className="signup__group">
         <label htmlFor="weight">Weight</label>

@@ -18,6 +18,8 @@ router
     reviewController.createReview
   );
 
+router.get('/myreviews', reviewController.getReviewForMyself);
+
 router
   .route('/:id')
   .get(reviewController.getReview)

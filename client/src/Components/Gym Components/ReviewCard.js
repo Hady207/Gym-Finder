@@ -33,7 +33,7 @@ function ReviewCard(props) {
       <div className="reviews__box">
         <div className="reviews__info">
           <div className="reviews__info--container">
-            {props.author.profileImage && (
+            {!props.ownProfile && props.author.profileImage && (
               <div className="reviews__info--img">
                 <img
                   src={require(`../../assets/img/Profile/${props.author.profileImage}`)}
@@ -43,7 +43,7 @@ function ReviewCard(props) {
             )}
 
             <h3 className="reviews__info--name">{`${props.author.name.firstName} ${props.author.name.lastName}`}</h3>
-            {user && user.id === props.author.id && (
+            {!props.ownProfile && user && user.id === props.author.id && (
               <span className="trash" onClick={handleDelete}>
                 <i className="fas fa-trash-alt"></i>
               </span>
